@@ -24,7 +24,8 @@ public class Player : MonoBehaviour {
 	void Update ()
     {
         anim.SetBool("Grounded", grounded);
-        anim.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
+        anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
+
 
         if(Input.GetAxis("Horizontal") < -0.1f)
         {
@@ -35,11 +36,29 @@ public class Player : MonoBehaviour {
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+        if (Input.GetButton("Jump") && grounded == true)
+        {
+            rb2d.AddForce(Vector2.up * jumpPower);
+
+        }
 
     }
 
     private void FixedUpdate()
     {
+        // create fake friction /Easing the X speed of our player. Player not slide.
+        Vector3 easeVelocity = rb2d.velocity;
+        easeVelocity.y = rb2d.velocity.y;
+        easeVelocity.z = 0.0f;
+        easeVelocity.x *= 0.75f;
+
+        
+        if(grounded == true)
+        {
+            rb2d.velocity = easeVelocity;
+
+        }
+        //------------------------------------------------
         float h = Input.GetAxis("Horizontal"); // Note 2. h = Oikea ja vasen nuoli, Oletus nappaimet A ja D.
 
         rb2d.AddForce((Vector2.right * speed) * h); //Note 3. H on oletuksena -1 ja 1. jolloin A ja D nappia painettaessa hahmo liikkuu vasemmalle tai oikealle.
