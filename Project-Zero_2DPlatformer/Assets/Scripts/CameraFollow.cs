@@ -41,4 +41,14 @@ public class CameraFollow : MonoBehaviour {
         }
 
     }
+
+    //CameraFollowEditor. Poimii kameran max ja minimi arvot jotka voit sitten asettaa arvoiksi menussa.
+     public void SetMinCamPosition()
+    {
+        minCameraPos = gameObject.transform.position;
+    }
+     public void SetMaxCamPosition()
+    {
+        maxCameraPos = gameObject.transform.position;
+    }
 }
