@@ -336,6 +336,9 @@ MonoBehaviour:
   smoothTimeY: 0
   smoothTimeX: 0
   player: {fileID: 1406246281}
+  bounds: 1
+  minCameraPos: {x: -100, y: -3, z: -10}
+  maxCameraPos: {x: 100, y: 50, z: -10}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
