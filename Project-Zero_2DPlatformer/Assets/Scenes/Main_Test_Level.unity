@@ -345,7 +345,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.172172
+  orthographic size: 3.26
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -847,7 +847,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1406246281}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.4359727, y: 0.78, z: 0}
+  m_LocalPosition: {x: -5.427, y: 0.831, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2127620139}
@@ -867,8 +867,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 3
   speed: 50
-  jumpPower: 50
+  jumpPower: 200
+  DoubleJumpPower: 300
   grounded: 0
+  CanDoubleJump: 0
 --- !u!70 &1406246288
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -881,7 +883,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.04}
+  m_Offset: {x: 0, y: 0.02}
   m_Size: {x: 0.58, y: 0.9}
   m_Direction: 0
 --- !u!1 &1493171312

@@ -7,9 +7,12 @@ public class Player : MonoBehaviour {
     public float maxSpeed = 3;
     public float speed = 50f;
     public float jumpPower = 150f;
+    public float DoubleJumpPower = 200f;
 
     public bool grounded;
+    public bool CanDoubleJump;
 
+    private bool HasJumped;
     private Rigidbody2D rb2d;
     private Animator anim;
 
@@ -19,15 +22,15 @@ public class Player : MonoBehaviour {
         rb2d = gameObject.GetComponent<Rigidbody2D>(); // Note 1. Luodaan Pelaajaan kiinnitetty Rigidbody2D "rb2d", jotta sita voidaan manipuloida. (esim. Kun hahmoa liikutetaan.)
         anim = gameObject.GetComponent<Animator>(); // Note 5. Luodaan pelaajaan kiinnitetty Animator, jolla voidaan manipuloida animaatioita.
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
 
 
-        if(Input.GetAxis("Horizontal") < -0.1f)
+        if (Input.GetAxis("Horizontal") < -0.1f)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
@@ -36,12 +39,33 @@ public class Player : MonoBehaviour {
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-        if (Input.GetButton("Jump") && grounded == true)
+        // ------------------------- double jump Start ----------------------
+        if (Input.GetButtonDown("Jump"))
         {
-            rb2d.AddForce(Vector2.up * jumpPower);
+            if (grounded)
+            {
+                {
+                    HasJumped = false;
+                }
+                {
+                    rb2d.AddForce(Vector2.up * jumpPower);
+                    CanDoubleJump = true;
+                }
+            }
+            else
+            {
+                if (CanDoubleJump && HasJumped == false)
+                {
+                    CanDoubleJump = false;
+                    rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+                    rb2d.AddForce(Vector2.up * DoubleJumpPower);
+                    HasJumped = true;
+                }
 
-        }
+            }
 
+
+        } // -----------------------double jump End -------------------------
     }
 
     private void FixedUpdate()
@@ -53,7 +77,7 @@ public class Player : MonoBehaviour {
         easeVelocity.x *= 0.75f;
 
         
-        if(grounded == true)
+        if(grounded)
         {
             rb2d.velocity = easeVelocity;
 
