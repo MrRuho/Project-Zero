@@ -32,5 +32,24 @@ public class Pause_Menu : MonoBehaviour {
         }
     }
 
+    public void Resume()
+    {
+        paused = false;
+    }
+
+    public void Restart()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+    }
+
+    public void MainMenu()
+    {
+        Application.LoadLevel(0);
+    }
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
 }
 
