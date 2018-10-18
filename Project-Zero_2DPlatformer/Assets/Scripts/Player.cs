@@ -119,4 +119,10 @@ public class Player : MonoBehaviour {
        //Application.LoadLevel(Application.loadedLevel); //vanha malli tehda. Ala kayta ellei ole pakko. Antaa varoituksen mutta toimii.
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    // Vahingon aiheuttajilla on paasy tahan. Maarittavat sen kuinpaljon vahinkoa tulee.
+    public void Damage(int dmg)
+    {
+        curHealth -= dmg; 
+    }
 }

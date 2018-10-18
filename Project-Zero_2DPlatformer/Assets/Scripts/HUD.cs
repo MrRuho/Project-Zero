@@ -18,6 +18,17 @@ public class HUD : MonoBehaviour {
 
     void Update()
     {
-        HeartsUI.sprite = HeartSprites[player.curHealth];   
+        
+        if (player.curHealth > player.maxHealth)
+        {
+            player.curHealth = player.maxHealth;
+        }
+
+        if (player.curHealth < 0)
+        {
+            player.curHealth = 0;
+        }
+
+        HeartsUI.sprite = HeartSprites[player.curHealth];
     }
 }
