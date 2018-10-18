@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -115,6 +116,7 @@ public class Player : MonoBehaviour {
 
     void Die()
     {
-        Application.LoadLevel(Application.loadedLevel);
+       //Application.LoadLevel(Application.loadedLevel); //vanha malli tehda. Ala kayta ellei ole pakko. Antaa varoituksen mutta toimii.
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
