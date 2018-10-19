@@ -123,7 +123,8 @@ public class Player : MonoBehaviour {
     // Vahingon aiheuttajilla on paasy tahan. Maarittavat sen kuinpaljon vahinkoa tulee.
     public void Damage(int dmg)
     {
-        curHealth -= dmg; 
+        curHealth -= dmg;
+        gameObject.GetComponent<Animation>().Play("Player_RedFlash");
     }
 
     // Aktivoituu pelajaan saadessa vahinkoa. Vihollisilla on paasy tahan. (Spikes, Turrets jne.)
