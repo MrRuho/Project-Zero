@@ -125,4 +125,22 @@ public class Player : MonoBehaviour {
     {
         curHealth -= dmg; 
     }
+
+    // Aktivoituu pelajaan saadessa vahinkoa. Vihollisilla on paasy tahan. (Spikes, Turrets jne.)
+    public IEnumerator KnockBack(float knockDur, float knockBackPwr, Vector3 knockBackDir)
+    {
+
+        float timer = 0;
+        while (knockDur > timer)
+        {
+            timer += Time.deltaTime;
+            rb2d.velocity = new Vector2(0, 0);   //<----------------------
+            rb2d.AddForce(new Vector3(knockBackDir.x * -100, knockBackDir.y * knockBackPwr, transform.position.z));
+
+
+        }
+        yield return 0;
+
+    }
+
 }
