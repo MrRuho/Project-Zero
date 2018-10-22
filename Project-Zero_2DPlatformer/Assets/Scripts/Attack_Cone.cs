@@ -13,9 +13,9 @@ public class Attack_Cone : MonoBehaviour {
         turretAI = gameObject.GetComponentInParent<TurretAI>();
     }
 
-    void OnTriggerStay2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D collision)
     {
-        if(col.CompareTag("Player"))
+        if(collision.CompareTag("Player"))
         {
             if (isLeft)
             {
