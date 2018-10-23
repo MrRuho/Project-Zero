@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretAI: {fileID: 0}
-  isLeft: 1
+  isLeft: 0
 --- !u!114 &114801410435097708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -348,14 +348,14 @@ MonoBehaviour:
   maxHealth: 0
   distance: 0
   wakeRange: 5
-  shootIterval: 0.2
-  bulletSpeed: 5
+  shootIterval: 0.5
+  bulletSpeed: 8
   bulletTimer: 0
   awake: 0
-  lookingRight: 0
+  lookingRight: 1
   bullet: {fileID: 1860832490375226, guid: 73af128286c948549be3f90ba6960e3c, type: 2}
   target: {fileID: 0}
-  anim: {fileID: 95453885658629916}
+  anim: {fileID: 0}
   shootPointLeft: {fileID: 4482388472009466}
   shootPointRight: {fileID: 4278043380934774}
 --- !u!114 &114951632700267284
@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretAI: {fileID: 0}
-  isLeft: 0
+  isLeft: 1
 --- !u!212 &212334155916023342
 SpriteRenderer:
   m_ObjectHideFlags: 1

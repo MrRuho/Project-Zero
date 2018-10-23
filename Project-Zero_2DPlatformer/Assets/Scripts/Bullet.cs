@@ -6,14 +6,13 @@ public class Bullet : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.isTrigger != true)
+        if (collision.isTrigger == false)
         {
             if (collision.CompareTag("Player"))
             {
                 collision.GetComponent<Player>().Damage(1);
-            }
-
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }       
         }
     }
 }

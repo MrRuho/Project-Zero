@@ -5,7 +5,6 @@ using UnityEngine;
 public class Attack_Cone : MonoBehaviour {
 
     public TurretAI turretAI;
-
     public bool isLeft = false;
 
     void Awake()
@@ -25,7 +24,6 @@ public class Attack_Cone : MonoBehaviour {
             {
                 turretAI.Attack(true);
             }
-
         }
     }
 
