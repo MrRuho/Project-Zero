@@ -48,6 +48,11 @@ public class TurretAI : MonoBehaviour {
             lookingRight = false;
         }
 
+        if(currentHealth <=0)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     // Mittaa etaisyyta valittuun kohteeseen. (Tassa tapauksessa pelaaja.) Kohteen voi vaihtaa Turretin paneelista. wakeRangen voi maarittaa paneelista.
@@ -94,6 +99,12 @@ public class TurretAI : MonoBehaviour {
             }
 
         }
+    }
+
+    public void Damage(int damage)
+    {
+        currentHealth -= damage;
+        gameObject.GetComponent<Animation>().Play("Player_RedFlash");
     }
 
 }

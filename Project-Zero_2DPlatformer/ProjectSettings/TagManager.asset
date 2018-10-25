@@ -7,6 +7,7 @@ TagManager:
   - Hero
   - TurretRangeCone
   - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class AttackTrigger : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public int dmg = 20;
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.isTrigger != true && collision.CompareTag("Enemy"))
+        {
+            collision.SendMessageUpwards("Damage", dmg);
+            Debug.Log("Attack Trigger Hit!");
+
+        }
+    }
+
 }
