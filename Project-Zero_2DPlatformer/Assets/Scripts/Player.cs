@@ -20,11 +20,11 @@ public class Player : MonoBehaviour {
     private Rigidbody2D rb2d;
     private Animator anim;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
-        rb2d = gameObject.GetComponent<Rigidbody2D>(); // Note 1. Luodaan Pelaajaan kiinnitetty Rigidbody2D "rb2d", jotta sita voidaan manipuloida. (esim. Kun hahmoa liikutetaan.)
-        anim = gameObject.GetComponent<Animator>(); // Note 5. Luodaan pelaajaan kiinnitetty Animator, jolla voidaan manipuloida animaatioita.
+        rb2d = gameObject.GetComponent<Rigidbody2D>();
+        anim = gameObject.GetComponent<Animator>(); 
 
         curHealth = maxHealth;
 	}
@@ -48,6 +48,7 @@ public class Player : MonoBehaviour {
         // ------------------------- double jump Start ----------------------
         if (Input.GetButtonDown("Jump"))
         {
+
             if (grounded)
             {
                 {
@@ -55,7 +56,7 @@ public class Player : MonoBehaviour {
                 }
                 {
                     rb2d.AddForce(Vector2.up * jumpPower);
-                    CanDoubleJump = true;
+                    CanDoubleJump = true;  
                 }
             }
             else
@@ -69,8 +70,7 @@ public class Player : MonoBehaviour {
                 }
 
             }
-
-
+     
         } // -----------------------double jump End -------------------------
 
         if (curHealth > maxHealth)
@@ -111,12 +111,11 @@ public class Player : MonoBehaviour {
         {
             rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
         }
-
+       
     }
 
     void Die()
     {
-       //Application.LoadLevel(Application.loadedLevel); //vanha malli tehda. Ala kayta ellei ole pakko. Antaa varoituksen mutta toimii.
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -125,6 +124,7 @@ public class Player : MonoBehaviour {
     {
         curHealth -= dmg;
         gameObject.GetComponent<Animation>().Play("Player_RedFlash");
+        //CanDoubleJump = false;
     }
 
     // Aktivoituu pelajaan saadessa vahinkoa. Vihollisilla on paasy tahan. (Spikes, Turrets jne.)
@@ -137,8 +137,6 @@ public class Player : MonoBehaviour {
             timer += Time.deltaTime;
             rb2d.velocity = new Vector2(0, 0);   //<----------------------
             rb2d.AddForce(new Vector3(knockBackDir.x * -100, knockBackDir.y * knockBackPwr, transform.position.z));
-
-
         }
         yield return 0;
 
