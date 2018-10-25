@@ -85,7 +85,7 @@ public class Player : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        // create fake friction /Easing the X speed of our player. Player not slide.
+        // create fake friction /Easing the X speed of our player. Player not slide and stops moving immediately
         Vector3 easeVelocity = rb2d.velocity;
         easeVelocity.y = rb2d.velocity.y;
         easeVelocity.z = 0.0f;
@@ -132,6 +132,7 @@ public class Player : MonoBehaviour {
     {
 
         float timer = 0;
+        rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
         while (knockDur > timer)
         {
             timer += Time.deltaTime;
