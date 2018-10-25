@@ -8,6 +8,8 @@ TagManager:
   - TurretRangeCone
   - Bullet
   - Enemy
+  - Coin
+  - GameMaster
   layers:
   - Default
   - TransparentFX

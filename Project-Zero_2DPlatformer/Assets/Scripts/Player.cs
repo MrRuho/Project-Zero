@@ -19,6 +19,7 @@ public class Player : MonoBehaviour {
     private bool HasJumped;
     private Rigidbody2D rb2d;
     private Animator anim;
+    private GameMaster gameMaster;
 
     // Use this for initialization
     void Start ()
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour {
         anim = gameObject.GetComponent<Animator>(); 
 
         curHealth = maxHealth;
+        gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
 	}
 
     // Update is called once per frame
@@ -136,11 +138,20 @@ public class Player : MonoBehaviour {
         while (knockDur > timer)
         {
             timer += Time.deltaTime;
-            rb2d.velocity = new Vector2(0, 0);   //<----------------------
+            rb2d.velocity = new Vector2(0, 0);
             rb2d.AddForce(new Vector3(knockBackDir.x * -100, knockBackDir.y * knockBackPwr, transform.position.z));
         }
         yield return 0;
 
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Coin"))
+        {
+            Destroy(collision.gameObject);
+            gameMaster.points += 1;
+        }    
     }
 
 }
