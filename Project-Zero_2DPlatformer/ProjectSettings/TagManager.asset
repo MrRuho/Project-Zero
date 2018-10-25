@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hero
   - TurretRangeCone
+  - Bullet
   layers:
   - Default
   - TransparentFX

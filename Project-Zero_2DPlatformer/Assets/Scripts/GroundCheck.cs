@@ -14,22 +14,17 @@ public class GroundCheck : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.isTrigger == false)  //Estaa pelaajaa tekemasta tuplahyppya turretin rangecolliderin sisalla.
-
-            player.grounded = true;
-
-        player.grounded = true;
+        if (collision.isTrigger == false)
+     
+               player.grounded = true;
 
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-
         if (collision.isTrigger == false)
      
-
-            player.grounded = true;
+        player.grounded = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
