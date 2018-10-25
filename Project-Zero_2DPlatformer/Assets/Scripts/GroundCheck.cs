@@ -14,21 +14,15 @@ public class GroundCheck : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("TurretRangeCone")) //Estaa pelaajaa tekemasta tuplahyppya turretin rangecolliderin sisalla.
-        {
-            player.grounded = false;
-        }
-        else
-        player.grounded = true;
+        if (collision.isTrigger == false)  //Estaa pelaajaa tekemasta tuplahyppya turretin rangecolliderin sisalla.
+
+            player.grounded = true;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("TurretRangeCone")) //Estaa pelaajaa tekemasta tuplahyppya turretin rangecolliderin sisalla.
-        {
-            player.grounded = false;
-        }
-        else
+        if (collision.isTrigger == false)
+     
             player.grounded = true;
     }
 
