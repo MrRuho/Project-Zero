@@ -8,18 +8,25 @@ public class Player : MonoBehaviour {
     public float maxSpeed = 3;
     public float speed = 50f;
     public float jumpPower = 150f;
-    public float DoubleJumpPower = 200f;
+    public float doubleJumpPower = 200f;
 
     public bool grounded;
-    public bool CanDoubleJump;
+    public bool canDoubleJump;
+    public bool wallSliding;
+    public bool facingRight = true;
 
     public int curHealth;
     public int maxHealth = 100;
 
-    private bool HasJumped;
+    private bool hasJumped;
+
+    //References
     private Rigidbody2D rb2d;
     private Animator anim;
     private GameMaster gameMaster;
+    public Transform wallCheckPoint;
+    public bool wallCheck;
+    public LayerMask wallLayerMask;
 
     // Use this for initialization
     void Start ()
@@ -41,34 +48,36 @@ public class Player : MonoBehaviour {
         if (Input.GetAxis("Horizontal") < -0.1f)
         {
             transform.localScale = new Vector3(-1, 1, 1);
+            facingRight = false;
         }
 
         if (Input.GetAxis("Horizontal") > 0.1f)
         {
             transform.localScale = new Vector3(1, 1, 1);
+            facingRight = true;
         }
         // ------------------------- double jump Start ----------------------
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump")&& !wallSliding)
         {
 
             if (grounded)
             {
                 {
-                    HasJumped = false;
+                    hasJumped = false;
                 }
                 {
                     rb2d.AddForce(Vector2.up * jumpPower);
-                    CanDoubleJump = true;  
+                    canDoubleJump = true;  
                 }
             }
             else
             {
-                if (CanDoubleJump && HasJumped == false)
+                if (canDoubleJump && hasJumped == false)
                 {
-                    CanDoubleJump = false;
+                    canDoubleJump = false;
                     rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-                    rb2d.AddForce(Vector2.up * DoubleJumpPower);
-                    HasJumped = true;
+                    rb2d.AddForce(Vector2.up * doubleJumpPower);
+                    hasJumped = true;
                 }
 
             }
@@ -83,7 +92,57 @@ public class Player : MonoBehaviour {
         {
             Die();
         }
+        // ---------------------- wall climping jumping start ----------------------------
+         if (!grounded)
+         {
+             wallCheck = Physics2D.OverlapCircle(wallCheckPoint.position, 0.1f, wallLayerMask);
+
+             if (facingRight && Input.GetAxis("Horizontal")> 0.1f || !facingRight && Input.GetAxis("Horizontal") < 0.1f)
+             {
+                 if (wallCheck)
+                 {
+                     HandleWallSliding();
+                 }
+             }
+         }
+
+      /*  if (!grounded)
+        {
+            wallCheck = Physics2D.OverlapCircle(wallCheckPoint.position, 0.1f, wallLayerMask);
+
+            if (wallCheck)
+            {
+                HandleWallSliding();
+            }
+
+        }*/
+
+        if (wallCheck == false || grounded)
+        {
+            wallSliding = false;
+        }
+
     }
+
+    void HandleWallSliding()
+    {
+        rb2d.velocity = new Vector2(rb2d.velocity.x, -0.7f);
+        wallSliding = true;
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (facingRight)
+            {
+                rb2d.AddForce(new Vector2(-1, 2) * jumpPower);
+            }
+            else
+            {
+                rb2d.AddForce(new Vector2(1, 2) * jumpPower);
+            }
+        }
+
+    }
+        //---------------------- wall climping jumping end ----------------------------
 
     private void FixedUpdate()
     {
@@ -92,19 +151,24 @@ public class Player : MonoBehaviour {
         easeVelocity.y = rb2d.velocity.y;
         easeVelocity.z = 0.0f;
         easeVelocity.x *= 0.75f;
+        float h = Input.GetAxis("Horizontal");
 
-        
-        if(grounded)
+        if (grounded)
         {
             rb2d.velocity = easeVelocity;
 
         }
         //------------------------------------------------
-        float h = Input.GetAxis("Horizontal"); // Note 2. h = Oikea ja vasen nuoli, Oletus nappaimet A ja D.
+        if (grounded)
+        {
+            rb2d.AddForce((Vector2.right * speed) * h);
+        }
+        else
+        {
+            rb2d.AddForce((Vector2.right * speed / 2) * h);
+        }
 
-        rb2d.AddForce((Vector2.right * speed) * h); //Note 3. H on oletuksena -1 ja 1. jolloin A ja D nappia painettaessa hahmo liikkuu vasemmalle tai oikealle.
-
-        //note 4. Rajoittaa pelaajan maksimi nopeutta.
+        //Rajoittaa pelaajan maksimi nopeutta.
         if (rb2d.velocity.x > maxSpeed)
         {
             rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
@@ -121,15 +185,15 @@ public class Player : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    // Vahingon aiheuttajilla on paasy tahan. Maarittavat sen kuinpaljon vahinkoa tulee.
+    // Vahingon aiheuttajilla on paasy tahan.
     public void Damage(int dmg)
     {
         curHealth -= dmg;
         gameObject.GetComponent<Animation>().Play("Player_RedFlash");
-        //CanDoubleJump = false;
+        
     }
 
-    // Aktivoituu pelajaan saadessa vahinkoa. Vihollisilla on paasy tahan. (Spikes, Turrets jne.)
+    // Aktivoituu pelajaan saadessa vahinkoa.
     public IEnumerator KnockBack(float knockDur, float knockBackPwr, Vector3 knockBackDir)
     {
 
@@ -144,7 +208,7 @@ public class Player : MonoBehaviour {
         yield return 0;
 
     }
-
+    //--------------------------------------------
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Coin"))
