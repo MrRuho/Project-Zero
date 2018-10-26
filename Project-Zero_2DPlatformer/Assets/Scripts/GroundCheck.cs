@@ -6,7 +6,6 @@ public class GroundCheck : MonoBehaviour {
 
     private Player player;
  
-    //Note6. Tunnistaa sen koskettaako pelaaja maata vai ei. 
     private void Start()
     {
         player = gameObject.GetComponentInParent<Player>();

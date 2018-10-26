@@ -95,9 +95,9 @@ public class Player : MonoBehaviour {
         // ---------------------- wall climping jumping start ----------------------------
          if (!grounded)
          {
-             wallCheck = Physics2D.OverlapCircle(wallCheckPoint.position, 0.1f, wallLayerMask);
+            wallCheck = Physics2D.OverlapCircle(wallCheckPoint.position, 0.1f, wallLayerMask);
 
-             if (facingRight && Input.GetAxis("Horizontal")> 0.1f || !facingRight && Input.GetAxis("Horizontal") < 0.1f)
+            if (facingRight && Input.GetAxis("Horizontal")> 0.1f || !facingRight && Input.GetAxis("Horizontal") < 0.1f)
              {
                  if (wallCheck)
                  {
@@ -106,22 +106,10 @@ public class Player : MonoBehaviour {
              }
          }
 
-      /*  if (!grounded)
-        {
-            wallCheck = Physics2D.OverlapCircle(wallCheckPoint.position, 0.1f, wallLayerMask);
-
-            if (wallCheck)
-            {
-                HandleWallSliding();
-            }
-
-        }*/
-
-        if (wallCheck == false || grounded)
+         if (wallCheck == false || grounded)
         {
             wallSliding = false;
         }
-
     }
 
     void HandleWallSliding()
@@ -142,7 +130,7 @@ public class Player : MonoBehaviour {
         }
 
     }
-        //---------------------- wall climping jumping end ----------------------------
+    //---------------------- wall climping jumping end ----------------------------
 
     private void FixedUpdate()
     {
