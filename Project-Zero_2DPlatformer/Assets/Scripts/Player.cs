@@ -121,10 +121,12 @@ public class Player : MonoBehaviour {
         {
             if (facingRight)
             {
+                transform.localScale = new Vector3(-1, 1, 1);
                 rb2d.AddForce(new Vector2(-1, 2) * jumpPower);
             }
             else
             {
+                transform.localScale = new Vector3(1, 1, 1);
                 rb2d.AddForce(new Vector2(1, 2) * jumpPower);
             }
         }
@@ -166,6 +168,7 @@ public class Player : MonoBehaviour {
             rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
         }
        
+        //void flip() { float horizontal }
     }
 
     void Die()
