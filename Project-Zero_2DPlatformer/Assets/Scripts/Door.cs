@@ -9,10 +9,11 @@ public class Door : MonoBehaviour {
     public int LevelToLoad;
 
     private GameMaster gameMaster;
-
+ 
     private void Start()
     {
         gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
+    
     }
 
 
@@ -23,6 +24,7 @@ public class Door : MonoBehaviour {
             gameMaster.InputText.text = ("[E] to Enter");
             if (Input.GetKeyDown("e"))
             {
+                SaveProgress();
                 SceneManager.LoadScene(0);
             }
         }
@@ -35,6 +37,7 @@ public class Door : MonoBehaviour {
         {
             if (Input.GetKeyDown("e"))
             {
+                SaveProgress();
                 SceneManager.LoadScene(LevelToLoad);
             }
         }
@@ -44,8 +47,14 @@ public class Door : MonoBehaviour {
     {
         if (collision.CompareTag("Player"))
         {
+            SaveProgress();
             gameMaster.InputText.text = (" ");
         }
+    }
+
+    void SaveProgress()
+    {
+        PlayerPrefs.SetInt("CoinsStore", gameMaster.points);
     }
 
 }
