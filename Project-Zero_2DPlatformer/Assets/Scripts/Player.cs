@@ -172,7 +172,19 @@ public class Player : MonoBehaviour {
     }
 
     void Die()
-    {
+    {       //  Huome! HighScore ominaisuutta ei ole asennettu peliin nakyvaksi.
+        if (PlayerPrefs.HasKey("HighScore"))
+        {
+            if(PlayerPrefs.GetInt("HighScore")< gameMaster.points)
+            {
+                PlayerPrefs.SetInt("HighScore", gameMaster.points);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("HighScore", gameMaster.points);
+            }
+        }
+        //------------------------- HighScore end---------------------------------------
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
