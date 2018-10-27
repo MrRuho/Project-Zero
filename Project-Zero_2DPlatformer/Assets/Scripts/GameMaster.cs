@@ -13,6 +13,7 @@ public class GameMaster : MonoBehaviour {
 
     private void Start()
     {
+        // Door.cs:ssa on CoinsStore varaston maaritys.
         if (PlayerPrefs.HasKey("CoinsStore"))
         {
             if (SceneManager.GetActiveScene().name == "Main_Test_Level")

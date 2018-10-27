@@ -850,7 +850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6507eaca450c9ee4d87a2a3ef4dd573e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelToLoad: 1
+  LevelToLoad: 0
 --- !u!1001 &587568226
 Prefab:
   m_ObjectHideFlags: 0
