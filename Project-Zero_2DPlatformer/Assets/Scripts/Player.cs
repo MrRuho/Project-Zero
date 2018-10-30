@@ -27,12 +27,11 @@ public class Player : MonoBehaviour {
     public Transform wallCheckPoint;
     public bool wallCheck;
     public LayerMask wallLayerMask;
-
     // Use this for initialization
     void Start ()
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-        anim = gameObject.GetComponent<Animator>(); 
+        anim = gameObject.GetComponent<Animator>();   
 
         curHealth = maxHealth;
         gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
@@ -47,12 +46,14 @@ public class Player : MonoBehaviour {
 
         if (Input.GetAxis("Horizontal") < -0.1f)
         {
+            
             transform.localScale = new Vector3(-1, 1, 1);
             facingRight = false;
         }
 
         if (Input.GetAxis("Horizontal") > 0.1f)
         {
+            
             transform.localScale = new Vector3(1, 1, 1);
             facingRight = true;
         }
@@ -110,6 +111,7 @@ public class Player : MonoBehaviour {
         {
             wallSliding = false;
         }
+     
     }
 
     void HandleWallSliding()
