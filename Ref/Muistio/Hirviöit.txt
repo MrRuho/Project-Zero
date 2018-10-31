@@ -1,0 +1,3 @@
+Sieni jonka päältä voi pompata.
+Toukka jonka tarvii antaa syödä jonka jälkeen voi porautua läpi.
+"Seinä" jonka läpi tarvii porautua.
