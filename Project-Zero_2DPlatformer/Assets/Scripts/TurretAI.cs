@@ -105,7 +105,7 @@ public class TurretAI : MonoBehaviour {
         }
     }
 
-    public void Damage(int damage)
+   public void Damage(int damage)
     {
         currentHealth -= damage;
         gameObject.GetComponent<Animation>().Play("Player_RedFlash");

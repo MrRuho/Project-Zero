@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: 4077112918473398}
   - component: {fileID: 212334155916023342}
   - component: {fileID: 95453885658629916}
+  - component: {fileID: 114716250745857012}
   - component: {fileID: 114801410435097708}
   - component: {fileID: 111757727969313770}
   m_Layer: 0
@@ -349,6 +350,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretAI: {fileID: 0}
   isLeft: 0
+--- !u!114 &114716250745857012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392459138564656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e11a7ad6c1d32004784db9ad45ba7cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  deathEffect: {fileID: 0}
 --- !u!114 &114801410435097708
 MonoBehaviour:
   m_ObjectHideFlags: 1
