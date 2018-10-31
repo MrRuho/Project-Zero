@@ -5,31 +5,21 @@ using UnityEngine;
 public class Player_Weapons : MonoBehaviour {
 
     public Transform firepoint;
-    bool haveTurned = true;
-
-    private void Start()
-    {
-        
-    }
 
     void Update ()
     {
-        if (Input.GetKeyDown("left") && haveTurned == false)
+        if (Input.GetKeyDown("left"))
         {
-            Flip();
+            transform.localEulerAngles = new Vector3(0f, 180f, 0f);
+            
         }
 
-        if (Input.GetKeyDown("right") && haveTurned == true)
-        {       
-            Flip();
+        if (Input.GetKeyDown("right"))
+        {
+            transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+           
         }
  
-    }
-
-    private void Flip()
-    {
-        haveTurned = !haveTurned;
-        transform.Rotate(0f, 180f, 0f);
     }
 
 }

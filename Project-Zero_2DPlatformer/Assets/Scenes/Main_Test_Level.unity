@@ -2235,15 +2235,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
-      propertyPath: m_LocalRotation.w
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
       propertyPath: m_LocalScale.y
