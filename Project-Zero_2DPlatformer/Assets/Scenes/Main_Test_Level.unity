@@ -349,6 +349,8 @@ GameObject:
   - component: {fileID: 510120861}
   - component: {fileID: 510120860}
   - component: {fileID: 510120858}
+  - component: {fileID: 510120859}
+  - component: {fileID: 510120863}
   m_Layer: 0
   m_Name: MushroomMonster
   m_TagString: Enemy
@@ -369,6 +371,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 80
   deathEffect: {fileID: 0}
+--- !u!61 &510120859
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 510120857}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.029514551, y: 0.459585}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.52, y: 1.54}
+    newSize: {x: 1.52, y: 1.54}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8538127, y: 0.2666545}
+  m_EdgeRadius: 0
 --- !u!61 &510120860
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -381,7 +408,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.033731222, y: -0.122274876}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -392,7 +419,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.52, y: 1.54}
+  m_Size: {x: 0.9465728, y: 1.1267953}
   m_EdgeRadius: 0
 --- !u!212 &510120861
 SpriteRenderer:
@@ -453,6 +480,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &510120863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 510120857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2a3cc9f8342b2a47ad0987836d5ec5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customSpeed: 1
+  customVelocity: {x: 0, y: 0}
+  multiplier: 5
+  bouncer: {fileID: 1027855933575632, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
 --- !u!20 &519420031 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 20796474203318436, guid: 85ea31523f16f2d4da7716d31fa5c257,
@@ -2751,6 +2793,16 @@ Prefab:
       value: 
       objectReference: {fileID: 1421482397874426, guid: dccb4e4d5a843064abbeb0c2e71b9820,
         type: 2}
+    - target: {fileID: 114069818505102392, guid: 682a025eb79dbae4b86789a340910cd4,
+        type: 2}
+      propertyPath: jumpPower
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069818505102392, guid: 682a025eb79dbae4b86789a340910cd4,
+        type: 2}
+      propertyPath: doubleJumpPower
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
   m_IsPrefabAsset: 0
