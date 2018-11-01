@@ -7,6 +7,7 @@ public class Player_Bullet : MonoBehaviour {
     public float speed = 20f;
     public int damage = 40;
     public Rigidbody2D rb2d;
+    public GameObject impactEffect;
 
 	// Use this for initialization
 	void Start ()
@@ -24,9 +25,16 @@ public class Player_Bullet : MonoBehaviour {
             {
                 enemy.TakeDamage(damage);
             }
+
+            Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
 
-    
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
+
 }

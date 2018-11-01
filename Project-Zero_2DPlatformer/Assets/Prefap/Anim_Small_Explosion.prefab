@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4117578073110316}
   - component: {fileID: 212920134097720656}
   - component: {fileID: 95069957173727498}
+  - component: {fileID: 114420078527934918}
   m_Layer: 0
   m_Name: Anim_Small_Explosion
   m_TagString: Untagged
@@ -59,6 +60,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114420078527934918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1240929899271124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200ad6db81bf5b1438978eba03cfb773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
 --- !u!212 &212920134097720656
 SpriteRenderer:
   m_ObjectHideFlags: 1
