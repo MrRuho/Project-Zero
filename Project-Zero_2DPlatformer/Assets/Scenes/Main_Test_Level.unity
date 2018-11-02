@@ -380,7 +380,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 510120857}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 240d1fa8873378d42b2a6038c6083dca, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -405,7 +405,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 510120857}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 240d1fa8873378d42b2a6038c6083dca, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -487,14 +487,14 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 510120857}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2a3cc9f8342b2a47ad0987836d5ec5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   customSpeed: 1
-  customVelocity: {x: 0, y: 0}
-  multiplier: 5
+  customVelocity: {x: 0, y: 10}
+  multiplier: 0
   bouncer: {fileID: 1027855933575632, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
 --- !u!95 &510120864
 Animator:

@@ -33,7 +33,7 @@ public class Tranpoline : MonoBehaviour {
 
         if (onTop)
         {
-            //anim.SetBool("isStepped", true);
+            anim.SetBool("isStepped", true);
             bouncer = other.gameObject;
         }
 
@@ -53,7 +53,7 @@ public class Tranpoline : MonoBehaviour {
     void OnTriggerExit2D()
     {
         onTop = false;
-        //anim.SetBool("isStepped", false);
+        anim.SetBool("isStepped", false);
 
     }
 
