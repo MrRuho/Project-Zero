@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
     public int maxHealth = 100;
 
     private bool hasJumped;
-
+    private float jumpPowerOrginal;
     //References
     private Rigidbody2D rb2d;
     private Animator anim;
@@ -30,6 +30,7 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        jumpPowerOrginal = jumpPower; //Pelaajan hyppyvoima palutuu normaaliksi pelaajan osuessa maahan. Esim sieni popistaa hyppyvoiman sinkoessaan pelaajan ilmaan.
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();   
 
@@ -63,6 +64,7 @@ public class Player : MonoBehaviour {
 
             if (grounded)
             {
+                jumpPower = jumpPowerOrginal; //Pelaajan hyppyvoima palutuu normaaliksi pelaajan osuessa maahan. Esim sieni popistaa hyppyvoiman sinkoessaan pelaajan ilmaan.
                 {
                     hasJumped = false;
                 }

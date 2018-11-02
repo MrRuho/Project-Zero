@@ -20,14 +20,6 @@ public class Tranpoline : MonoBehaviour {
         anim = gameObject.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-
-
     void OnCollisionStay2D(Collision2D other)
     {
 
@@ -54,7 +46,6 @@ public class Tranpoline : MonoBehaviour {
     {
         onTop = false;
         anim.SetBool("isStepped", false);
-
     }
 
     void OnTriggerStay2D()
@@ -62,21 +53,14 @@ public class Tranpoline : MonoBehaviour {
         onTop = true;
     }
 
-
     void Jump()
     {
-
         if (customSpeed)
             velocity = customVelocity;
         else
             velocity = transform.up * multiplier;
 
-
-
         bouncer.GetComponent<Rigidbody2D>().velocity = velocity;
-
     }
-
-
 
 }
