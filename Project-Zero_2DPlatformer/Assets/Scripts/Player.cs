@@ -14,9 +14,12 @@ public class Player : MonoBehaviour {
     public bool canDoubleJump;
     public bool wallSliding;
     public bool facingRight = true;
+    public bool playerCanDieIfHitsWall = false;
 
     public int curHealth;
     public int maxHealth = 100;
+
+    
 
     private bool hasJumped;
     private float jumpPowerOrginal;
@@ -172,7 +175,6 @@ public class Player : MonoBehaviour {
             rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
         }
        
-        //void flip() { float horizontal }
     }
 
     void Die()
@@ -222,7 +224,15 @@ public class Player : MonoBehaviour {
         {
             Destroy(collision.gameObject);
             gameMaster.points += 1;
-        }    
+        }
+
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (playerCanDieIfHitsWall)
+        {
+            curHealth = 0;
+        }
+    }
 }
