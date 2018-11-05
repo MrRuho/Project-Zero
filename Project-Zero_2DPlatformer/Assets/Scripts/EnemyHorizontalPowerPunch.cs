@@ -20,7 +20,8 @@ public class EnemyHorizontalPowerPunch : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("NOTE! Player entered to Enemy Horizontal PowerPunch Area");
+        
+        Debug.Log("NOTE! Player entered Enemy Horizontal PowerPunch Area");
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<Player>().speed = velocity.x;
@@ -32,6 +33,7 @@ public class EnemyHorizontalPowerPunch : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
+           
             other.gameObject.GetComponent<Player>().playerCanDieIfHitsWall = true;
         }
     }
