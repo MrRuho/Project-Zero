@@ -22,9 +22,7 @@ public class EnemyHorizontalPowerPunch : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        
-        Debug.Log("NOTE! Player entered Enemy Horizontal PowerPunch Area");
-        
+
         if (other.gameObject.tag == "Player")
         {
             anim.SetBool("MushroomAttack", true);
