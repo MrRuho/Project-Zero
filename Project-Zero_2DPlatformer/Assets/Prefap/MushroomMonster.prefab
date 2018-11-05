@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 61502140099943304}
   - component: {fileID: 114361216319825094}
   - component: {fileID: 95598179568196078}
+  - component: {fileID: 114982572990411148}
   m_Layer: 0
   m_Name: MushroomMonster
   m_TagString: Enemy
@@ -138,7 +139,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09632635, y: -0.15653038}
+  m_Offset: {x: -0.09632635, y: -0.12653065}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -149,7 +150,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1926527, y: 0.68693924}
+  m_Size: {x: 1.1926527, y: 0.35694218}
   m_EdgeRadius: 0
 --- !u!95 &95598179568196078
 Animator:
@@ -197,6 +198,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 80
   deathEffect: {fileID: 0}
+--- !u!114 &114982572990411148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1415871958022326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d58eaaa37cdf5944696bd91872b3b4cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomizer: {fileID: 95598179568196078}
 --- !u!114 &114990920184880634
 MonoBehaviour:
   m_ObjectHideFlags: 1

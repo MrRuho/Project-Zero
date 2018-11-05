@@ -338,6 +338,108 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04599bb726563dc42a975f868f20f99d, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1001 &411087912
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 114990920184880634, guid: afdee809e60ead848b723b8b71558ded,
+        type: 2}
+      propertyPath: bouncer
+      value: 
+      objectReference: {fileID: 1406246281}
+    - target: {fileID: 1415871958022326, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_Name
+      value: MushroomMonster (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1001 &509533230
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 114990920184880634, guid: afdee809e60ead848b723b8b71558ded,
+        type: 2}
+      propertyPath: bouncer
+      value: 
+      objectReference: {fileID: 1406246281}
+    - target: {fileID: 1415871958022326, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+      propertyPath: m_Name
+      value: MushroomMonster (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: afdee809e60ead848b723b8b71558ded, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!20 &519420031 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 20796474203318436, guid: 85ea31523f16f2d4da7716d31fa5c257,
@@ -853,7 +955,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.59
+      value: -9.52
       objectReference: {fileID: 0}
     - target: {fileID: 4991863946301878, guid: afdee809e60ead848b723b8b71558ded, type: 2}
       propertyPath: m_LocalPosition.y
