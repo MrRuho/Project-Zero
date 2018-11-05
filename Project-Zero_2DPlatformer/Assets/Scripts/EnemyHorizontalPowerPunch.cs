@@ -11,19 +11,23 @@ public class EnemyHorizontalPowerPunch : MonoBehaviour {
     Animator anim;
     Vector2 velocity;
 
+    Tranpoline powerpunch;
+
     // Use this for initialization
     void Start()
     {
         velocity = customVelocity;
-        anim = gameObject.GetComponent<Animator>();
+        anim = gameObject.GetComponentInParent<Animator>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         
         Debug.Log("NOTE! Player entered Enemy Horizontal PowerPunch Area");
+        
         if (other.gameObject.tag == "Player")
         {
+            anim.SetBool("MushroomAttack", true);
             other.gameObject.GetComponent<Player>().speed = velocity.x;
             bouncer.GetComponent<Rigidbody2D>().velocity = velocity;
         }
@@ -33,9 +37,10 @@ public class EnemyHorizontalPowerPunch : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-           
+            
             other.gameObject.GetComponent<Player>().playerCanDieIfHitsWall = true;
         }
     }
+
 }
 

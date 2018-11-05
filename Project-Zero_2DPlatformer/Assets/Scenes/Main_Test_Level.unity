@@ -2641,7 +2641,13 @@ Prefab:
       propertyPath: bouncer
       value: 
       objectReference: {fileID: 1406246281}
-    m_RemovedComponents: []
+    - target: {fileID: 114990920184880634, guid: afdee809e60ead848b723b8b71558ded,
+        type: 2}
+      propertyPath: customVelocity.x
+      value: -300
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 95965798852556514, guid: afdee809e60ead848b723b8b71558ded, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: afdee809e60ead848b723b8b71558ded, type: 2}
   m_IsPrefabAsset: 0
 --- !u!114 &2048204188 stripped
