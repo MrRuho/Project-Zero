@@ -104,6 +104,7 @@ MonoBehaviour:
   rb2d: {fileID: 50846087553786260}
   impactEffect: {fileID: 1240929899271124, guid: 3a5707e35030edc4fbf889a01b032849,
     type: 2}
+  blood: {fileID: 1737175324586798, guid: e0aa04285de127245b1483f9ce168d61, type: 2}
 --- !u!212 &212006726851319410
 SpriteRenderer:
   m_ObjectHideFlags: 1

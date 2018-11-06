@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour {
     void Die()
     {
         Destroy(gameObject); // NOTE! alla oleva instantiate in tapahduttava ennen objectin tuhoamista. Tama on valiaikaisesti nyt ensin tai muuten tuhoutumista ei tapahdu. 
-        Instantiate(deathEffect, transform.position, Quaternion.identity);
+       // Instantiate(deathEffect, transform.position, Quaternion.identity);
        // Destroy(gameObject);
     }
 }

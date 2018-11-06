@@ -8,6 +8,7 @@ public class Player_Bullet : MonoBehaviour {
     public int damage = 40;
     public Rigidbody2D rb2d;
     public GameObject impactEffect;
+    public GameObject blood;
 
 	// Use this for initialization
 	void Start ()
@@ -23,7 +24,8 @@ public class Player_Bullet : MonoBehaviour {
 
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                Instantiate(blood, transform.position, transform.rotation);
+                enemy.TakeDamage(damage);  
             }
 
             Instantiate(impactEffect, transform.position, transform.rotation);
