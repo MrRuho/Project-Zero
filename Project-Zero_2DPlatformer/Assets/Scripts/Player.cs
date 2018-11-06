@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
     public bool wallSliding;
     public bool facingRight = true;
     public bool playerCanDieIfHitsWall = false;
+    
 
     public int curHealth;
     public int maxHealth = 100;
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour {
     private bool hasJumped;
     private float jumpPowerOrginal;
     //References
+    public GameObject blood;
     private Rigidbody2D rb2d;
     private Animator anim;
     private GameMaster gameMaster;
@@ -230,6 +232,7 @@ public class Player : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (playerCanDieIfHitsWall)
         {
             curHealth = 0;

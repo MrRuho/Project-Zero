@@ -2820,38 +2820,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114139141115718468, guid: 682a025eb79dbae4b86789a340910cd4,
-        type: 2}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 1421482397874426, guid: dccb4e4d5a843064abbeb0c2e71b9820,
-        type: 2}
-    - target: {fileID: 114069818505102392, guid: 682a025eb79dbae4b86789a340910cd4,
-        type: 2}
-      propertyPath: jumpPower
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 114069818505102392, guid: 682a025eb79dbae4b86789a340910cd4,
-        type: 2}
-      propertyPath: doubleJumpPower
-      value: 250
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
   m_IsPrefabAsset: 0
