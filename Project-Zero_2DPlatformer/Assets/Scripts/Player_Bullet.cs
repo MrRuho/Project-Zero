@@ -9,9 +9,8 @@ public class Player_Bullet : MonoBehaviour {
     public Rigidbody2D rb2d;
     public GameObject impactEffect;
     public GameObject blood;
-
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         rb2d.velocity = transform.right * speed;
 	}
@@ -31,6 +30,7 @@ public class Player_Bullet : MonoBehaviour {
             Instantiate(impactEffect, transform.position, transform.rotation);
             
         }
+
     }
 
     void OnBecameInvisible()

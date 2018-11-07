@@ -11,6 +11,8 @@ TagManager:
   - Coin
   - GameMaster
   - Ground
+  - PlayerBullet
+  - EnemyNockPack
   layers:
   - Default
   - TransparentFX
