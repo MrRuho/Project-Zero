@@ -348,9 +348,12 @@ GameObject:
   - component: {fileID: 445123467}
   - component: {fileID: 445123466}
   - component: {fileID: 445123465}
+  - component: {fileID: 445123468}
+  - component: {fileID: 445123469}
+  - component: {fileID: 445123470}
   m_Layer: 0
   m_Name: Zombie
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -428,10 +431,62 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.4824905, y: 6.719391, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
-  m_Children: []
+  m_Children:
+  - {fileID: 1502553074}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &445123468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 445123464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5af10baa0f160409f5fd685b1073d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: -2
+  groundDetection: {fileID: 1502553074}
+--- !u!114 &445123469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 445123464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e11a7ad6c1d32004784db9ad45ba7cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  deathEffect: {fileID: 0}
+--- !u!61 &445123470
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 445123464}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.9, y: 1.89}
+    newSize: {x: 0.9, y: 1.89}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 1.89}
+  m_EdgeRadius: 0
 --- !u!20 &519420031 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 20796474203318436, guid: 85ea31523f16f2d4da7716d31fa5c257,
@@ -1233,6 +1288,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4934503518167010, guid: 682a025eb79dbae4b86789a340910cd4,
     type: 2}
   m_PrefabInternal: {fileID: 2114070447}
+--- !u!1 &1502553073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1502553074}
+  m_Layer: 0
+  m_Name: Ground Detection
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1502553074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1502553073}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.63438684, y: -0.9117389, z: -0.014522057}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_Children: []
+  m_Father: {fileID: 445123467}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1522639088
 Prefab:
   m_ObjectHideFlags: 0

@@ -27,9 +27,9 @@ public class Player_Bullet : MonoBehaviour {
                 Instantiate(blood, transform.position, transform.rotation); // NOTE. veriroiskahduksen lopullinen kulma asennetaan BloodSplachConrol.cs:ssa.
                 enemy.TakeDamage(damage);  
             }
-
-            Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(gameObject);
+            Instantiate(impactEffect, transform.position, transform.rotation);
+            
         }
     }
 
