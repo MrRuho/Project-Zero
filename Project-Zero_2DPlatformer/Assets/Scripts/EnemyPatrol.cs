@@ -13,14 +13,17 @@ public class EnemyPatrol : MonoBehaviour {
 
     void Update()
     {
+        
+
         if (getHit == false)
         {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
         }
         else
         {
-
+            transform.Translate(Vector2.right * 0 * Time.deltaTime);
         }
+
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position,Vector2.down, 0.1f);
         RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.zero, 0.1f);
         if (groundInfo.collider == false | wallInfo.collider == true)
@@ -35,7 +38,21 @@ public class EnemyPatrol : MonoBehaviour {
                 movingRight = false;
             }
         }
-
+    
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+            getHit = true;
+            StartCoroutine(hasBeenHit());
+        }
+    }
+
+    IEnumerator hasBeenHit()
+    {
+        yield return new WaitForSeconds(1);
+        getHit = false;
+    }
 }
