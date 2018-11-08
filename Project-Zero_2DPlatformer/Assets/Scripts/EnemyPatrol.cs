@@ -7,14 +7,20 @@ public class EnemyPatrol : MonoBehaviour {
     public float speed;
 
     private bool movingRight = false;
-
+    private bool getHit = false;
     public Transform groundDetection;
     public Transform wallDetection;
 
     void Update()
     {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        if (getHit == false)
+        {
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
+        }
+        else
+        {
 
+        }
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position,Vector2.down, 0.1f);
         RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.zero, 0.1f);
         if (groundInfo.collider == false | wallInfo.collider == true)
