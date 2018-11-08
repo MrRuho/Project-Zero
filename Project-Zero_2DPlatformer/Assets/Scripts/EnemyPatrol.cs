@@ -26,19 +26,22 @@ public class EnemyPatrol : MonoBehaviour {
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position,Vector2.down, 0.1f);
         RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.zero, 0.1f);
-        if (groundInfo.collider == false | wallInfo.collider == true)
+        if (getHit == false)
         {
-            if (movingRight == false)
+            if (groundInfo.collider == false | wallInfo.collider == true)
             {
-                transform.eulerAngles = new Vector3(0, -180, 0);
-                movingRight = true; 
-            } else
-            {
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                movingRight = false;
+                if (movingRight == false)
+                {
+                    transform.eulerAngles = new Vector3(0, -180, 0);
+                    movingRight = true;
+                }
+                else
+                {
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+                    movingRight = false;
+                }
             }
         }
-    
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -46,11 +49,11 @@ public class EnemyPatrol : MonoBehaviour {
         if (collision.CompareTag("Bullet"))
         {
             getHit = true;
-            StartCoroutine(hasBeenHit());
+            StartCoroutine(HasBeenHit());
         }
     }
 
-    IEnumerator hasBeenHit()
+    IEnumerator HasBeenHit()
     {
         yield return new WaitForSeconds(1);
         getHit = false;
