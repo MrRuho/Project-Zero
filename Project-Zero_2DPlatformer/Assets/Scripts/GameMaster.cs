@@ -11,6 +11,7 @@ public class GameMaster : MonoBehaviour {
 
     public Text pointsText;
     public Text InputText;
+    public Text SoldierName;
 
     private void Start()
     {

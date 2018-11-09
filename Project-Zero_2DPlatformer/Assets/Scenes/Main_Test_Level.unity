@@ -338,6 +338,85 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04599bb726563dc42a975f868f20f99d, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &410758896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1514657621520722, guid: e38ab39bb6ff79e48910334b0ed5ec28,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 410758899}
+  - component: {fileID: 410758898}
+  - component: {fileID: 410758897}
+  m_Layer: 5
+  m_Name: SoldierName
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &410758897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114095417793666584, guid: e38ab39bb6ff79e48910334b0ed5ec28,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 410758896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 50
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: NEXT soldier
+--- !u!222 &410758898
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 222728440348789840, guid: e38ab39bb6ff79e48910334b0ed5ec28,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 410758896}
+  m_CullTransparentMesh: 0
+--- !u!224 &410758899
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 224274889653554520, guid: e38ab39bb6ff79e48910334b0ed5ec28,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 410758896}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.42011198, y: 0.42011198, z: 0.42011198}
+  m_Children: []
+  m_Father: {fileID: 1558733320}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -172, y: 63}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!20 &519420031 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 20796474203318436, guid: 85ea31523f16f2d4da7716d31fa5c257,
@@ -645,6 +724,7 @@ MonoBehaviour:
   highScore: 0
   pointsText: {fileID: 1304051673}
   InputText: {fileID: 2048204188}
+  SoldierName: {fileID: 410758897}
 --- !u!4 &632868111
 Transform:
   m_ObjectHideFlags: 0
@@ -1235,6 +1315,11 @@ Prefab:
 --- !u!1 &1558733319 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1285439844161974, guid: e38ab39bb6ff79e48910334b0ed5ec28,
+    type: 2}
+  m_PrefabInternal: {fileID: 2078115842}
+--- !u!224 &1558733320 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224714015297400672, guid: e38ab39bb6ff79e48910334b0ed5ec28,
     type: 2}
   m_PrefabInternal: {fileID: 2078115842}
 --- !u!114 &1558733324
@@ -2760,6 +2845,31 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 519420033}
+    - target: {fileID: 224789538866016320, guid: e38ab39bb6ff79e48910334b0ed5ec28,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 162.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224789538866016320, guid: e38ab39bb6ff79e48910334b0ed5ec28,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 76.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224318653768204400, guid: e38ab39bb6ff79e48910334b0ed5ec28,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -177.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 224318653768204400, guid: e38ab39bb6ff79e48910334b0ed5ec28,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 73.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224274889653554520, guid: e38ab39bb6ff79e48910334b0ed5ec28,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -68.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e38ab39bb6ff79e48910334b0ed5ec28, type: 2}
   m_IsPrefabAsset: 0
