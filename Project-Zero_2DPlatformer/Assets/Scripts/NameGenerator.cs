@@ -1,26 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class NameGenerator : MonoBehaviour {
+public class NameGenerator : MonoBehaviour
+{
 
-   public  List<string> names;
-   public  string[] lines;
+    public List<string> names;
+    public string[] lines;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         TextAsset nameText = Resources.Load<TextAsset>("Names");
 
         lines = nameText.text.Split("\n"[0]);
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-		
-	}
+
+    }
 
     void OnGUI()
     {
