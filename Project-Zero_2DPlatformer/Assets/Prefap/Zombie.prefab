@@ -47,6 +47,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1642744988555946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4725193387002628}
+  m_Layer: 0
+  m_Name: Melee Detection
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1686297707968454
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,6 +89,7 @@ Transform:
   m_Children:
   - {fileID: 4270804069261050}
   - {fileID: 4327151008933002}
+  - {fileID: 4725193387002628}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -102,6 +118,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4214327992005752}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4725193387002628
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1642744988555946}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.47, y: 0.28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4214327992005752}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50892216706721038
 Rigidbody2D:
@@ -193,6 +222,7 @@ MonoBehaviour:
   speed: -2
   groundDetection: {fileID: 4270804069261050}
   wallDetection: {fileID: 4327151008933002}
+  meleeAttackZone: {fileID: 4725193387002628}
 --- !u!212 &212281553759254562
 SpriteRenderer:
   m_ObjectHideFlags: 1
