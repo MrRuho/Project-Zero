@@ -8,6 +8,8 @@ public class EnemyPatrol : MonoBehaviour {
 
     private bool movingRight = false;
     private bool getHit = false;
+    private bool attack = false;
+
     public Transform groundDetection;
     public Transform wallDetection;
     public Transform meleeAttackZone;
@@ -15,7 +17,6 @@ public class EnemyPatrol : MonoBehaviour {
  
     void Update()
     {
-     
 
         if (getHit == false)
         {
@@ -37,21 +38,21 @@ public class EnemyPatrol : MonoBehaviour {
             AttackDirectionControl();
             if (groundInfo.collider == false | wallInfo.collider == true)
             {
-               
                 if (movingRight == false)
                 {
                     transform.eulerAngles = new Vector3(0, -180, 0);
-                    movingRight = true;
-                    
+                    movingRight = true;  
                 }
                 else
                 {
                     transform.eulerAngles = new Vector3(0, 0, 0);
-                    movingRight = false;
-                    
+                    movingRight = false; 
                 }
             }
         }
+
+         
+
     }
 
     void AttackDirectionControl()
@@ -59,14 +60,24 @@ public class EnemyPatrol : MonoBehaviour {
         if (movingRight == true)
         {
             RaycastHit2D meleeInfo = Physics2D.Raycast(meleeAttackZone.position, Vector2.right, 0.5f);
-            Debug.DrawRay(transform.position, Vector2.right, Color.red);         
+            Debug.DrawRay(transform.position, Vector2.right, Color.red);
+            Debug.Log("NOTE: Zombie moving right");
+            if (meleeInfo.collider == CompareTag("Player") == false) //NOTE! Toimii falsena.
+            {
+                Debug.Log("NOTE: Player entered Zombie attack zone");
+            }
         }
         else
         {
             RaycastHit2D meleeInfo = Physics2D.Raycast(meleeAttackZone.position, Vector2.left, 0.5f);
             Debug.DrawRay(transform.position, Vector2.left, Color.red);
-       
+            Debug.Log("NOTE: Zombie moving left");
+            if (meleeInfo.collider == CompareTag("Player")== false)
+            {
+                Debug.Log("NOTE: Player entered Zombie attack zone");
+            }
         }
+       
     }
 
     void OnTriggerEnter2D(Collider2D collision)
