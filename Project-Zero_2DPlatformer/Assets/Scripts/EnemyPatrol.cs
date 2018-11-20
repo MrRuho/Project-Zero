@@ -23,7 +23,9 @@ public class EnemyPatrol : Enemy {
 
     void Update()
     {
-        
+        int layerMask = 1 << 0;
+        layerMask = ~layerMask; //wall raycast ignooraa pelaajan.
+
         if (getHit == false)
         {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
@@ -34,7 +36,7 @@ public class EnemyPatrol : Enemy {
         }
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position,Vector2.down, 0.1f);
-        RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.zero, 0.1f);
+        RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.zero, 0.1f, layerMask);
      
         Debug.DrawRay(transform.position, Vector2.down, Color.white);
         Debug.DrawRay(transform.position, Vector2.zero, Color.yellow);
