@@ -15,16 +15,19 @@ public class EnemyPatrol : Enemy {
     public Transform wallDetection;
     public Transform meleeAttackZone;
 
+    Animator anim;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        anim = gameObject.GetComponent<Animator>();
         
     }
 
     void Update()
     {
         int layerMask = 1 << 0;
-        layerMask = ~layerMask; //wall raycast ignooraa pelaajan.
+        layerMask = ~layerMask; //wall Raycast ei huomio pelaajaa.
 
         if (getHit == false)
         {
@@ -112,7 +115,8 @@ public class EnemyPatrol : Enemy {
             Debug.Log("zombie hit!");
             player.Damage(3);
             getHit = true;
-            zombie.TakeDamage(100);  
+            ZombieAttackAnim();
+            //zombie.TakeDamage(100);  
         }
     }
 
@@ -120,5 +124,10 @@ public class EnemyPatrol : Enemy {
     {
         yield return new WaitForSeconds(1);
         getHit = false;
+    }
+
+    void ZombieAttackAnim()
+    {
+        anim.SetBool("ZombieMeleeAttack", true);
     }
 }
