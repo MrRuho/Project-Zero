@@ -18,10 +18,12 @@ public class EnemyPatrol : Enemy {
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        
     }
 
     void Update()
     {
+        
         if (getHit == false)
         {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
@@ -39,9 +41,11 @@ public class EnemyPatrol : Enemy {
         
         if (getHit == false)
         {
+            
             AttackDirectionControl();
-            if (groundInfo.collider == false | wallInfo.collider == true)
+            if (groundInfo.collider == false | wallInfo.collider == true )
             {
+             
                 if (movingRight == false)
                 {
                     transform.eulerAngles = new Vector3(0, -180, 0);
