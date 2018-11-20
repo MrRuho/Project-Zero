@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPatrol : MonoBehaviour {
+public class EnemyPatrol : Enemy {
 
     public float speed;
     private bool movingRight = false;
     private bool getHit = false;
     private bool catchPlayer = false;
+
+    private Player player;
 
     public Transform groundDetection;
     public Transform wallDetection;
@@ -15,12 +17,11 @@ public class EnemyPatrol : MonoBehaviour {
 
     void Start()
     {
-      
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     void Update()
     {
-
         if (getHit == false)
         {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
@@ -53,7 +54,6 @@ public class EnemyPatrol : MonoBehaviour {
                 }
             }
         }
-
     }
 
     void AttackDirectionControl()
@@ -95,14 +95,18 @@ public class EnemyPatrol : MonoBehaviour {
             getHit = true;
             StartCoroutine(HasBeenHit());
         }
- 
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Enemy zombie = GetComponent<Enemy>();
+
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("zombie hit!");
+            player.Damage(3);
+            getHit = true;
+            zombie.TakeDamage(100);  
         }
     }
 
