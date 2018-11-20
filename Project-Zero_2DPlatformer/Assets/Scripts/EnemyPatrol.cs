@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPatrol : MonoBehaviour {
+public class EnemyPatrol : Enemy {
 
     public float speed;
 
     private bool movingRight = false;
     private bool getHit = false;
-    private bool attack = false;
+    private bool catchPlayer = false;
 
     public Transform groundDetection;
     public Transform wallDetection;
@@ -59,25 +59,32 @@ public class EnemyPatrol : MonoBehaviour {
     {
         if (movingRight == true)
         {
-            RaycastHit2D meleeInfo = Physics2D.Raycast(meleeAttackZone.position, Vector2.right, 0.5f);
+            RaycastHit2D meleeInfo = Physics2D.Raycast(meleeAttackZone.position, Vector2.right, 5.0f);
             Debug.DrawRay(transform.position, Vector2.right, Color.red);
-            Debug.Log("NOTE: Zombie moving right");
+
             if (meleeInfo.collider == CompareTag("Player") == false) //NOTE! Toimii falsena.
             {
-                Debug.Log("NOTE: Player entered Zombie attack zone");
+                speed = -4;
+            }
+            else
+            {
+                speed = -1;
             }
         }
         else
         {
-            RaycastHit2D meleeInfo = Physics2D.Raycast(meleeAttackZone.position, Vector2.left, 0.5f);
+            RaycastHit2D meleeInfo = Physics2D.Raycast(meleeAttackZone.position, Vector2.left, 5.0f);
             Debug.DrawRay(transform.position, Vector2.left, Color.red);
-            Debug.Log("NOTE: Zombie moving left");
+           
             if (meleeInfo.collider == CompareTag("Player")== false)
-            {
-                Debug.Log("NOTE: Player entered Zombie attack zone");
+            { 
+                speed = -4;
             }
-        }
-       
+            else
+            {
+                speed = -1;
+            }
+        }  
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -86,6 +93,10 @@ public class EnemyPatrol : MonoBehaviour {
         {
             getHit = true;
             StartCoroutine(HasBeenHit());
+        }
+        if (collision.CompareTag("Player"))
+        {
+
         }
     }
 
