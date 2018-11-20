@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPatrol : Enemy {
+public class EnemyPatrol : MonoBehaviour {
 
     public float speed;
-
     private bool movingRight = false;
     private bool getHit = false;
     private bool catchPlayer = false;
@@ -14,7 +13,11 @@ public class EnemyPatrol : Enemy {
     public Transform wallDetection;
     public Transform meleeAttackZone;
 
- 
+    void Start()
+    {
+      
+    }
+
     void Update()
     {
 
@@ -51,8 +54,6 @@ public class EnemyPatrol : Enemy {
             }
         }
 
-         
-
     }
 
     void AttackDirectionControl()
@@ -88,15 +89,20 @@ public class EnemyPatrol : Enemy {
     }
 
     void OnTriggerEnter2D(Collider2D collision)
-    {
+    {  
         if (collision.CompareTag("Bullet"))
         {
             getHit = true;
             StartCoroutine(HasBeenHit());
         }
-        if (collision.CompareTag("Player"))
-        {
+ 
+    }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("zombie hit!");
         }
     }
 
