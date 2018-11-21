@@ -7,23 +7,28 @@ public class Enemy : MonoBehaviour {
     public int health = 100;
   
     public GameObject deathEffect;
-    public AnimationClip deathAnimation;
+    public Animator animator;
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     public void TakeDamage (int damage)
     {
         health -= damage;
 
         if(health <= 0)
         {
-            Die();
+            animator.SetBool("Dying", true);
+            // Jokaisella vihollisella tulee olla Dying (tasmalleen samalla nimella) animaatio jonka viimeisessa freimissa on -- animation -> add evet Die();--
         }
     }
 
+    // Aktivoituu kuolin animaation loputtua.
     void Die()
     {
-        Instantiate(deathAnimation, transform.position, Quaternion.identity);
-        Destroy(gameObject); // NOTE! alla oleva instantiate in tapahduttava ennen objectin tuhoamista. Tama on valiaikaisesti nyt ensin tai muuten tuhoutumista ei tapahdu. 
-       // Instantiate(deathEffect, transform.position, Quaternion.identity);
-       // Destroy(gameObject);
+        // Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+ 
     }
 }

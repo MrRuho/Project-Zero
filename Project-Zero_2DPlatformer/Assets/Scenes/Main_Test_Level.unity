@@ -1095,7 +1095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   deathEffect: {fileID: 0}
-  deathAnimation: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!95 &1300220463
 Animator:
   serializedVersion: 3
@@ -2667,6 +2667,11 @@ Prefab:
       propertyPath: customVelocity.x
       value: -300
       objectReference: {fileID: 0}
+    - target: {fileID: 114614889103427050, guid: afdee809e60ead848b723b8b71558ded,
+        type: 2}
+      propertyPath: deathAnimation
+      value: 
+      objectReference: {fileID: 7400000, guid: e6c015014686cd449a8adf31929e6415, type: 2}
     m_RemovedComponents:
     - {fileID: 95965798852556514, guid: afdee809e60ead848b723b8b71558ded, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: afdee809e60ead848b723b8b71558ded, type: 2}
@@ -2980,6 +2985,11 @@ Prefab:
       propertyPath: deathAnimation
       value: 
       objectReference: {fileID: 7400000, guid: 8398079c52266bf47992b6e9ba3b03f2, type: 2}
+    - target: {fileID: 114717530082506104, guid: 1501f6e38c2bf7c43a70ec08a753baf3,
+        type: 2}
+      propertyPath: deathAnimation
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1501f6e38c2bf7c43a70ec08a753baf3, type: 2}
   m_IsPrefabAsset: 0

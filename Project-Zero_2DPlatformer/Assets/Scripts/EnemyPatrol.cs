@@ -125,6 +125,6 @@ public class EnemyPatrol : Enemy {
 
     void ZombieDyingAnim()
     {
-        anim.SetBool("ZombieDying", true);
+        anim.SetBool("Dying", true);
     }
 }
