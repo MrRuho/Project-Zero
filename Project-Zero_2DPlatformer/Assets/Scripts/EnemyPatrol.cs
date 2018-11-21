@@ -7,7 +7,7 @@ public class EnemyPatrol : Enemy {
     public float speed;
     private bool movingRight = false;
     private bool getHit = false;
-    private bool catchPlayer = false;
+   
 
     private Player player;
 
@@ -16,14 +16,11 @@ public class EnemyPatrol : Enemy {
     public Transform meleeAttackZone;
 
     Animator anim;
-    Collider2D enemycollider;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         anim = gameObject.GetComponent<Animator>();
-
-        enemycollider = GetComponent<Collider2D>(); 
     }
 
     void Update()
@@ -110,17 +107,13 @@ public class EnemyPatrol : Enemy {
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Enemy zombie = GetComponent<Enemy>();
-
         if (collision.gameObject.tag == "Player")
         {
             player.Damage(3);
-           // enemycollider.isTrigger = true;
             getHit = true;
             Destroy(GetComponent<BoxCollider2D>());
             Destroy(GetComponent<Rigidbody2D>());
-            ZombieAttackAnim();
-            zombie.TakeDamage(100);  
+            ZombieDyingAnim();
         }
     }
 
@@ -130,8 +123,8 @@ public class EnemyPatrol : Enemy {
         getHit = false;
     }
 
-    void ZombieAttackAnim()
+    void ZombieDyingAnim()
     {
-        anim.SetBool("ZombieMeleeAttack", true);
+        anim.SetBool("ZombieDying", true);
     }
 }

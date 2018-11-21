@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour {
     public int health = 100;
   
     public GameObject deathEffect;
+    public AnimationClip deathAnimation;
 
     public void TakeDamage (int damage)
     {
@@ -16,11 +17,11 @@ public class Enemy : MonoBehaviour {
         {
             Die();
         }
-
     }
 
     void Die()
     {
+        Instantiate(deathAnimation, transform.position, Quaternion.identity);
         Destroy(gameObject); // NOTE! alla oleva instantiate in tapahduttava ennen objectin tuhoamista. Tama on valiaikaisesti nyt ensin tai muuten tuhoutumista ei tapahdu. 
        // Instantiate(deathEffect, transform.position, Quaternion.identity);
        // Destroy(gameObject);
