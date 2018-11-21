@@ -16,12 +16,14 @@ public class EnemyPatrol : Enemy {
     public Transform meleeAttackZone;
 
     Animator anim;
+    Collider2D enemycollider;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         anim = gameObject.GetComponent<Animator>();
-        
+
+        enemycollider = GetComponent<Collider2D>(); 
     }
 
     void Update()
@@ -112,11 +114,13 @@ public class EnemyPatrol : Enemy {
 
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("zombie hit!");
             player.Damage(3);
+           // enemycollider.isTrigger = true;
             getHit = true;
+            Destroy(GetComponent<BoxCollider2D>());
+            Destroy(GetComponent<Rigidbody2D>());
             ZombieAttackAnim();
-            //zombie.TakeDamage(100);  
+            zombie.TakeDamage(100);  
         }
     }
 
