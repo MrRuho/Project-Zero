@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tranpoline : MonoBehaviour {
+public class Tranpoline : Enemy {
 
     public bool customSpeed;
     public Vector2 customVelocity;
