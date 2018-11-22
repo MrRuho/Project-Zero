@@ -7,7 +7,7 @@ public class EnemyPatrol : Enemy {
     public float speed;
     private bool movingRight = false;
     private bool getHit = false;
-   
+    private int currentHealth = 1;
 
     private Player player;
 
@@ -16,11 +16,14 @@ public class EnemyPatrol : Enemy {
     public Transform meleeAttackZone;
 
     Animator anim;
+    Enemy enemy;
 
     void Start()
     {
+        enemy = GetComponent<Enemy>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         anim = gameObject.GetComponent<Animator>();
+        currentHealth = enemy.health;
     }
 
     void Update()
@@ -66,34 +69,37 @@ public class EnemyPatrol : Enemy {
 
     void AttackDirectionControl()
     {
-        if (movingRight == true)
+        if (getHit == false)
         {
-            RaycastHit2D meleeInfo = Physics2D.Raycast(meleeAttackZone.position, Vector2.right, 5.0f);
-            Debug.DrawRay(transform.position, Vector2.right, Color.red);
-
-            if (meleeInfo.collider == CompareTag("Player") == false) //NOTE! Toimii falsena.
+            if (movingRight == true)
             {
-                speed = -4;
+                RaycastHit2D meleeInfo = Physics2D.Raycast(meleeAttackZone.position, Vector2.right, 5.0f);
+                Debug.DrawRay(transform.position, Vector2.right, Color.red);
+
+                if (meleeInfo.collider == CompareTag("Player") == false) //NOTE! Toimii falsena.
+                {
+                    speed = -4;
+                }
+                else
+                {
+                    speed = -1;
+                }
             }
             else
             {
-                speed = -1;
+                RaycastHit2D meleeInfo = Physics2D.Raycast(meleeAttackZone.position, Vector2.left, 5.0f);
+                Debug.DrawRay(transform.position, Vector2.left, Color.red);
+
+                if (meleeInfo.collider == CompareTag("Player") == false)
+                {
+                    speed = -4;
+                }
+                else
+                {
+                    speed = -1;
+                }
             }
         }
-        else
-        {
-            RaycastHit2D meleeInfo = Physics2D.Raycast(meleeAttackZone.position, Vector2.left, 5.0f);
-            Debug.DrawRay(transform.position, Vector2.left, Color.red);
-           
-            if (meleeInfo.collider == CompareTag("Player")== false)
-            { 
-                speed = -4;
-            }
-            else
-            {
-                speed = -1;
-            }
-        }  
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -120,7 +126,14 @@ public class EnemyPatrol : Enemy {
     IEnumerator HasBeenHit()
     {
         yield return new WaitForSeconds(1);
-        getHit = false;
+        if (currentHealth >= 0)
+        {
+            getHit = false;
+        }
+        else
+        {
+            getHit = true;
+        }
     }
 
     void ZombieDyingAnim()
