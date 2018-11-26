@@ -51,26 +51,25 @@ public class Player_Bullet : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector3 hitPosition = Vector3.zero; 
-        Debug.Log("BUllet hits");
-
-        if (tilemapGameObject == collision.gameObject)
+        if (collision.gameObject.tag == "Ground")
         {
-            foreach (ContactPoint2D hit in collision.contacts)
+            Vector3 hitPosition = Vector3.zero;
+            if (tilemapGameObject == collision.gameObject)
             {
-                hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
-                hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
-                tilemap.SetTile(tilemap.WorldToCell(hitPosition), null);
-                Destroy(gameObject);
+                foreach (ContactPoint2D hit in collision.contacts)
+                {
+                    hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
+                    hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
+                    tilemap.SetTile(tilemap.WorldToCell(hitPosition), null);
+                    Destroy(gameObject);
+                }
             }
         }
-
+        Destroy(gameObject);
     }
 
     void OnBecameInvisible()
     {
         Destroy(gameObject);
     }
-
-
 }
