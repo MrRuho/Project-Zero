@@ -11,29 +11,24 @@ public class Player_Bullet : MonoBehaviour {
     public GameObject impactEffect;
     public GameObject blood;
 
-    public GameObject tilemapGameObject;
+    GameObject tilemapGameObject;
     Player_Bullet bullet;
     Tilemap tilemap;
-
+  
     // Use this for initialization
     void Start ()
     {
-        tilemapGameObject = GameObject.FindGameObjectWithTag("Ground");
         rb2d.velocity = transform.right * speed;
+        tilemapGameObject = GameObject.FindGameObjectWithTag("Ground");
+
         if (tilemapGameObject != null)
         {
             tilemap = tilemapGameObject.GetComponent<Tilemap>();
         }
     }
 
-    private void Update()
-    {
-        
-    }
-
-    /*  void OnTriggerEnter2D( Collider2D collision)
+   /* void OnTriggerEnter2D( Collider2D collision)
       {
-
           if (collision.isTrigger == false)
           {
               Enemy enemy = collision.GetComponent<Enemy>();
@@ -45,15 +40,25 @@ public class Player_Bullet : MonoBehaviour {
               }
               Destroy(gameObject);
               Instantiate(impactEffect, transform.position, transform.rotation);
-
           }
-
       }*/
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+       
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
 
+            if (enemy != null)
+            {
+                Instantiate(impactEffect, transform.position, transform.rotation);
+                Instantiate(blood, transform.position, transform.rotation); // NOTE. veriroiskahduksen lopullinen kulma asennetaan BloodSplachConrol.cs:ssa.
+                enemy.TakeDamage(damage);
+            }
+        }
+        
+        if (collision.gameObject.tag == "Ground")
         {
             Vector3 hitPosition = Vector3.zero;
             if (tilemapGameObject == collision.gameObject)
@@ -63,6 +68,7 @@ public class Player_Bullet : MonoBehaviour {
                     hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
                     hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
                     tilemap.SetTile(tilemap.WorldToCell(hitPosition), null);
+                    Instantiate(impactEffect, transform.position, transform.rotation);
                     Destroy(gameObject);
                 }
             }
