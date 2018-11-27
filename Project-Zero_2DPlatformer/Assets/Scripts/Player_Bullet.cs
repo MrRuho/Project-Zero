@@ -18,6 +18,7 @@ public class Player_Bullet : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        tilemapGameObject = GameObject.FindGameObjectWithTag("Ground");
         rb2d.velocity = transform.right * speed;
         if (tilemapGameObject != null)
         {
@@ -52,6 +53,7 @@ public class Player_Bullet : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
+
         {
             Vector3 hitPosition = Vector3.zero;
             if (tilemapGameObject == collision.gameObject)
