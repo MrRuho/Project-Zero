@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public float speed = 50f;
     public float jumpPower = 150f;
     public float doubleJumpPower = 200f;
+    public CapsuleCollider2D capsuleCollider2D;
 
     public bool grounded;
     public bool canDoubleJump;
@@ -37,7 +38,8 @@ public class Player : MonoBehaviour {
     {
         jumpPowerOrginal = jumpPower; //Pelaajan hyppyvoima palutuu normaaliksi pelaajan osuessa maahan. Esim sieni popistaa hyppyvoiman sinkoessaan pelaajan ilmaan.
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-        anim = gameObject.GetComponent<Animator>();   
+        anim = gameObject.GetComponent<Animator>();
+        capsuleCollider2D = gameMaster.GetComponent<CapsuleCollider2D>();
 
         curHealth = maxHealth;
         gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
@@ -48,6 +50,17 @@ public class Player : MonoBehaviour {
     {
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
+
+        if (Input.GetKeyDown("z"))
+        {
+            capsuleCollider2D.size = new Vector3(0.58f, 0.5f, 0);
+            capsuleCollider2D.offset = new Vector3(0, -0.25f, 0);
+        }
+        else
+        {
+            capsuleCollider2D.size = new Vector3(0.58f, 0.9f, 0);
+            capsuleCollider2D.offset = new Vector3(0, 0, 0);
+        }
 
 
         if (Input.GetAxis("Horizontal") < -0.1f)
