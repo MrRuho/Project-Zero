@@ -37,7 +37,7 @@ public class Player : MonoBehaviour {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         capsuleCollider2D = gameMaster.GetComponent<CapsuleCollider2D>();
-
+       
         curHealth = maxHealth;
         gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
 	}
