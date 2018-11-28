@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 95065273496532792}
   - component: {fileID: 61991734125474708}
   - component: {fileID: 50478742303382180}
-  - component: {fileID: 114069818505102392}
   - component: {fileID: 70066975934173712}
   - component: {fileID: 111172271296784482}
+  - component: {fileID: 114069818505102392}
   - component: {fileID: 114794488392565504}
   m_Layer: 0
   m_Name: Player
@@ -275,8 +275,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.02}
-  m_Size: {x: 0.58, y: 0.9}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.56, y: 0.88}
   m_Direction: 0
 --- !u!95 &95065273496532792
 Animator:
@@ -322,23 +322,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67047f1c96bbab48aef3a4b5523e1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 3
+  maxSpeed: 4
   speed: 50
   jumpPower: 250
   doubleJumpPower: 250
+  curHealth: 5
+  maxHealth: 5
   grounded: 0
   canDoubleJump: 1
   wallSliding: 0
   facingRight: 1
   playerCanDieIfHitsWall: 0
-  curHealth: 5
-  maxHealth: 5
+  wallCheck: 1
   blood: {fileID: 1737175324586798, guid: e0aa04285de127245b1483f9ce168d61, type: 2}
   wallCheckPoint: {fileID: 4600561128512032}
-  wallCheck: 1
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 1024
+  capsuleCollider2D: {fileID: 70066975934173712}
 --- !u!114 &114139141115718468
 MonoBehaviour:
   m_ObjectHideFlags: 1

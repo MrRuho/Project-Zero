@@ -25,8 +25,8 @@ public class Player : MonoBehaviour {
     public GameObject blood;
     public Transform wallCheckPoint;
     public LayerMask wallLayerMask;
-    public CapsuleCollider2D capsuleCollider2D;
 
+    private CapsuleCollider2D capsuleCollider2D;
     private Rigidbody2D rb2d;
     private Animator anim;
     private GameMaster gameMaster;
@@ -36,8 +36,15 @@ public class Player : MonoBehaviour {
         jumpPowerOrginal = jumpPower; //Pelaajan hyppyvoima palutuu normaaliksi pelaajan osuessa maahan. Esim sieni popistaa hyppyvoiman sinkoessaan pelaajan ilmaan.
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
-        capsuleCollider2D = gameMaster.GetComponent<CapsuleCollider2D>();
-       
+
+        capsuleCollider2D = gameObject.GetComponent<CapsuleCollider2D>();
+        if (capsuleCollider2D != null)
+        {
+            capsuleCollider2D.size = new Vector3(0.58f, 0.9f, 0);
+            capsuleCollider2D.offset = new Vector3(0, 0, 0);
+            capsuleCollider2D.direction = CapsuleDirection2D.Vertical;
+        }
+
         curHealth = maxHealth;
         gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
 	}
