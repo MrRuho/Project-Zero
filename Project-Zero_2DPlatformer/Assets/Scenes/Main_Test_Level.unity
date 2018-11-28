@@ -1731,7 +1731,7 @@ Prefab:
     - target: {fileID: 70066975934173712, guid: 682a025eb79dbae4b86789a340910cd4,
         type: 2}
       propertyPath: m_Size.y
-      value: 0.9
+      value: 0.88
       objectReference: {fileID: 0}
     - target: {fileID: 70066975934173712, guid: 682a025eb79dbae4b86789a340910cd4,
         type: 2}
@@ -1748,6 +1748,16 @@ Prefab:
       propertyPath: capsuleCollider2D
       value: 
       objectReference: {fileID: 1406246282}
+    - target: {fileID: 70066975934173712, guid: 682a025eb79dbae4b86789a340910cd4,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 70066975934173712, guid: 682a025eb79dbae4b86789a340910cd4,
+        type: 2}
+      propertyPath: m_Direction
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
   m_IsPrefabAsset: 0

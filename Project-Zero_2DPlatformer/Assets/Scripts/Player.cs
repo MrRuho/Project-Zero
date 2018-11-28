@@ -9,30 +9,27 @@ public class Player : MonoBehaviour {
     public float speed = 50f;
     public float jumpPower = 150f;
     public float doubleJumpPower = 200f;
-    public CapsuleCollider2D capsuleCollider2D;
-
+    public int curHealth;
+    public int maxHealth = 100;
     public bool grounded;
     public bool canDoubleJump;
     public bool wallSliding;
     public bool facingRight = true;
     public bool playerCanDieIfHitsWall = false;
-    
+    public bool wallCheck;
 
-    public int curHealth;
-    public int maxHealth = 100;
-
-    
-
-    private bool hasJumped;
     private float jumpPowerOrginal;
+    private bool hasJumped;
+   
     //References
     public GameObject blood;
+    public Transform wallCheckPoint;
+    public LayerMask wallLayerMask;
+    public CapsuleCollider2D capsuleCollider2D;
+
     private Rigidbody2D rb2d;
     private Animator anim;
     private GameMaster gameMaster;
-    public Transform wallCheckPoint;
-    public bool wallCheck;
-    public LayerMask wallLayerMask;
     // Use this for initialization
     void Start ()
     {
@@ -51,17 +48,20 @@ public class Player : MonoBehaviour {
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
 
+        //--- Kyykky tai liuku. Start. Muuttaa capsuleCollider2D kokoa ja suuntaa.---
         if (Input.GetKeyDown("z"))
         {
-            capsuleCollider2D.size = new Vector3(0.58f, 0.5f, 0);
-            capsuleCollider2D.offset = new Vector3(0, -0.25f, 0);
+            capsuleCollider2D.size = new Vector3(0.9f, 0.5f, 0);
+            capsuleCollider2D.offset = new Vector3(0, -0.19f, 0);
+            capsuleCollider2D.direction = CapsuleDirection2D.Horizontal;
         }
-        else
+        if (Input.GetKeyUp("z"))
         {
             capsuleCollider2D.size = new Vector3(0.58f, 0.9f, 0);
             capsuleCollider2D.offset = new Vector3(0, 0, 0);
+            capsuleCollider2D.direction = CapsuleDirection2D.Vertical;
         }
-
+        //---- kyyky tai liuku. end ---
 
         if (Input.GetAxis("Horizontal") < -0.1f)
         {
