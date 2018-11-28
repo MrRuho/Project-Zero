@@ -102,14 +102,14 @@ public class EnemyPatrol : Enemy {
         }
     }
 
-   /* void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {  
         if (collision.CompareTag("Bullet"))
         {
             getHit = true;
             StartCoroutine(HasBeenHit());
         }
-    }*/
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -120,11 +120,6 @@ public class EnemyPatrol : Enemy {
             Destroy(GetComponent<BoxCollider2D>());
             Destroy(GetComponent<Rigidbody2D>());
             ZombieDyingAnim();
-        }
-        if (collision.gameObject.tag == "Bullet")
-        {
-            getHit = true;
-            StartCoroutine(HasBeenHit());
         }
     }
 
