@@ -10,12 +10,8 @@ public class Player_Weapons : MonoBehaviour {
     private int ammoCounter = 0;
     private int weaponSwitch = 0;
     
-    private bool pistol = false;
-    private bool assaultRifle = false;
-    private bool shotgun = false;
-    private bool missile = false;
+    private bool reloadingWait = false;
     
-
     public Transform firepoint;
     public GameObject bulletPrefab;
 
@@ -26,7 +22,7 @@ public class Player_Weapons : MonoBehaviour {
 
     void Update ()
     {
-        Debug.Log(ammoCounter);
+        
         
 
         // Kaantaa ampumapistetta siihen suntaan mihin hahmo katsoo. Estaa nain ampumasta itseaan.
@@ -41,29 +37,36 @@ public class Player_Weapons : MonoBehaviour {
             transform.localEulerAngles = new Vector3(0f, 0f, 0f);
            
         }
- 
-        if (Input.GetButtonDown("Fire2")&& ammoCounter >0)
+
+        // Pistol aseen ammunta.
+        if (Input.GetButtonDown("Fire2")&& ammoCounter >0 && weaponSwitch == 0)
         {
+            Debug.Log(ammoCounter);
             Shoot();
             ammoCounter -= 1;
         }
 
-        if (ammoCounter <= 0)
+        // aseen lataus kaynnistyy aseen ollessa tyhja.
+        if (ammoCounter <= 0 && reloadingWait == false)
         {
+            reloadingWait = true;
             Debug.Log("Reloading");
             StartCoroutine(Reloading());
         }
 
     }
 
+    //Aseiden lataus Coroutine.
     IEnumerator Reloading()
     {
         yield return new WaitForSeconds(reloadingTime);
         ammoCounter = clipSize;
         Debug.Log("Reloated");
+        reloadingWait = false;
         yield return clipSize;
     }
 
+    // Maarittaa pelaajan kaytossa olevan aseen arvot.
     void WeaponSwitcher(int CurrentWeapon)
     {
         weaponSwitch = CurrentWeapon;
@@ -74,28 +77,28 @@ public class Player_Weapons : MonoBehaviour {
                 Debug.Log("AssaultRifle");
                 clipSize = 30;
                 ammoCounter = clipSize;
-                reloadingTime = 10.2f;
+                reloadingTime = 1.2f;
                 break;
 
             case 2:
                 Debug.Log("Shotgun");
                 clipSize = 6;
                 ammoCounter = clipSize;
-                reloadingTime = 10.5f;
+                reloadingTime = 1.5f;
                 break;
 
             case 3:
                 Debug.Log("Missile Laucher");
                 clipSize = 3;
                 ammoCounter = clipSize;
-                reloadingTime = 10.8f;
+                reloadingTime = 1.8f;
                 break;
 
             default:
                 Debug.Log("Pistol");
                 clipSize = 6;
                 ammoCounter = clipSize;
-                reloadingTime = 10.0f;
+                reloadingTime = 1.0f;
                 break;
         }
     }
