@@ -1,0 +1,26 @@
+PowerUpit.
+
+Pistooli/kivääri. 
+Lipas: 6.
+Tulinopeus: Puoliautomaatti.
+Lataus nopeus: Normi.
+
+Rynnäkkökivääri.
+Lipas: 30
+Tulinopeus: automaatti.
+Latausnopeus: normi.
+
+Haulikko.
+Lipas: 6
+Tulinopeus: Kerta.
+Latausnopeus: 
+Hidas (Ammustenvälissä)
+Normaali (kun lipas on tyhjä.)
+
+Miniohjus.
+Lipas: 3.
+Tulinopaus: Kerta.
+Latausnopeus:
+Normaali (Ammustenvälissä)
+Hidas (kun lipas on tyhjä)
+
