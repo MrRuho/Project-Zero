@@ -20,7 +20,7 @@ public class Player : MonoBehaviour {
 
     private float jumpPowerOrginal;
     private bool hasJumped;
-   
+    private bool sliding = false;
     //References
     public GameObject blood;
     public Transform wallCheckPoint;
@@ -37,6 +37,7 @@ public class Player : MonoBehaviour {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
 
+        //maarittaa capsulecolliderin koon heron ollessa pystyasenossa.
         capsuleCollider2D = gameObject.GetComponent<CapsuleCollider2D>();
         if (capsuleCollider2D != null)
         {
@@ -56,18 +57,16 @@ public class Player : MonoBehaviour {
         anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
 
         //--- Kyykky tai liuku. Start. Muuttaa capsuleCollider2D kokoa ja suuntaa.---
-        if (Input.GetKeyDown("z"))
+        if (Input.GetKeyDown("z") && grounded && !sliding)
         {
+            sliding = true;
             capsuleCollider2D.size = new Vector3(0.9f, 0.5f, 0);
             capsuleCollider2D.offset = new Vector3(0, -0.19f, 0);
             capsuleCollider2D.direction = CapsuleDirection2D.Horizontal;
+            anim.SetBool("Slide", true);
+            // Slide animaation loputtua Animation kaynnistaa SlideEnds() eventin joka palauttaa capsulecolliderin normaaliksi.
         }
-        if (Input.GetKeyUp("z"))
-        {
-            capsuleCollider2D.size = new Vector3(0.58f, 0.9f, 0);
-            capsuleCollider2D.offset = new Vector3(0, 0, 0);
-            capsuleCollider2D.direction = CapsuleDirection2D.Vertical;
-        }
+
         //---- kyyky tai liuku. end ---
 
         if (Input.GetAxis("Horizontal") < -0.1f)
@@ -84,7 +83,7 @@ public class Player : MonoBehaviour {
             facingRight = true;
         }
         // ------------------------- double jump Start ----------------------
-        if (Input.GetButtonDown("Jump")&& !wallSliding)
+        if (Input.GetButtonDown("Jump")&& !wallSliding && !sliding)
         {
 
             if (grounded)
@@ -162,6 +161,16 @@ public class Player : MonoBehaviour {
 
     }
     //---------------------- wall climping jumping end ----------------------------
+
+    // Slide animaation loputtua Animation kaynnistaa taman eventin.
+    void SlideEnds()
+    {
+        capsuleCollider2D.size = new Vector3(0.58f, 0.9f, 0);
+        capsuleCollider2D.offset = new Vector3(0, 0, 0);
+        capsuleCollider2D.direction = CapsuleDirection2D.Vertical;
+        anim.SetBool("Slide", false);
+        sliding = false;
+    }
 
     private void FixedUpdate()
     {

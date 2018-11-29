@@ -27,22 +27,6 @@ public class Player_Bullet : MonoBehaviour {
         }
     }
 
-   /* void OnTriggerEnter2D( Collider2D collision)
-      {
-          if (collision.isTrigger == false)
-          {
-              Enemy enemy = collision.GetComponent<Enemy>();
-
-              if (enemy != null)
-              {
-                  Instantiate(blood, transform.position, transform.rotation); // NOTE. veriroiskahduksen lopullinen kulma asennetaan BloodSplachConrol.cs:ssa.
-                  enemy.TakeDamage(damage);  
-              }
-              Destroy(gameObject);
-              Instantiate(impactEffect, transform.position, transform.rotation);
-          }
-      }*/
-
     void OnCollisionEnter2D(Collision2D collision)
     {
        
