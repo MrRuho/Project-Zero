@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Player_Weapons : MonoBehaviour {
 
-    private float reloadingTime = 0;
-
+    private float fireRateControl = 0.0f;
+    private float canFireAgain = 0.0f;
+    private float reloadingTime = 0.0f;
+   
     private int clipSize = 0;
     private int ammoCounter = 0;
     private int weaponSwitch = 0;
@@ -14,36 +16,48 @@ public class Player_Weapons : MonoBehaviour {
     
     public Transform firepoint;
     public GameObject bulletPrefab;
+    
 
     private void Start()
     {
-        WeaponSwitcher(0);
+        WeaponSwitcher(1);
     }
 
     void Update ()
     {
-        
-        
-
         // Kaantaa ampumapistetta siihen suntaan mihin hahmo katsoo. Estaa nain ampumasta itseaan.
         if (Input.GetKeyDown("left"))
         {
-            transform.localEulerAngles = new Vector3(0f, 180f, 0f);
-            
+            transform.localEulerAngles = new Vector3(0f, 180f, 0f);  
         }
 
         if (Input.GetKeyDown("right"))
         {
             transform.localEulerAngles = new Vector3(0f, 0f, 0f);
-           
         }
 
-        // Pistol aseen ammunta.
-        if (Input.GetButtonDown("Fire2")&& ammoCounter >0 && weaponSwitch == 0)
+        // Pistol aseen ammunta. WeaponSwitcher(0);
+        if (weaponSwitch == 0)
         {
-            Debug.Log(ammoCounter);
-            Shoot();
-            ammoCounter -= 1;
+            if (Input.GetButtonDown("Fire2") && ammoCounter > 0)
+            {
+                Debug.Log(ammoCounter);
+                Shoot();
+                ammoCounter -= 1;
+            }
+        }
+
+        //AssaultRifle aseen ammunta. WeaponSwitcher(1); 
+        if (weaponSwitch == 1)
+        { 
+            if (Input.GetButton("Fire2") && ammoCounter > 0 && canFireAgain >= fireRateControl)
+            {
+                Debug.Log(ammoCounter);
+                Shoot();
+                ammoCounter -= 1;
+                canFireAgain = 0.0f;
+                StartCoroutine(FireRate());
+            }
         }
 
         // aseen lataus kaynnistyy aseen ollessa tyhja.
@@ -53,7 +67,13 @@ public class Player_Weapons : MonoBehaviour {
             Debug.Log("Reloading");
             StartCoroutine(Reloading());
         }
-
+    }
+    // aseiden tulinopeus kontrolli.
+    IEnumerator FireRate()
+    {
+        yield return new WaitForSeconds(fireRateControl);
+        canFireAgain = fireRateControl;
+        yield return canFireAgain;
     }
 
     //Aseiden lataus Coroutine.
@@ -77,7 +97,9 @@ public class Player_Weapons : MonoBehaviour {
                 Debug.Log("AssaultRifle");
                 clipSize = 30;
                 ammoCounter = clipSize;
-                reloadingTime = 1.2f;
+                fireRateControl = 0.1f;
+                canFireAgain = fireRateControl;
+                reloadingTime = 2.0f;
                 break;
 
             case 2:
@@ -107,5 +129,4 @@ public class Player_Weapons : MonoBehaviour {
     {
         Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
     }
-
 }
