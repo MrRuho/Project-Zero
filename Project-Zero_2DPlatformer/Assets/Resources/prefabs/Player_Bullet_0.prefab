@@ -106,8 +106,6 @@ MonoBehaviour:
   impactEffect: {fileID: 1760181664762744, guid: 3c4859aa456373b4e852226a7ed29547,
     type: 2}
   blood: {fileID: 1737175324586798, guid: e0aa04285de127245b1483f9ce168d61, type: 2}
-  tilemapGameObject: {fileID: 1094293167782486, guid: 7d401bd514c23e747b4cf4f47a63afb4,
-    type: 2}
 --- !u!212 &212006726851319410
 SpriteRenderer:
   m_ObjectHideFlags: 1

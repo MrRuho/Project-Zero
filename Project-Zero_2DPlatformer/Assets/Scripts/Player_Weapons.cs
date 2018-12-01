@@ -15,12 +15,12 @@ public class Player_Weapons : MonoBehaviour {
     private bool reloadingWait = false;
     
     public Transform firepoint;
-    public GameObject bulletPrefab;
+    GameObject bulletPrefab;
     
 
     private void Start()
     {
-        WeaponSwitcher(1);
+        WeaponSwitcher(1); 
     }
 
     void Update ()
@@ -70,7 +70,7 @@ public class Player_Weapons : MonoBehaviour {
     }
     // aseiden tulinopeus kontrolli.
     IEnumerator FireRate()
-    {
+    { 
         yield return new WaitForSeconds(fireRateControl);
         canFireAgain = fireRateControl;
         yield return canFireAgain;
@@ -95,17 +95,20 @@ public class Player_Weapons : MonoBehaviour {
         {
             case 1:
                 Debug.Log("AssaultRifle");
-                clipSize = 30;
+                clipSize = 15;
                 ammoCounter = clipSize;
-                fireRateControl = 0.1f;
+                fireRateControl = 0.09f;
                 canFireAgain = fireRateControl;
                 reloadingTime = 2.0f;
+                bulletPrefab = (GameObject)Resources.Load("prefabs/Player_Bullet_0", typeof(GameObject));
                 break;
 
             case 2:
                 Debug.Log("Shotgun");
                 clipSize = 6;
                 ammoCounter = clipSize;
+                fireRateControl = 0.3f;
+                canFireAgain = fireRateControl;
                 reloadingTime = 1.5f;
                 break;
 
@@ -121,6 +124,7 @@ public class Player_Weapons : MonoBehaviour {
                 clipSize = 6;
                 ammoCounter = clipSize;
                 reloadingTime = 1.0f;
+                bulletPrefab = (GameObject)Resources.Load("prefabs/Player_Bullet_0", typeof(GameObject));
                 break;
         }
     }
