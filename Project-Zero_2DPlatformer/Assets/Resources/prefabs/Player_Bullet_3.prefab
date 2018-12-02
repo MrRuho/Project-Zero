@@ -41,8 +41,9 @@ GameObject:
   - component: {fileID: 61990616583262780}
   - component: {fileID: 250938129105333956}
   - component: {fileID: 114931743610889334}
+  - component: {fileID: 114311832872512732}
   m_Layer: 0
-  m_Name: Player_Bullet_1
+  m_Name: Player_Bullet_3
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,6 +121,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.8837526, y: 1.6296577}
   m_EdgeRadius: 0
+--- !u!114 &114311832872512732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1220934330518120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26bdd8b706b10f8468f36cb469e042df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactEffect: {fileID: 1683138344308704, guid: 5ee5ba8da5887534dbf8bbd005709641,
+    type: 2}
 --- !u!114 &114931743610889334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,9 +146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  damage: 40
+  damage: 100
   rb2d: {fileID: 50170739401837604}
-  impactEffect: {fileID: 1760181664762744, guid: 3c4859aa456373b4e852226a7ed29547,
+  impactEffect: {fileID: 1683138344308704, guid: 5ee5ba8da5887534dbf8bbd005709641,
     type: 2}
   blood: {fileID: 1737175324586798, guid: e0aa04285de127245b1483f9ce168d61, type: 2}
 --- !u!198 &198328847872302574

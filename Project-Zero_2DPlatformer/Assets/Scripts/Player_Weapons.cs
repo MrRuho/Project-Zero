@@ -13,6 +13,7 @@ public class Player_Weapons : MonoBehaviour {
     private int weaponSwitch = 0;
     
     private bool reloadingWait = false;
+    private bool automatic = false;
     
     public Transform firepoint;
     GameObject bulletPrefab;
@@ -20,7 +21,7 @@ public class Player_Weapons : MonoBehaviour {
 
     private void Start()
     {
-        WeaponSwitcher(1); 
+        WeaponSwitcher(3); 
     }
 
     void Update ()
@@ -36,19 +37,21 @@ public class Player_Weapons : MonoBehaviour {
             transform.localEulerAngles = new Vector3(0f, 0f, 0f);
         }
 
-        // Pistol aseen ammunta. WeaponSwitcher(0);
-        if (weaponSwitch == 0)
+        // Ei automaattiset aseet.
+        if (automatic == false)
         {
-            if (Input.GetButtonDown("Fire2") && ammoCounter > 0)
+            if (Input.GetButtonDown("Fire2") && ammoCounter > 0 && canFireAgain >= fireRateControl)
             {
                 Debug.Log(ammoCounter);
                 Shoot();
                 ammoCounter -= 1;
+                canFireAgain = 0.0f;
+                StartCoroutine(FireRate());
             }
         }
 
-        //AssaultRifle aseen ammunta. WeaponSwitcher(1); 
-        if (weaponSwitch == 1)
+        //Automaatti aseet.
+        if (automatic == true)
         { 
             if (Input.GetButton("Fire2") && ammoCounter > 0 && canFireAgain >= fireRateControl)
             {
@@ -96,35 +99,44 @@ public class Player_Weapons : MonoBehaviour {
             case 1:
                 Debug.Log("AssaultRifle");
                 clipSize = 15;
-                ammoCounter = clipSize;
-                fireRateControl = 0.09f;
-                canFireAgain = fireRateControl;
+                fireRateControl = 0.15f;
                 reloadingTime = 2.0f;
-                bulletPrefab = (GameObject)Resources.Load("prefabs/Player_Bullet_1", typeof(GameObject));
+                ammoCounter = clipSize;
+                canFireAgain = fireRateControl;
+                bulletPrefab = (GameObject)Resources.Load("prefabs/Player_Bullet_0", typeof(GameObject));
+                automatic = true;
                 break;
 
             case 2:
                 Debug.Log("Shotgun");
                 clipSize = 6;
-                ammoCounter = clipSize;
-                fireRateControl = 0.3f;
-                canFireAgain = fireRateControl;
+                fireRateControl = 0.3f;  
                 reloadingTime = 1.5f;
+                ammoCounter = clipSize;
+                canFireAgain = fireRateControl;
+                automatic = false;
                 break;
 
             case 3:
                 Debug.Log("Missile Laucher");
                 clipSize = 3;
-                ammoCounter = clipSize;
+                fireRateControl = 0.3f;
                 reloadingTime = 1.8f;
+                ammoCounter = clipSize;
+                canFireAgain = fireRateControl;
+                bulletPrefab = (GameObject)Resources.Load("prefabs/Player_Bullet_3", typeof(GameObject));
+                automatic = false;
                 break;
 
             default:
                 Debug.Log("Pistol");
                 clipSize = 6;
-                ammoCounter = clipSize;
+                fireRateControl = 0.0f;
                 reloadingTime = 1.0f;
+                ammoCounter = clipSize;
+                canFireAgain = fireRateControl;
                 bulletPrefab = (GameObject)Resources.Load("prefabs/Player_Bullet_0", typeof(GameObject));
+                automatic = false;
                 break;
         }
     }
