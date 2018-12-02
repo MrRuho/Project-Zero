@@ -100,7 +100,7 @@ public class Player_Weapons : MonoBehaviour {
                 fireRateControl = 0.09f;
                 canFireAgain = fireRateControl;
                 reloadingTime = 2.0f;
-                bulletPrefab = (GameObject)Resources.Load("prefabs/Player_Bullet_0", typeof(GameObject));
+                bulletPrefab = (GameObject)Resources.Load("prefabs/Player_Bullet_1", typeof(GameObject));
                 break;
 
             case 2:
