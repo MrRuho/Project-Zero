@@ -2,8 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Bullet_ShotGun : MonoBehaviour {
+public class Player_Bullet_ShotGun : MonoBehaviour
+{
+/*    - Aseen spawn pisteestä(se kohta mistä ammukset lähtee) ilmestyy luoteja 50 kpl peräkanaa.Haulien välissä on pieni satunnainen tulo ja jokainen
+ hauli saa oman satunnaisen ammuntakulman tietyllä välillä.
 
+- for looppi toimii niin kauan kunnes kaikki haulit on ammuttu piipusta ulos.
+
+
+*** For loopin sisällä ***
+- Haulin satunnainen ammuntakulma.
+- Haulin satunnainen odotus ennen seuraavan haulin ulostuloa.
+- Hauli laskuri.
+wait for randon seconds.
+spawn bullet randon angle.
+ *******************************
+Ammunnan jälkeen on lataustauko kunnes ammunta on jälleen mahdollinen.
+    
+
+int haulit. 
+-----------*/
     public int pelletCount;
     public float spreadAngle;
     public float pelletFireVel;
