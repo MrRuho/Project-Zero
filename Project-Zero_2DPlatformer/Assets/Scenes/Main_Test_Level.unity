@@ -208,6 +208,11 @@ Prefab:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114139141115718468, guid: 682a025eb79dbae4b86789a340910cd4,
+        type: 2}
+      propertyPath: weapon
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
   m_IsPrefabAsset: 0

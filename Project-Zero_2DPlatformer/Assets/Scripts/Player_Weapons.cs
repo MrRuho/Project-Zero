@@ -7,7 +7,8 @@ public class Player_Weapons : MonoBehaviour {
     private float fireRateControl = 0.0f;
     private float canFireAgain = 0.0f;
     private float reloadingTime = 0.0f;
-   
+
+    public int weapon = 0; //Valiaikainen aseenvaihto editorin kautta.
     private int clipSize = 0;
     private int ammoCounter = 0;
     private int weaponSwitch = 0;
@@ -21,11 +22,13 @@ public class Player_Weapons : MonoBehaviour {
 
     private void Start()
     {
-        WeaponSwitcher(3); 
+        WeaponSwitcher(weapon); //Valiaikainen aseenvaihto editorin kautta.
     }
 
     void Update ()
     {
+        
+
         // Kaantaa ampumapistetta siihen suntaan mihin hahmo katsoo. Estaa nain ampumasta itseaan.
         if (Input.GetKeyDown("left"))
         {
