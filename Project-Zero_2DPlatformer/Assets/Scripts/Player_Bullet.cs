@@ -32,6 +32,7 @@ public class Player_Bullet : MonoBehaviour {
             }
         }
         Instantiate(impactEffect, transform.position, transform.rotation);
+        // HUOM! Objecti tuhotaan palapalata, jotta partikkeli efekti ei tuhoutuisi mukana. 
         Destroy(GetComponent<Rigidbody>());
         Destroy(GetComponent<BoxCollider2D>());
         Destroy(GetComponent<SpriteRenderer>());
