@@ -27,8 +27,6 @@ public class Player_Weapons : MonoBehaviour {
 
     void Update ()
     {
-        
-
         // Kaantaa ampumapistetta siihen suntaan mihin hahmo katsoo. Estaa nain ampumasta itseaan.
         if (Input.GetKeyDown("left"))
         {

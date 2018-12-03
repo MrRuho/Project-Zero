@@ -32,11 +32,17 @@ public class Player_Bullet : MonoBehaviour {
             }
         }
         Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(gameObject);
+        Destroy(GetComponent<Rigidbody>());
+        Destroy(GetComponent<BoxCollider2D>());
+        Destroy(GetComponent<SpriteRenderer>());
+        Destroy(gameObject, 1);
     }
 
     void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        Destroy(GetComponent<Rigidbody>());
+        Destroy(GetComponent<BoxCollider2D>());
+        Destroy(GetComponent<SpriteRenderer>());
+        Destroy(gameObject, 1);
     }
 }
