@@ -163,29 +163,19 @@ public class Player_Weapons : MonoBehaviour {
         Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
     }
 
-   /* void ShotGunShoot(int shotgunPulletsCount)
-    {
-        for (int i = 0; i < shotgunPulletsCount;)
-        {
-            float randomaiser = Random.Range(50, -50);
-            firepoint.transform.eulerAngles = new Vector3(0, 0, randomaiser);
-       
-            Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
-            i++;
-        }
-       
-    }*/
     IEnumerator ShotGunShoot(int shotgunPulletsCount)
     {
        
-        for (int i = 0; i < shotgunPulletsCount;)
+        for (int i = 0; i < shotgunPulletsCount; i++)
         {
-            float randomaiser = Random.Range(50, -50);
-            firepoint.transform.eulerAngles = new Vector3(0, 0, randomaiser);
-            float wait_time = Random.Range(0.001f, 0.009f);
+            float angleRandomaiser = Random.Range(-3.0f, 8.0f);
+            float positonRandomiser = Random.Range(0.1f, -0.1f);
+            firepoint.localPosition = new Vector3(0.52f, positonRandomiser, 0);
+            firepoint.transform.eulerAngles = new Vector3(0.0f, 0.0f, angleRandomaiser);
+            float wait_time = Random.Range(0.0f, 0.0f);
             yield return new WaitForSeconds(wait_time);
             Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
-            i++;
+            
         }
     }
 }

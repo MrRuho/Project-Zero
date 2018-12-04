@@ -11,17 +11,25 @@ public class Player_Bullet : MonoBehaviour {
     public GameObject blood;
 
     Player_Bullet bullet;
-
+ 
     // Use this for initialization
     void Start ()
     {
         rb2d.velocity = transform.right * speed;
-        
-        Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), bullet.GetComponent<Collider2D>(), true);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
-    {   
+    {
+
+        if (collision.gameObject.tag != "Bullet" || collision.gameObject.tag != "Player")
+        {
+            Instantiate(impactEffect, transform.position, transform.rotation);
+            // HUOM! Objecti tuhotaan palapalata, jotta partikkeli efekti ei tuhoutuisi mukana. 
+            Destroy(GetComponent<Rigidbody>());
+            Destroy(GetComponent<BoxCollider2D>());
+            Destroy(GetComponent<SpriteRenderer>());
+            Destroy(gameObject, 1);
+        }
         if (collision.gameObject.tag == "Enemy")
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
@@ -33,12 +41,7 @@ public class Player_Bullet : MonoBehaviour {
                 enemy.TakeDamage(damage);
             }
         }
-        Instantiate(impactEffect, transform.position, transform.rotation);
-        // HUOM! Objecti tuhotaan palapalata, jotta partikkeli efekti ei tuhoutuisi mukana. 
-        Destroy(GetComponent<Rigidbody>());
-        Destroy(GetComponent<BoxCollider2D>());
-        Destroy(GetComponent<SpriteRenderer>());
-        Destroy(gameObject, 1);
+       
     }
 
     void OnBecameInvisible()

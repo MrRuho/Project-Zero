@@ -28,6 +28,7 @@ public class Player_Bullet_Missile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+ 
         if (collision.gameObject.tag == "Ground")
         {
             Vector3 hitPosition = Vector3.zero;
