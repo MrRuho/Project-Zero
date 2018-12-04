@@ -16,6 +16,8 @@ public class Player_Bullet : MonoBehaviour {
     void Start ()
     {
         rb2d.velocity = transform.right * speed;
+        
+        Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), bullet.GetComponent<Collider2D>(), true);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

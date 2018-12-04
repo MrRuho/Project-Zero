@@ -196,7 +196,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.558
+      value: 0.5579996
       objectReference: {fileID: 0}
     - target: {fileID: 1671605940706854, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
       propertyPath: m_Icon
@@ -211,7 +211,48 @@ Prefab:
     - target: {fileID: 114139141115718468, guid: 682a025eb79dbae4b86789a340910cd4,
         type: 2}
       propertyPath: weapon
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114139141115718468, guid: 682a025eb79dbae4b86789a340910cd4,
+        type: 2}
+      propertyPath: shotgunPulletsCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662288450742986, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
