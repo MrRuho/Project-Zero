@@ -211,7 +211,7 @@ Prefab:
     - target: {fileID: 114139141115718468, guid: 682a025eb79dbae4b86789a340910cd4,
         type: 2}
       propertyPath: weapon
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114139141115718468, guid: 682a025eb79dbae4b86789a340910cd4,
         type: 2}

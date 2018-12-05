@@ -20,16 +20,7 @@ public class Player_Bullet : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if (collision.gameObject.tag != "Bullet" || collision.gameObject.tag != "Player")
-        {
-            Instantiate(impactEffect, transform.position, transform.rotation);
-            // HUOM! Objecti tuhotaan palapalata, jotta partikkeli efekti ei tuhoutuisi mukana. 
-            Destroy(GetComponent<Rigidbody>());
-            Destroy(GetComponent<BoxCollider2D>());
-            Destroy(GetComponent<SpriteRenderer>());
-            Destroy(gameObject, 1);
-        }
+   
         if (collision.gameObject.tag == "Enemy")
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
@@ -41,7 +32,16 @@ public class Player_Bullet : MonoBehaviour {
                 enemy.TakeDamage(damage);
             }
         }
-       
+
+        if (collision.gameObject.tag != "Bullet" || collision.gameObject.tag != "Player")
+        {
+            Instantiate(impactEffect, transform.position, transform.rotation);
+            // HUOM! Objecti tuhotaan palapalalta, jotta partikkeli efekti ei tuhoutuisi mukana. 
+            Destroy(GetComponent<Rigidbody>());
+            Destroy(GetComponent<BoxCollider2D>());
+            Destroy(GetComponent<SpriteRenderer>());
+            Destroy(gameObject, 1);
+        }
     }
 
     void OnBecameInvisible()
