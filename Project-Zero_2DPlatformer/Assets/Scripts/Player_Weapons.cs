@@ -26,7 +26,8 @@ public class Player_Weapons : MonoBehaviour {
     private void Start()
     {
         weaponSynck = weapon;
-      //  WeaponSwitcher(weapon); //Valiaikainen aseenvaihto editorin kautta.
+        WeaponSwitcher(weapon); // asettaa pelaajan aloitus aseen.
+        //  WeaponSwitcher(weapon); //Valiaikainen aseenvaihto editorin kautta.
     }
 
     void Update ()
