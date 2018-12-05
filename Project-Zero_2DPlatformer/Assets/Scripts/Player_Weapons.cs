@@ -7,7 +7,7 @@ public class Player_Weapons : MonoBehaviour {
     private float fireRateControl = 0.0f;
     private float canFireAgain = 0.0f;
     private float reloadingTime = 0.0f;
-
+    private float facingDirection = 0f;
     
     private int clipSize = 0;
     private int ammoCounter = 0;
@@ -32,12 +32,14 @@ public class Player_Weapons : MonoBehaviour {
         // Kaantaa ampumapistetta siihen suntaan mihin hahmo katsoo. Estaa nain ampumasta itseaan.
         if (Input.GetKeyDown("left"))
         {
-            transform.localEulerAngles = new Vector3(0f, 180f, 0f);  
+            transform.localEulerAngles = new Vector3(0f, 180f, 0f);
+            facingDirection = 180f;
         }
 
         if (Input.GetKeyDown("right"))
         {
             transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+            facingDirection = 0f;
         }
 
         // Ei automaattiset aseet.
@@ -72,7 +74,7 @@ public class Player_Weapons : MonoBehaviour {
             if (Input.GetButtonDown("Fire2") && ammoCounter > 0 && canFireAgain >= fireRateControl)
             {
                 Debug.Log(ammoCounter);
-                StartCoroutine(ShotGunShoot(10));
+                StartCoroutine(ShotGunShoot(15));
                 ammoCounter -= 1;
                 canFireAgain = 0.0f;
                 StartCoroutine(FireRate());
@@ -164,18 +166,19 @@ public class Player_Weapons : MonoBehaviour {
     }
 
     IEnumerator ShotGunShoot(int shotgunPulletsCount)
-    {
-       
+    {    
         for (int i = 0; i < shotgunPulletsCount; i++)
         {
-            float angleRandomaiser = Random.Range(-3.0f, 8.0f);
-            float positonRandomiser = Random.Range(0.1f, -0.1f);
-            firepoint.localPosition = new Vector3(0.52f, positonRandomiser, 0);
-            firepoint.transform.eulerAngles = new Vector3(0.0f, 0.0f, angleRandomaiser);
+            float angleRandomaiser = Random.Range(-5.0f, 12.0f);
+            float positonRandomiserY = Random.Range(0.3f, -0.3f);
+            float positonRandomiserX = Random.Range(1.52f, 0.52f);
+            firepoint.localPosition = new Vector3(positonRandomiserX, positonRandomiserY, 0);
+            firepoint.transform.eulerAngles = new Vector3(0.0f, facingDirection, angleRandomaiser);
             float wait_time = Random.Range(0.0f, 0.0f);
-            yield return new WaitForSeconds(wait_time);
             Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
-            
+  
         }
+        firepoint.localPosition = new Vector3(0.68f, facingDirection, 0);
+        yield return firepoint.localPosition;
     }
 }
