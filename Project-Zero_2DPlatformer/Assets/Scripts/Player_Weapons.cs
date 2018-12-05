@@ -12,7 +12,8 @@ public class Player_Weapons : MonoBehaviour {
     private int clipSize = 0;
     private int ammoCounter = 0;
     private int weaponSwitch = 0;
-    public int weapon = 0; //Valiaikainen aseenvaihto editorin kautta.
+    private int weaponSynck = 0; // mikäli tämä arvo on eri kuin weapon niin käynnistää aseen vaihto koodin  ** void WeaponSwitcher(int CurrentWeapon) **
+    public static int weapon = 0; //Valiaikainen aseenvaihto editorin kautta.
    
 
     private bool reloadingWait = false;
@@ -24,11 +25,19 @@ public class Player_Weapons : MonoBehaviour {
 
     private void Start()
     {
-        WeaponSwitcher(weapon); //Valiaikainen aseenvaihto editorin kautta.
+        weaponSynck = weapon;
+      //  WeaponSwitcher(weapon); //Valiaikainen aseenvaihto editorin kautta.
     }
 
     void Update ()
     {
+        if (weaponSynck != weapon)
+        {
+            Debug.Log("NewPowerUp");
+            WeaponSwitcher(weapon);
+            weaponSynck = weapon;
+        }
+
         // Kaantaa ampumapistetta siihen suntaan mihin hahmo katsoo. Estaa nain ampumasta itseaan.
         if (Input.GetKeyDown("left"))
         {
@@ -174,9 +183,7 @@ public class Player_Weapons : MonoBehaviour {
             float positonRandomiserX = Random.Range(1.52f, 0.52f);
             firepoint.localPosition = new Vector3(positonRandomiserX, positonRandomiserY, 0);
             firepoint.transform.eulerAngles = new Vector3(0.0f, facingDirection, angleRandomaiser);
-            float wait_time = Random.Range(0.0f, 0.0f);
             Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
-  
         }
         firepoint.localPosition = new Vector3(0.68f, facingDirection, 0);
         yield return firepoint.localPosition;

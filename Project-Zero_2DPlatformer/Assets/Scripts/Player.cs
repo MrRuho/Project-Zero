@@ -106,9 +106,7 @@ public class Player : MonoBehaviour {
                     rb2d.AddForce(Vector2.up * doubleJumpPower);
                     hasJumped = true;
                 }
-
-            }
-     
+            }   
         } // -----------------------double jump End -------------------------
 
         if (curHealth > maxHealth)
@@ -158,7 +156,6 @@ public class Player : MonoBehaviour {
                 rb2d.AddForce(new Vector2(1, 2) * jumpPower);
             }
         }
-
     }
     //---------------------- wall climping jumping end ----------------------------
 
@@ -204,8 +201,7 @@ public class Player : MonoBehaviour {
         if (rb2d.velocity.x < -maxSpeed)
         {
             rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
-        }
-       
+        }    
     }
 
     void Die()
@@ -229,14 +225,12 @@ public class Player : MonoBehaviour {
     public void Damage(int dmg)
     {
         curHealth -= dmg;
-        gameObject.GetComponent<Animation>().Play("Player_RedFlash");
-        
+        gameObject.GetComponent<Animation>().Play("Player_RedFlash");   
     }
 
     // Aktivoituu pelajaan saadessa vahinkoa.
     public IEnumerator KnockBack(float knockDur, float knockBackPwr, Vector3 knockBackDir)
     {
-
         float timer = 0;
         rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
         while (knockDur > timer)
@@ -246,7 +240,6 @@ public class Player : MonoBehaviour {
             rb2d.AddForce(new Vector3(knockBackDir.x * -100, knockBackDir.y * knockBackPwr, transform.position.z));
         }
         yield return 0;
-
     }
     //--------------------------------------------
     void OnTriggerEnter2D(Collider2D collision)
@@ -256,12 +249,10 @@ public class Player : MonoBehaviour {
             Destroy(collision.gameObject);
             gameMaster.points += 1;
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
+    {      
         if (playerCanDieIfHitsWall)
         {
             curHealth = 0;

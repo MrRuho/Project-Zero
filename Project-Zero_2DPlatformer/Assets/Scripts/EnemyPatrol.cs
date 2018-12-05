@@ -47,8 +47,7 @@ public class EnemyPatrol : Enemy {
         Debug.DrawRay(transform.position, Vector2.zero, Color.yellow);
         
         if (getHit == false)
-        {
-            
+        {   
             AttackDirectionControl();
             if (groundInfo.collider == false | wallInfo.collider == true )
             {
