@@ -42,7 +42,9 @@ public class EnemyPatrol : Enemy {
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position,Vector2.down, 0.1f);
         RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.zero, 0.1f, layerMask);
-     
+
+       
+
         Debug.DrawRay(transform.position, Vector2.down, Color.white);
         Debug.DrawRay(transform.position, Vector2.zero, Color.yellow);
         
@@ -66,31 +68,38 @@ public class EnemyPatrol : Enemy {
     }
 
     void AttackDirectionControl()
-    { 
+    {
+        RaycastHit2D PlayerDetectorRight = Physics2D.Raycast(meleeAttackZone.position, Vector2.right, 5.0f);
+        RaycastHit2D PlayerDetectorLeft = Physics2D.Raycast(meleeAttackZone.position, Vector2.left, 5.0f);
         if (getHit == false)
         {
             if (movingRight == true)
             {
-                RaycastHit2D meleeInfo = Physics2D.Raycast(meleeAttackZone.position, Vector2.right, 5.0f);
+               // RaycastHit2D PlayerDetectorRight = Physics2D.Raycast(meleeAttackZone.position, Vector2.right, 5.0f);
                 Debug.DrawRay(transform.position, Vector2.right, Color.red);
-               
-                    if (meleeInfo.collider.gameObject.tag == "Player")
+
+                if (PlayerDetectorRight.collider != null)
+                {
+                    if (PlayerDetectorRight.collider.gameObject.tag == "Player")
                     {
                         speed = -4;
                     }
-                    else
-                    {
-                        speed = -1;
-                    }   
+                }
+                else
+                {
+                    speed = -1;
+                }
             }
             if (movingRight == false)
             {
-                RaycastHit2D meleeInfo = Physics2D.Raycast(meleeAttackZone.position, Vector2.left, 5.0f);
+                //RaycastHit2D PlayerDetectorLeft = Physics2D.Raycast(meleeAttackZone.position, Vector2.left, 5.0f);
                 Debug.DrawRay(transform.position, Vector2.left, Color.red);
-
-                if (meleeInfo.collider.gameObject.tag == "Player")
+                if (PlayerDetectorLeft.collider != null)
                 {
-                    speed = -4;
+                    if (PlayerDetectorLeft.collider.gameObject.tag == "Player")
+                    {
+                        speed = -4;
+                    }
                 }
                 else
                 {
