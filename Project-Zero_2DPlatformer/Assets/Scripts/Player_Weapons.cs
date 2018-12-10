@@ -53,6 +53,7 @@ public class Player_Weapons : MonoBehaviour {
         // Ei automaattiset aseet.
         if (automatic == false && weaponSwitch != 2)
         {
+            
             if (Input.GetButtonDown("Fire2") && ammoCounter > 0 && canFireAgain >= fireRateControl)
             {
                 Debug.Log(ammoCounter);
@@ -65,7 +66,8 @@ public class Player_Weapons : MonoBehaviour {
 
         //Automaatti aseet.
         if (automatic == true)
-        { 
+        {
+       
             if (Input.GetButton("Fire2") && ammoCounter > 0 && canFireAgain >= fireRateControl)
             {
                 Debug.Log(ammoCounter);
@@ -79,6 +81,7 @@ public class Player_Weapons : MonoBehaviour {
         //shotgun
         if (automatic == false && weaponSwitch == 2)
         {
+    
             if (Input.GetButtonDown("Fire2") && ammoCounter > 0 && canFireAgain >= fireRateControl)
             {
                 Debug.Log(ammoCounter);
@@ -183,8 +186,12 @@ public class Player_Weapons : MonoBehaviour {
             firepoint.localPosition = new Vector3(positonRandomiserX, positonRandomiserY, 0);
             firepoint.transform.eulerAngles = new Vector3(0.0f, facingDirection, angleRandomaiser);
             Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
+            FirepointReset();
         }
-        firepoint.localPosition = new Vector3(0.68f, facingDirection, 0);
-        yield return firepoint.localPosition;
+        yield return 0;
+    }
+    void FirepointReset() // palauttaa aseen normaaliin kulmaan ja asentoon.
+    {
+        firepoint.localPosition = new Vector3(0.68f, 0, 0);
     }
 }
