@@ -12,8 +12,8 @@ public class Player_Weapons : MonoBehaviour {
     private int clipSize = 0;
     private int ammoCounter = 0;
     private int weaponSwitch = 0;
-    private int weaponSynck = 0; // mikäli tämä arvo on eri kuin weapon niin käynnistää aseen vaihto koodin  ** void WeaponSwitcher(int CurrentWeapon) **
-    public static int weapon = 0; //Valiaikainen aseenvaihto editorin kautta.
+    private int weaponSynck = 0; // mikäli tämä arvo on eri kuin weapon niin käynnistää aseenvaihto koodin  ** void WeaponSwitcher(int CurrentWeapon) **
+    public static int weapon = 0; //PowerUps.cs asettaa tamaan arvon joka maarittaa mitä asetta käytetään.
    
 
     private bool reloadingWait = false;
@@ -25,18 +25,16 @@ public class Player_Weapons : MonoBehaviour {
 
     private void Start()
     {
-        weaponSynck = weapon;
         WeaponSwitcher(weapon); // asettaa pelaajan aloitus aseen.
-        //  WeaponSwitcher(weapon); //Valiaikainen aseenvaihto editorin kautta.
     }
 
     void Update ()
     {
         if (weaponSynck != weapon)
         {
-            Debug.Log("NewPowerUp");
-            WeaponSwitcher(weapon);
             weaponSynck = weapon;
+            Debug.Log("NewPowerUp");
+            WeaponSwitcher(weapon); 
         }
 
         // Kaantaa ampumapistetta siihen suntaan mihin hahmo katsoo. Estaa nain ampumasta itseaan.

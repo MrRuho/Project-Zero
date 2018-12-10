@@ -3,20 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerUps : MonoBehaviour {
-    public int currenPowerUp = 0;
-    public static int powerUp = 0; // 
-	// Use this for initialization
-	void Start ()
-    {
-        powerUp = currenPowerUp;
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        
-
-    }
+   
+    public int powerUp = 0; // Mikä ase Player_Weapons.cs valitaan.
 
     void OnCollisionEnter2D(Collision2D collision)
     {
