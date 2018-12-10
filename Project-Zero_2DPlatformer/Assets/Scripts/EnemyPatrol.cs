@@ -50,8 +50,7 @@ public class EnemyPatrol : Enemy {
         {   
             AttackDirectionControl();
             if (groundInfo.collider == false | wallInfo.collider == true )
-            {
-             
+            {      
                 if (movingRight == false)
                 {
                     transform.eulerAngles = new Vector3(0, -180, 0);
@@ -67,29 +66,29 @@ public class EnemyPatrol : Enemy {
     }
 
     void AttackDirectionControl()
-    {
+    { 
         if (getHit == false)
         {
             if (movingRight == true)
             {
                 RaycastHit2D meleeInfo = Physics2D.Raycast(meleeAttackZone.position, Vector2.right, 5.0f);
                 Debug.DrawRay(transform.position, Vector2.right, Color.red);
-
-                if (meleeInfo.collider == CompareTag("Player") == false) //NOTE! Toimii falsena.
-                {
-                    speed = -4;
-                }
-                else
-                {
-                    speed = -1;
-                }
+               
+                    if (meleeInfo.collider.gameObject.tag == "Player")
+                    {
+                        speed = -4;
+                    }
+                    else
+                    {
+                        speed = -1;
+                    }   
             }
-            else
+            if (movingRight == false)
             {
                 RaycastHit2D meleeInfo = Physics2D.Raycast(meleeAttackZone.position, Vector2.left, 5.0f);
                 Debug.DrawRay(transform.position, Vector2.left, Color.red);
 
-                if (meleeInfo.collider == CompareTag("Player") == false)
+                if (meleeInfo.collider.gameObject.tag == "Player")
                 {
                     speed = -4;
                 }
@@ -98,15 +97,6 @@ public class EnemyPatrol : Enemy {
                     speed = -1;
                 }
             }
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {  
-        if (collision.CompareTag("Bullet"))
-        {
-            getHit = true;
-            StartCoroutine(HasBeenHit());
         }
     }
 
@@ -119,6 +109,12 @@ public class EnemyPatrol : Enemy {
             Destroy(GetComponent<BoxCollider2D>());
             Destroy(GetComponent<Rigidbody2D>());
             ZombieDyingAnim();
+        }
+
+        if (collision.gameObject.tag == "Bullet")
+        {
+            getHit = true;
+            StartCoroutine(HasBeenHit());
         }
     }
 
