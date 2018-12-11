@@ -80,7 +80,7 @@ GameObject:
   m_Layer: 0
   m_Name: Fire_Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -145,8 +145,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1671605940706854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0.68, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4934503518167010}
   m_RootOrder: 3
@@ -158,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1027855933575632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.85, y: 5.48, z: 0}
+  m_LocalPosition: {x: -18.66, y: 5.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4271460732250438}
@@ -194,7 +194,7 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1493140794548380}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 4
-  speed: 50
+  speed: 5
   jumpPower: 250
   doubleJumpPower: 250
   curHealth: 5
@@ -339,7 +339,6 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  capsuleCollider2D: {fileID: 70066975934173712}
 --- !u!114 &114139141115718468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -352,8 +351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firepoint: {fileID: 4662288450742986}
-  bulletPrefab: {fileID: 1421482397874426, guid: dccb4e4d5a843064abbeb0c2e71b9820,
-    type: 2}
 --- !u!114 &114365546245269828
 MonoBehaviour:
   m_ObjectHideFlags: 1

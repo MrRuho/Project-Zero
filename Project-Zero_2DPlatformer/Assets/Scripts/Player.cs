@@ -41,8 +41,8 @@ public class Player : MonoBehaviour {
         capsuleCollider2D = gameObject.GetComponent<CapsuleCollider2D>();
         if (capsuleCollider2D != null)
         {
-            capsuleCollider2D.size = new Vector3(0.58f, 0.9f, 0);
-            capsuleCollider2D.offset = new Vector3(0, 0, 0);
+            capsuleCollider2D.size = new Vector3(0.58f, 1f, 0);
+            capsuleCollider2D.offset = new Vector3(0, 0.06f, 0);
             capsuleCollider2D.direction = CapsuleDirection2D.Vertical;
         }
 
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
        
         //--- Kyykky tai liuku. Start. Muuttaa capsuleCollider2D kokoa ja suuntaa.---
-        if (Input.GetKeyDown("z") && grounded && !sliding)
+        if (Input.GetKeyDown("x") && grounded && !sliding)
         {
             sliding = true;
             capsuleCollider2D.size = new Vector3(0.9f, 0.5f, 0);
@@ -71,7 +71,7 @@ public class Player : MonoBehaviour {
 
         //---- kyyky tai liuku. end ---
 
-        if (Input.GetAxis("Horizontal") < -0.1f)
+       /* if (Input.GetAxis("Horizontal") < -0.1f)
         {       
             transform.localScale = new Vector3(-1, 1, 1);
             facingRight = false;
@@ -81,7 +81,7 @@ public class Player : MonoBehaviour {
         {  
             transform.localScale = new Vector3(1, 1, 1);
             facingRight = true;
-        }
+        }*/
         // ------------------------- double jump Start ----------------------
         if (Input.GetButtonDown("Jump")&& !wallSliding && !sliding)
         {
@@ -161,8 +161,8 @@ public class Player : MonoBehaviour {
     // Slide animaation loputtua Animation kaynnistaa taman eventin.
     void SlideEnds()
     {
-        capsuleCollider2D.size = new Vector3(0.58f, 0.9f, 0);
-        capsuleCollider2D.offset = new Vector3(0, 0, 0);
+        capsuleCollider2D.size = new Vector3(0.58f, 1f, 0);
+        capsuleCollider2D.offset = new Vector3(0, 0.06f, 0);
         capsuleCollider2D.direction = CapsuleDirection2D.Vertical;
         anim.SetBool("Slide", false);
         sliding = false;
