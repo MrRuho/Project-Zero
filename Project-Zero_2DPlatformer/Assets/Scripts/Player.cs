@@ -54,8 +54,10 @@ public class Player : MonoBehaviour {
     void Update()
     {
         anim.SetBool("Grounded", grounded);
-        anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
+        anim.SetFloat("Speed", Mathf.Abs(speed * Time.deltaTime));
 
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
+       
         //--- Kyykky tai liuku. Start. Muuttaa capsuleCollider2D kokoa ja suuntaa.---
         if (Input.GetKeyDown("z") && grounded && !sliding)
         {
@@ -70,22 +72,19 @@ public class Player : MonoBehaviour {
         //---- kyyky tai liuku. end ---
 
         if (Input.GetAxis("Horizontal") < -0.1f)
-        {
-            
+        {       
             transform.localScale = new Vector3(-1, 1, 1);
             facingRight = false;
         }
 
         if (Input.GetAxis("Horizontal") > 0.1f)
-        {
-            
+        {  
             transform.localScale = new Vector3(1, 1, 1);
             facingRight = true;
         }
         // ------------------------- double jump Start ----------------------
         if (Input.GetButtonDown("Jump")&& !wallSliding && !sliding)
         {
-
             if (grounded)
             {
                 jumpPower = jumpPowerOrginal; //Pelaajan hyppyvoima palutuu normaaliksi pelaajan osuessa maahan. Esim sieni popistaa hyppyvoiman sinkoessaan pelaajan ilmaan.
