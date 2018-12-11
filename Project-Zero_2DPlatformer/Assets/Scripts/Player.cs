@@ -42,7 +42,7 @@ public class Player : MonoBehaviour {
         if (capsuleCollider2D != null)
         {
             capsuleCollider2D.size = new Vector3(0.58f, 1f, 0);
-            capsuleCollider2D.offset = new Vector3(0, 0.06f, 0);
+            capsuleCollider2D.offset = new Vector3(0.14f, 0.06f, 0);
             capsuleCollider2D.direction = CapsuleDirection2D.Vertical;
         }
 
@@ -162,7 +162,7 @@ public class Player : MonoBehaviour {
     void SlideEnds()
     {
         capsuleCollider2D.size = new Vector3(0.58f, 1f, 0);
-        capsuleCollider2D.offset = new Vector3(0, 0.06f, 0);
+        capsuleCollider2D.offset = new Vector3(0.14f, 0.06f, 0);
         capsuleCollider2D.direction = CapsuleDirection2D.Vertical;
         anim.SetBool("Slide", false);
         sliding = false;

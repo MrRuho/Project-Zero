@@ -678,6 +678,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &832096100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1493140794548380, guid: 682a025eb79dbae4b86789a340910cd4,
+    type: 2}
+  m_PrefabInternal: {fileID: 2018895370}
+--- !u!114 &832096101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 832096100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16710c06410ffdc409e0bb1ef9e427c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &852672351
 Prefab:
   m_ObjectHideFlags: 0
@@ -1805,7 +1821,41 @@ Prefab:
       propertyPath: speed
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 61226438218086114, guid: 682a025eb79dbae4b86789a340910cd4,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61226438218086114, guid: 682a025eb79dbae4b86789a340910cd4,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.20645142
+      objectReference: {fileID: 0}
+    - target: {fileID: 61226438218086114, guid: 682a025eb79dbae4b86789a340910cd4,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.0870142
+      objectReference: {fileID: 0}
+    - target: {fileID: 61226438218086114, guid: 682a025eb79dbae4b86789a340910cd4,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.73315144
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271460732250438, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493140794548380, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
+      propertyPath: m_Name
+      value: WallKill
+      objectReference: {fileID: 0}
+    - target: {fileID: 61226438218086114, guid: 682a025eb79dbae4b86789a340910cd4,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114899809217412324, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &2041893006
