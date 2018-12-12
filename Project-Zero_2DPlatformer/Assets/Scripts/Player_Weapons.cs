@@ -192,6 +192,6 @@ public class Player_Weapons : MonoBehaviour {
     }
     void FirepointReset() // palauttaa aseen normaaliin kulmaan ja asentoon.
     {
-        firepoint.localPosition = new Vector3(0.68f, 0, 0);
+        firepoint.localPosition = new Vector3(0.90f, 0, 0);
     }
 }
