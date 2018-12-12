@@ -25,7 +25,9 @@ public class Player_Weapons : MonoBehaviour {
 
     private void Start()
     {
-        WeaponSwitcher(weapon); // asettaa pelaajan aloitus aseen.
+        weapon = 0; // asettaa pelin alussa aseeen nollaksi.
+        weaponSynck = 0; // asettaa pelin alussa synkin nollaksi.
+        WeaponSwitcher(0); // asettaa pelaajan aloitus aseen.
     }
 
     void Update ()
@@ -85,7 +87,7 @@ public class Player_Weapons : MonoBehaviour {
             if (Input.GetButtonDown("Fire2") && ammoCounter > 0 && canFireAgain >= fireRateControl)
             {
                 Debug.Log(ammoCounter);
-                StartCoroutine(ShotGunShoot(15));
+                StartCoroutine(ShotGunShoot(10));
                 ammoCounter -= 1;
                 canFireAgain = 0.0f;
                 StartCoroutine(FireRate());
@@ -139,7 +141,7 @@ public class Player_Weapons : MonoBehaviour {
             case 2:
                 Debug.Log("Shotgun");
                 clipSize = 6;
-                fireRateControl = 0.3f;  
+                fireRateControl = 0.8f;  
                 reloadingTime = 1.5f;
                 ammoCounter = clipSize;
                 canFireAgain = fireRateControl;
@@ -182,7 +184,7 @@ public class Player_Weapons : MonoBehaviour {
         {
             float angleRandomaiser = Random.Range(-5.0f, 12.0f);
             float positonRandomiserY = Random.Range(0.3f, -0.3f);
-            float positonRandomiserX = Random.Range(1.52f, 0.52f);
+            float positonRandomiserX = Random.Range(1.52f, 0.90f);
             firepoint.localPosition = new Vector3(positonRandomiserX, positonRandomiserY, 0);
             firepoint.transform.eulerAngles = new Vector3(0.0f, facingDirection, angleRandomaiser);
             Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);

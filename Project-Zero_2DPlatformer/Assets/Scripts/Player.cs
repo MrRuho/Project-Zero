@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public float speed = 50f;
     public float jumpPower = 150f;
     public float doubleJumpPower = 200f;
+
     public int curHealth;
     public int maxHealth = 100;
     public bool grounded;
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour {
     public GameObject blood;
     public Transform wallCheckPoint;
     public LayerMask wallLayerMask;
-
+ 
     private CapsuleCollider2D capsuleCollider2D;
     private Rigidbody2D rb2d;
     private Animator anim;
@@ -54,10 +55,11 @@ public class Player : MonoBehaviour {
     void Update()
     {
         anim.SetBool("Grounded", grounded);
-        anim.SetFloat("Speed", Mathf.Abs(speed * Time.deltaTime));
+        anim.SetFloat("Speed", Mathf.Abs(speed));
+    
+        transform.Translate(speed * Time.deltaTime, 0,0);
+    
 
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
-       
         //--- Kyykky tai liuku. Start. Muuttaa capsuleCollider2D kokoa ja suuntaa.---
         if (Input.GetKeyDown("x") && grounded && !sliding)
         {
@@ -71,7 +73,7 @@ public class Player : MonoBehaviour {
 
         //---- kyyky tai liuku. end ---
 
-       /* if (Input.GetAxis("Horizontal") < -0.1f)
+      /*  if (Input.GetAxis("Horizontal") < -0.1f)
         {       
             transform.localScale = new Vector3(-1, 1, 1);
             facingRight = false;
