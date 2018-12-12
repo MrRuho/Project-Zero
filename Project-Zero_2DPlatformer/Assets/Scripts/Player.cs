@@ -56,10 +56,7 @@ public class Player : MonoBehaviour {
     {
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(speed));
-    
-        transform.Translate(speed * Time.deltaTime, 0,0);
-    
-
+  
         //--- Kyykky tai liuku. Start. Muuttaa capsuleCollider2D kokoa ja suuntaa.---
         if (Input.GetKeyDown("x") && grounded && !sliding)
         {
@@ -172,6 +169,7 @@ public class Player : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        transform.Translate(speed * Time.deltaTime, 0, 0); // Liikuttaa pelajaa oikealle.
         // create fake friction /Easing the X speed of our player. Player not slide and stops moving immediately
         Vector3 easeVelocity = rb2d.velocity;
         easeVelocity.y = rb2d.velocity.y;

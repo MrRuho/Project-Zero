@@ -1075,7 +1075,7 @@ Prefab:
     - target: {fileID: 114610662083763596, guid: 85ea31523f16f2d4da7716d31fa5c257,
         type: 2}
       propertyPath: smoothTimeX
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4613972629171276, guid: 85ea31523f16f2d4da7716d31fa5c257, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1425,7 +1425,7 @@ Prefab:
     - target: {fileID: 114069818505102392, guid: 682a025eb79dbae4b86789a340910cd4,
         type: 2}
       propertyPath: speed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4602901182024632, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
       propertyPath: m_LocalPosition.y
