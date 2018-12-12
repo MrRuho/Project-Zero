@@ -13,6 +13,7 @@ TagManager:
   - Ground
   - PlayerBullet
   - EnemyNockPack
+  - CameraPoint
   layers:
   - Default
   - TransparentFX

@@ -19,7 +19,7 @@ public class CameraFollow : MonoBehaviour {
     void Start ()
     {
 
-      player = GameObject.FindGameObjectWithTag("Player");
+      player = GameObject.FindGameObjectWithTag("CameraPoint");
 		
 	}
 
