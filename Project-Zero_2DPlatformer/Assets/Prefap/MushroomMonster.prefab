@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4090954419727766}
   - component: {fileID: 61865458759808114}
   - component: {fileID: 114990920184880634}
-  - component: {fileID: 95965798852556514}
   m_Layer: 0
   m_Name: PowerPunch
   m_TagString: Untagged
@@ -71,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1415871958022326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.52, y: 5.67, z: 0}
+  m_LocalPosition: {x: -30.54, y: 5.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4090954419727766}
@@ -171,24 +170,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &95965798852556514
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1255806482509574}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6cc608eabf9bcaa45a3cbd0cb05d6f45, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114361216319825094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,6 +181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a3cc9f8342b2a47ad0987836d5ec5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  deathEffect: {fileID: 0}
+  animator: {fileID: 0}
   customSpeed: 1
   customVelocity: {x: 0, y: 8}
   multiplier: 0
@@ -217,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 80
   deathEffect: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &114982572990411148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -240,8 +225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1642038b32ff96347b7d1f2ceaad4d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customVelocity: {x: -300, y: 5}
-  bouncer: {fileID: 0}
+  customVelocity: {x: -20, y: -2}
+  bouncer: {fileID: 1027855933575632, guid: 682a025eb79dbae4b86789a340910cd4, type: 2}
 --- !u!212 &212862969355288232
 SpriteRenderer:
   m_ObjectHideFlags: 1

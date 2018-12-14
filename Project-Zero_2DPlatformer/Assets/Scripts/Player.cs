@@ -169,7 +169,16 @@ public class Player : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        transform.Translate(speed * Time.deltaTime, 0, 0); // Liikuttaa pelajaa oikealle.
+
+        if (playerCanDieIfHitsWall == false)
+        {
+            transform.Translate(speed * Time.deltaTime, 0, 0); // Liikuttaa pelajaa oikealle.
+        }
+        if (playerCanDieIfHitsWall == true) // Lyo pelaajan vasemmalle esim.EnemyHorizontalPowerPunch.cs aktivoi vaman.
+       
+        {
+            transform.Translate(speed * Time.deltaTime, 0.1f, 0);
+        }
         // create fake friction /Easing the X speed of our player. Player not slide and stops moving immediately
         Vector3 easeVelocity = rb2d.velocity;
         easeVelocity.y = rb2d.velocity.y;
