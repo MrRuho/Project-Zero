@@ -170,10 +170,15 @@ public class Player : MonoBehaviour {
     private void FixedUpdate()
     {
 
-        if (playerCanDieIfHitsWall == false)
+        if (playerCanDieIfHitsWall == false && grounded)
         {
             transform.Translate(speed * Time.deltaTime, 0, 0); // Liikuttaa pelajaa oikealle.
         }
+        if (playerCanDieIfHitsWall == false && !grounded)
+        {
+            transform.Translate((speed * 0.8f) * Time.deltaTime, 0, 0); //pelaajan liike hidastuu kun ei juokse.
+        }
+
         if (playerCanDieIfHitsWall == true) // Lyo pelaajan vasemmalle esim.EnemyHorizontalPowerPunch.cs aktivoi vaman.
        
         {
@@ -210,6 +215,17 @@ public class Player : MonoBehaviour {
         {
             rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
         }    
+    }
+
+    IEnumerator LoseFelocity()
+    {
+        for (float i = 0; i < speed; i++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            speed -= 0.2f;
+        }
+       
+        yield return 0;
     }
 
     void Die()
