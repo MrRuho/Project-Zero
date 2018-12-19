@@ -7,9 +7,10 @@ public class Player : MonoBehaviour {
 
     public float maxSpeed = 3;
     public float speed = 50f;
+    public float minFloatingSpeed = 8; // Maksimi nopeus johon pelaajan nopeus tippuu hiljalleen kun pelaaja on ilmassa.
     public float jumpPower = 150f;
     public float doubleJumpPower = 200f;
-
+    float orginalSpeed;
     public int curHealth;
     public int maxHealth = 100;
     public bool grounded;
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        orginalSpeed = speed;
         jumpPowerOrginal = jumpPower; //Pelaajan hyppyvoima palutuu normaaliksi pelaajan osuessa maahan. Esim sieni popistaa hyppyvoiman sinkoessaan pelaajan ilmaan.
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
@@ -172,15 +174,19 @@ public class Player : MonoBehaviour {
 
         if (playerCanDieIfHitsWall == false && grounded)
         {
+            if (speed > 0) //  Speed > 0 sama kuin pelaaja on elossa.jotkut viholliset asettavat nopeuden negatiiviseksi (lennätäbät pelaajan taaksepäin) 
+            {
+                speed = orginalSpeed;
+            }
             transform.Translate(speed * Time.deltaTime, 0, 0); // Liikuttaa pelajaa oikealle.
         }
         if (playerCanDieIfHitsWall == false && !grounded)
         {
-            transform.Translate((speed * 0.8f) * Time.deltaTime, 0, 0); //pelaajan liike hidastuu kun ei juokse.
+            StartCoroutine(LoseFelocity());
+            transform.Translate(speed * Time.deltaTime, 0, 0);
         }
 
-        if (playerCanDieIfHitsWall == true) // Lyo pelaajan vasemmalle esim.EnemyHorizontalPowerPunch.cs aktivoi vaman.
-       
+        if (playerCanDieIfHitsWall == true) // Lyo pelaajan vasemmalle esim."EnemyHorizontalPowerPunch.cs" aktivoi vaman ja asettaa nopeudeksi -20.
         {
             transform.Translate(speed * Time.deltaTime, 0.1f, 0);
         }
@@ -219,10 +225,12 @@ public class Player : MonoBehaviour {
 
     IEnumerator LoseFelocity()
     {
-        for (float i = 0; i < speed; i++)
+
+        for (float i = minFloatingSpeed; i <= speed;)
         {
-            yield return new WaitForSeconds(0.1f);
-            speed -= 0.2f;
+            speed -= 0.1f;
+            yield return new WaitForSeconds(0.2f);
+            Debug.Log("Current speed" + speed);
         }
        
         yield return 0;
