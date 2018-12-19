@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour {
 
     public float maxSpeed = 3;
-    public float speed = 50f;
-    public float minFloatingSpeed = 8; // Maksimi nopeus johon pelaajan nopeus tippuu hiljalleen kun pelaaja on ilmassa.
+    public float speed = 10f;
+    public float minFloatingSpeed = 8f; // Maksimi nopeus johon pelaajan nopeus tippuu hiljalleen kun pelaaja on ilmassa.
     public float jumpPower = 150f;
     public float doubleJumpPower = 200f;
     float orginalSpeed;
@@ -174,15 +174,18 @@ public class Player : MonoBehaviour {
 
         if (playerCanDieIfHitsWall == false && grounded)
         {
-            if (speed > 0) //  Speed > 0 sama kuin pelaaja on elossa.jotkut viholliset asettavat nopeuden negatiiviseksi (lennätäbät pelaajan taaksepäin) 
+            if ((speed < orginalSpeed) && (speed > 0)) //  Speed > 0 sama kuin pelaaja on elossa.jotkut viholliset asettavat nopeuden negatiiviseksi (lennätäbät pelaajan taaksepäin) 
             {
-                speed = orginalSpeed;
+                Debug.Log("Start coroutine BoostSpeed");
+                StartCoroutine(BoostSeed());
             }
+
             transform.Translate(speed * Time.deltaTime, 0, 0); // Liikuttaa pelajaa oikealle.
         }
+
         if (playerCanDieIfHitsWall == false && !grounded)
         {
-            StartCoroutine(LoseFelocity());
+            StartCoroutine(LoseSpeed());
             transform.Translate(speed * Time.deltaTime, 0, 0);
         }
 
@@ -223,16 +226,27 @@ public class Player : MonoBehaviour {
         }    
     }
 
-    IEnumerator LoseFelocity()
+    IEnumerator LoseSpeed()
     {
 
         for (float i = minFloatingSpeed; i <= speed;)
         {
-            speed -= 0.1f;
-            yield return new WaitForSeconds(0.2f);
-            Debug.Log("Current speed" + speed);
+            speed -= 0.01f;
+            yield return new WaitForSeconds(0);  
         }
        
+        yield return 0;
+    }
+
+    IEnumerator BoostSeed()
+    {
+
+        for (float i = orginalSpeed; i >= speed;)
+        {
+            speed += 0.01f;
+            yield return new WaitForSeconds(0.05f);
+        }
+
         yield return 0;
     }
 
