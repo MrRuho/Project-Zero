@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
 
     public float maxSpeed = 3;
     public float speed = 10f;
-    public float minFloatingSpeed = 8f; // Maksimi nopeus johon pelaajan nopeus tippuu hiljalleen kun pelaaja on ilmassa.
+    public float minFloatingSpeed = 7f; // Maksimi nopeus johon pelaajan nopeus tippuu hiljalleen kun pelaaja on ilmassa.
     public float jumpPower = 150f;
     public float doubleJumpPower = 200f;
     float orginalSpeed;
@@ -37,6 +37,7 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+       
         orginalSpeed = speed;
         jumpPowerOrginal = jumpPower; //Pelaajan hyppyvoima palutuu normaaliksi pelaajan osuessa maahan. Esim sieni popistaa hyppyvoiman sinkoessaan pelaajan ilmaan.
         rb2d = gameObject.GetComponent<Rigidbody2D>();
@@ -58,6 +59,7 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(speed));
   
@@ -173,14 +175,13 @@ public class Player : MonoBehaviour {
 
     private void FixedUpdate()
     {
-
+        Debug.Log("Speed is:" + speed);
         if (playerCanDieIfHitsWall == false && grounded)
         {
-            if (speed <= (orginalSpeed - 1.5f) && playerCanDieIfHitsWall == false && timeToBoost == true)
-            { 
-                Debug.Log("Start coroutine BoostSpeed");
+            if (speed <= orginalSpeed  && playerCanDieIfHitsWall == false && timeToBoost == true)
+            {
+                StartCoroutine(BoostSpeed());
                 timeToBoost = false;
-                StartCoroutine(BoostSeed());
             }
 
             transform.Translate(speed * Time.deltaTime, 0, 0); // Liikuttaa pelajaa oikealle.
@@ -230,20 +231,22 @@ public class Player : MonoBehaviour {
     }
 
     IEnumerator LoseSpeed()
-    {
-        for (float i = minFloatingSpeed; i <= speed;)
-        {
-            speed -= 0.01f;
-            yield return new WaitForSeconds(0.1f);  
-        }
+    {    
+            for (float i = minFloatingSpeed; i <= speed && !grounded;)
+            {
+            yield return new WaitForSeconds(0.01f);
+            speed -= 0.001f;
+            
+            }
+        
         yield return timeToBoost = true;
     }
 
-    IEnumerator BoostSeed()
+    IEnumerator BoostSpeed()
     {
         for (float i = orginalSpeed; i >= speed;)
         {
-            speed += 0.01f;
+            speed += 0.1f;
             yield return new WaitForSeconds(0.01f);
         }
         yield return 0;
