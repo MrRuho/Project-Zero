@@ -20,9 +20,11 @@ public class Player : MonoBehaviour {
     public bool playerCanDieIfHitsWall = false;
     public bool wallCheck;
 
+
     private float jumpPowerOrginal;
     private bool hasJumped;
     private bool sliding = false;
+    private bool timeToBoost = false;
     //References
     public GameObject blood;
     public Transform wallCheckPoint;
@@ -174,9 +176,10 @@ public class Player : MonoBehaviour {
 
         if (playerCanDieIfHitsWall == false && grounded)
         {
-            if ((speed < orginalSpeed) && (speed > 0)) //  Speed > 0 sama kuin pelaaja on elossa.jotkut viholliset asettavat nopeuden negatiiviseksi (lennätäbät pelaajan taaksepäin) 
-            {
+            if (speed <= (orginalSpeed - 1.5f) && playerCanDieIfHitsWall == false && timeToBoost == true)
+            { 
                 Debug.Log("Start coroutine BoostSpeed");
+                timeToBoost = false;
                 StartCoroutine(BoostSeed());
             }
 
@@ -228,25 +231,21 @@ public class Player : MonoBehaviour {
 
     IEnumerator LoseSpeed()
     {
-
         for (float i = minFloatingSpeed; i <= speed;)
         {
             speed -= 0.01f;
-            yield return new WaitForSeconds(0);  
+            yield return new WaitForSeconds(0.1f);  
         }
-       
-        yield return 0;
+        yield return timeToBoost = true;
     }
 
     IEnumerator BoostSeed()
     {
-
         for (float i = orginalSpeed; i >= speed;)
         {
             speed += 0.01f;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.01f);
         }
-
         yield return 0;
     }
 
