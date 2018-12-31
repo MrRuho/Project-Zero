@@ -7,6 +7,7 @@ public class EnemyPatrol : Enemy {
     public float speed;
     private bool movingRight = false;
     private bool getHit = false;
+    private bool grounded = false;
     private int currentHealth = 1;
 
     private Player player;
@@ -48,7 +49,7 @@ public class EnemyPatrol : Enemy {
         Debug.DrawRay(transform.position, Vector2.down, Color.white);
         Debug.DrawRay(transform.position, Vector2.zero, Color.yellow);
         
-        if (getHit == false)
+        if (getHit == false && grounded)
         {   
             AttackDirectionControl();
             if (groundInfo.collider == false | wallInfo.collider == true )
@@ -71,38 +72,36 @@ public class EnemyPatrol : Enemy {
     {
         RaycastHit2D PlayerDetectorRight = Physics2D.Raycast(meleeAttackZone.position, Vector2.right, 5.0f);
         RaycastHit2D PlayerDetectorLeft = Physics2D.Raycast(meleeAttackZone.position, Vector2.left, 5.0f);
-        if (getHit == false)
-        {
-            if (movingRight == true)
-            {
-               // RaycastHit2D PlayerDetectorRight = Physics2D.Raycast(meleeAttackZone.position, Vector2.right, 5.0f);
+
+        if (getHit == false) {
+
+            if (movingRight == true) {
+               
                 Debug.DrawRay(transform.position, Vector2.right, Color.red);
 
-                if (PlayerDetectorRight.collider != null)
-                {
-                    if (PlayerDetectorRight.collider.gameObject.tag == "Player")
-                    {
+                if (PlayerDetectorRight.collider != null) {
+
+                    if (PlayerDetectorRight.collider.gameObject.tag == "Player"){
+
                         speed = -4;
                     }
-                }
-                else
-                {
+                } else {
                     speed = -1;
                 }
             }
-            if (movingRight == false)
-            {
-                //RaycastHit2D PlayerDetectorLeft = Physics2D.Raycast(meleeAttackZone.position, Vector2.left, 5.0f);
+
+            if (movingRight == false) {
+                
                 Debug.DrawRay(transform.position, Vector2.left, Color.red);
-                if (PlayerDetectorLeft.collider != null)
-                {
-                    if (PlayerDetectorLeft.collider.gameObject.tag == "Player")
-                    {
+
+                if (PlayerDetectorLeft.collider != null) {
+
+                    if (PlayerDetectorLeft.collider.gameObject.tag == "Player") {
+
                         speed = -4;
                     }
-                }
-                else
-                {
+                } else {
+
                     speed = -1;
                 }
             }
@@ -113,7 +112,7 @@ public class EnemyPatrol : Enemy {
     {
         if (collision.gameObject.tag == "Player")
         {
-            player.Damage(3);
+            player.Damage(5);
             getHit = true;
             Destroy(GetComponent<BoxCollider2D>());
             Destroy(GetComponent<Rigidbody2D>());
@@ -124,6 +123,19 @@ public class EnemyPatrol : Enemy {
         {
             getHit = true;
             StartCoroutine(HasBeenHit());
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ground")) {
+
+            grounded = true;
+
+        } else {
+
+            grounded = false;
+
         }
     }
 

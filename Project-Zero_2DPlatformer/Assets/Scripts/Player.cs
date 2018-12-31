@@ -175,7 +175,7 @@ public class Player : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        Debug.Log("Speed is:" + speed);
+        
         if (playerCanDieIfHitsWall == false && grounded)
         {
             if (speed <= orginalSpeed  && playerCanDieIfHitsWall == false && timeToBoost == true)
