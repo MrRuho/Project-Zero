@@ -28,7 +28,7 @@ public class EnemyPatrol : Enemy {
 
     void Update()
     {
-        int layerMask = 1 << 0;
+        int layerMask = 1 << 1;
         layerMask = ~layerMask; //wall Raycast ei huomio pelaajaa.
 
         if (getHit == false)
