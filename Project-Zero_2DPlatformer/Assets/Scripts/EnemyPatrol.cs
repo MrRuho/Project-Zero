@@ -20,7 +20,7 @@ public class EnemyPatrol : Enemy {
     Enemy enemy;
 
     void Start()
-    {
+    {  
         enemy = GetComponent<Enemy>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         anim = gameObject.GetComponent<Animator>();
@@ -108,10 +108,10 @@ public class EnemyPatrol : Enemy {
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
+    void OnCollisionEnter2D(Collision2D collision) {
+
+        if (collision.gameObject.tag == "Player") {
+
             player.Damage(5);
             getHit = true;
             Destroy(GetComponent<BoxCollider2D>());
@@ -119,24 +119,22 @@ public class EnemyPatrol : Enemy {
             ZombieDyingAnim();
         }
 
-        if (collision.gameObject.tag == "Bullet")
-        {
+        if (collision.gameObject.tag == "Bullet") {
+
             getHit = true;
             StartCoroutine(HasBeenHit());
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D()
     {
-        if (collision.CompareTag("Ground")) {
+        grounded = true;
 
-            grounded = true;
-
-        } else {
-
-            grounded = false;
-
-        }
+    }
+    private void OnTriggerExit2D()
+    {
+        grounded = false;
+        speed = 0;
     }
 
     IEnumerator HasBeenHit()
