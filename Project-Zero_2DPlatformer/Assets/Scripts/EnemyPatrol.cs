@@ -8,6 +8,7 @@ public class EnemyPatrol : Enemy {
     private bool movingRight = false;
     private bool getHit = false;
     private bool grounded = false;
+    private bool canTurn = false;
     private int currentHealth = 1;
 
     private Player player;
@@ -20,7 +21,8 @@ public class EnemyPatrol : Enemy {
     Enemy enemy;
 
     void Start()
-    {  
+    {
+        StartCoroutine(StartWaitingBeforeCanTurn());
         enemy = GetComponent<Enemy>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         anim = gameObject.GetComponent<Animator>();
@@ -52,8 +54,8 @@ public class EnemyPatrol : Enemy {
         if (getHit == false && grounded)
         {   
             AttackDirectionControl();
-            if (groundInfo.collider == false | wallInfo.collider == true )
-            {      
+            if ((groundInfo.collider == false || wallInfo.collider == true) && canTurn == true )
+            {     
                 if (movingRight == false)
                 {
                     transform.eulerAngles = new Vector3(0, -180, 0);
@@ -64,7 +66,7 @@ public class EnemyPatrol : Enemy {
                     transform.eulerAngles = new Vector3(0, 0, 0);
                     movingRight = false; 
                 }
-            }
+             }
         }
     }
 
@@ -148,6 +150,11 @@ public class EnemyPatrol : Enemy {
         {
             getHit = true;
         }
+    }
+    IEnumerator StartWaitingBeforeCanTurn()
+    {
+        yield return new WaitForSeconds(1);
+        canTurn = true;
     }
 
     void ZombieDyingAnim()
