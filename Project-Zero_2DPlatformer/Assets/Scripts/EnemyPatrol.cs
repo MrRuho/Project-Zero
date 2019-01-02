@@ -31,8 +31,8 @@ public class EnemyPatrol : Enemy {
 
     void Update()
     {
-        /*int layerMask = 11 << 0;*/
-        /*layerMask = ~layerMask; //wall Raycast ei huomio pelaajaa.*/
+        int layerMask = 0 << 11;
+        layerMask = ~layerMask; //wall Raycast ei huomio pelaajaa.
 
         if (getHit == false)
         {
@@ -44,7 +44,7 @@ public class EnemyPatrol : Enemy {
         }
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position,Vector2.down, 0.1f);
-        RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.left, 0.1f/*, layerMask*/);
+        RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.down, 0.1f, layerMask);
 
        
 
