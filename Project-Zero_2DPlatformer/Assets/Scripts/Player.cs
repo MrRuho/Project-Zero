@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
 
     public float maxSpeed = 3;
     public float speed = 10f;
-    public float minFloatingSpeed = 7f; // Maksimi nopeus johon pelaajan nopeus tippuu hiljalleen kun pelaaja on ilmassa.
+    public float minFloatingSpeed = 1f; // Maksimi nopeus johon pelaajan nopeus tippuu hiljalleen kun pelaaja on ilmassa.
     public float jumpPower = 150f;
     public float doubleJumpPower = 200f;
     float orginalSpeed;
@@ -19,17 +19,18 @@ public class Player : MonoBehaviour {
     public bool facingRight = true;
     public bool playerCanDieIfHitsWall = false;
     public bool wallCheck;
-
+    public static bool dead = false; // Kohteet jotka tarvitsevat tätä tietoa CameraFollow.cs
 
     private float jumpPowerOrginal;
     private bool hasJumped;
     private bool sliding = false;
     private bool timeToBoost = false;
+
     //References
     public GameObject blood;
     public Transform wallCheckPoint;
     public LayerMask wallLayerMask;
- 
+    
     private CapsuleCollider2D capsuleCollider2D;
     private Rigidbody2D rb2d;
     private Animator anim;
@@ -64,7 +65,7 @@ public class Player : MonoBehaviour {
         anim.SetFloat("Speed", Mathf.Abs(speed));
   
         //--- Kyykky tai liuku. Start. Muuttaa capsuleCollider2D kokoa ja suuntaa.---
-        if (Input.GetKeyDown("x") && grounded && !sliding)
+        if (Input.GetKeyDown("x") && grounded && !sliding && !dead)
         {
             sliding = true;
             capsuleCollider2D.size = new Vector3(0.9f, 0.5f, 0);
@@ -88,7 +89,7 @@ public class Player : MonoBehaviour {
             facingRight = true;
         }*/
         // ------------------------- double jump Start ----------------------
-        if (Input.GetButtonDown("Jump")&& !wallSliding && !sliding)
+        if (Input.GetButtonDown("Jump")&& !wallSliding && !sliding && !dead)
         {
             if (grounded)
             {
@@ -176,7 +177,7 @@ public class Player : MonoBehaviour {
     private void FixedUpdate()
     {
         
-        if (playerCanDieIfHitsWall == false && grounded)
+        if (playerCanDieIfHitsWall == false && grounded && !dead)
         {
             if (speed <= orginalSpeed  && playerCanDieIfHitsWall == false && timeToBoost == true)
             {
@@ -187,15 +188,16 @@ public class Player : MonoBehaviour {
             transform.Translate(speed * Time.deltaTime, 0, 0); // Liikuttaa pelajaa oikealle.
         }
 
-        if (playerCanDieIfHitsWall == false && !grounded)
+        if (playerCanDieIfHitsWall == false && !grounded && !dead)
         {
             StartCoroutine(LoseSpeed());
             transform.Translate(speed * Time.deltaTime, 0, 0);
         }
 
-        if (playerCanDieIfHitsWall == true) // Lyo pelaajan vasemmalle esim."EnemyHorizontalPowerPunch.cs" aktivoi vaman ja asettaa nopeudeksi -20.
-        {
+        if (playerCanDieIfHitsWall == true && !dead) // Lyo pelaajan vasemmalle esim."EnemyHorizontalPowerPunch.cs" aktivoi vaman ja asettaa nopeudeksi -20.
+        {           
             transform.Translate(speed * Time.deltaTime, 0.1f, 0);
+              
         }
         // create fake friction /Easing the X speed of our player. Player not slide and stops moving immediately
         Vector3 easeVelocity = rb2d.velocity;
@@ -207,7 +209,6 @@ public class Player : MonoBehaviour {
         if (grounded)
         {
             rb2d.velocity = easeVelocity;
-
         }
         //------------------------------------------------
         if (grounded)
@@ -266,7 +267,13 @@ public class Player : MonoBehaviour {
             }
         }
         //------------------------- HighScore end---------------------------------------
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        gameObject.tag = "Enemy";
+        speed = 0;
+        dead = true;
+        rb2d.constraints = RigidbodyConstraints2D.None;
+        Destroy(GameObject.FindGameObjectWithTag("CameraPoint"));
+        
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //lataa koko kentän alusta.
     }
 
     // Vahingon aiheuttajilla on paasy tahan.

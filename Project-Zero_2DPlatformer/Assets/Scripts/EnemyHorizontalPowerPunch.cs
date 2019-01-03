@@ -26,8 +26,7 @@ public class EnemyHorizontalPowerPunch : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             anim.SetBool("MushroomAttack", true);
-            other.gameObject.GetComponent<Player>().speed = velocity.x;  
-           // other.gameObject.GetComponent<Player>().transform.Translate(other.gameObject.GetComponent<Player>().speed, 2, 0);   
+            other.gameObject.GetComponent<Player>().speed = velocity.x;   
             bouncer.GetComponent<Rigidbody2D>().velocity = velocity;
         }
     }

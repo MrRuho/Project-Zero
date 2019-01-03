@@ -16,7 +16,6 @@ public class Player_Bullet_Missile : MonoBehaviour
 
         if (tilemapGameObject != null)
         {
-            Debug.Log("TileMap Has set!");
             tilemap = tilemapGameObject.GetComponent<Tilemap>();
         }
     }
