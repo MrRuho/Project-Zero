@@ -23,7 +23,7 @@ public class Player : MonoBehaviour {
 
     private float jumpPowerOrginal;
     private bool hasJumped;
-    private bool sliding = false;
+    public static bool sliding = false;
     private bool timeToBoost = false;
 
     //References
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour {
         capsuleCollider2D = gameObject.GetComponent<CapsuleCollider2D>();
         if (capsuleCollider2D != null)
         {
-            capsuleCollider2D.size = new Vector3(0.34f, 1.2f, 0);
+            capsuleCollider2D.size = new Vector3(0.55f, 1.2f, 0);
             capsuleCollider2D.offset = new Vector3(0.08f, -0.04f, 0);
             capsuleCollider2D.direction = CapsuleDirection2D.Vertical;
         }
@@ -167,8 +167,8 @@ public class Player : MonoBehaviour {
     // Slide animaation loputtua Animation kaynnistaa taman eventin.
     void SlideEnds()
     {
-        capsuleCollider2D.size = new Vector3(0.9f, 0.5f, 0);
-        capsuleCollider2D.offset = new Vector3(0, -0.19f, 0);
+        capsuleCollider2D.size = new Vector3(0.55f, 1.2f, 0);
+        capsuleCollider2D.offset = new Vector3(0.08f, -0.04f, 0);
         capsuleCollider2D.direction = CapsuleDirection2D.Vertical;
         anim.SetBool("Slide", false);
         sliding = false;
