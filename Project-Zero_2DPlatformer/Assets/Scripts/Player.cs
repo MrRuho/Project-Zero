@@ -23,7 +23,7 @@ public class Player : MonoBehaviour {
 
     private float jumpPowerOrginal;
     private bool hasJumped;
-    public static bool sliding = false;
+    public static bool sliding = false; // Kohteet jotka tarvitsevat tätä tietoa. WallKill.cs
     private bool timeToBoost = false;
 
     //References
@@ -40,8 +40,9 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-       
+        dead = false;
         orginalSpeed = speed;
+       // speed = orginalSpeed;
         jumpPowerOrginal = jumpPower; //Pelaajan hyppyvoima palutuu normaaliksi pelaajan osuessa maahan. Esim sieni popistaa hyppyvoiman sinkoessaan pelaajan ilmaan.
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
@@ -279,6 +280,7 @@ public class Player : MonoBehaviour {
         Destroy(GetComponent<CapsuleCollider2D>());
         Destroy(GetComponent<Rigidbody2D>());
         Destroy(gameObject);
+        playerSpawnPoint.spawNewSoldier = true;
         Instantiate(spawnZombie, zombieSpawn.position, zombieSpawn.rotation);
         // StartCoroutine(NextSoldier());
 

@@ -31,7 +31,11 @@ public class EnemyPatrol : Enemy {
 
     void Update()
     {
-        int layerMask = 0 << 11;
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        }
+            int layerMask = 0 << 11;
         layerMask = ~layerMask; //wall Raycast ei huomio pelaajaa.
 
         if (getHit == false)

@@ -8,7 +8,7 @@ public class WallKill : MonoBehaviour {
     public float killTime = 0.5f;
     
     private Player player;
-    public BoxCollider2D boxColliderUp;
+    public BoxCollider2D boxCollider;
 
     // Use this for initialization
     void Start ()
@@ -20,11 +20,11 @@ public class WallKill : MonoBehaviour {
     {
         if (Player.sliding == true)
         {
-            boxColliderUp.offset = new Vector3(0.1f, 0.0f, 0);
+            boxCollider.offset = new Vector3(0.1f, 0.0f, 0);
         }
         else
         {
-            boxColliderUp.offset = new Vector3(0.1f, 0.30f, 0);
+            boxCollider.offset = new Vector3(0.1f, 0.30f, 0);
         }
     }
     
