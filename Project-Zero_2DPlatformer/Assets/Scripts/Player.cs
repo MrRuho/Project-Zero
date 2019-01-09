@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
     public bool facingRight = true;
     public bool playerCanDieIfHitsWall = false;
     public bool wallCheck;
-    public static bool dead = false; // Kohteet jotka tarvitsevat tätä tietoa CameraFollow.cs
+    public static bool dead = false; // Kohteet jotka tarvitsevat tätä tietoa. CameraFollow.cs
 
     private float jumpPowerOrginal;
     private bool hasJumped;
@@ -27,6 +27,8 @@ public class Player : MonoBehaviour {
     private bool timeToBoost = false;
 
     //References
+    public Transform zombieSpawn;
+    public GameObject spawnZombie;
     public GameObject blood;
     public Transform wallCheckPoint;
     public LayerMask wallLayerMask;
@@ -118,7 +120,7 @@ public class Player : MonoBehaviour {
         {
             curHealth = maxHealth;
         }
-        if (curHealth <= 0)
+        if (curHealth <= 0 && dead == false)
         {
             Die();
         }
@@ -272,8 +274,21 @@ public class Player : MonoBehaviour {
         dead = true;
         rb2d.constraints = RigidbodyConstraints2D.None;
         Destroy(GameObject.FindGameObjectWithTag("CameraPoint"));
-        
+        Debug.Log("Paye is dead");
+        Destroy(GetComponent<BoxCollider2D>());
+        Destroy(GetComponent<CapsuleCollider2D>());
+        Destroy(GetComponent<Rigidbody2D>());
+        Destroy(gameObject);
+        Instantiate(spawnZombie, zombieSpawn.position, zombieSpawn.rotation);
+        // StartCoroutine(NextSoldier());
+
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //lataa koko kentän alusta.
+    }
+
+    IEnumerator NextSoldier()
+    {
+        Instantiate(spawnZombie, zombieSpawn.position, zombieSpawn.rotation);
+        yield return 0;
     }
 
     // Vahingon aiheuttajilla on paasy tahan.
