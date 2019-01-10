@@ -18,8 +18,19 @@ public class CameraFollow : MonoBehaviour {
 
     void Start ()
     {
+        smoothTimeY = 0.1f;
+        smoothTimeX = 0.1f;
+
         followPoint = GameObject.FindGameObjectWithTag("CameraPoint");		
 	}
+
+    private void Update()
+    {
+        if (followPoint == null)
+        {
+            followPoint = GameObject.FindGameObjectWithTag("CameraPoint");
+        }
+    }
 
     void FixedUpdate()
     {
@@ -51,5 +62,19 @@ public class CameraFollow : MonoBehaviour {
      public void SetMaxCamPosition()
     {
         maxCameraPos = gameObject.transform.position;
+    }
+
+    public void SeePlayer(bool playerIsWisible)
+    {
+        if (playerIsWisible == false)
+        {
+            smoothTimeY = 1f;
+            smoothTimeX = 1f;
+        } else if (playerIsWisible == true) 
+        {
+            smoothTimeY = 0.1f;
+            smoothTimeX = 0.1f;
+        }
+
     }
 }

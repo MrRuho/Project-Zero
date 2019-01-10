@@ -37,6 +37,7 @@ public class Player : MonoBehaviour {
     private Rigidbody2D rb2d;
     private Animator anim;
     private GameMaster gameMaster;
+    private CameraFollow cameraFollow;
     // Use this for initialization
     void Start ()
     {
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour {
         jumpPowerOrginal = jumpPower; //Pelaajan hyppyvoima palutuu normaaliksi pelaajan osuessa maahan. Esim sieni popistaa hyppyvoiman sinkoessaan pelaajan ilmaan.
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
+        cameraFollow = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
 
         //maarittaa capsulecolliderin koon heron ollessa pystyasenossa.
         capsuleCollider2D = gameObject.GetComponent<CapsuleCollider2D>();
@@ -329,5 +331,17 @@ public class Player : MonoBehaviour {
         {
             curHealth = 0;
         }
+    }
+
+
+    void OnBecameInvisible()
+    {
+        cameraFollow.SeePlayer(false);
+    }
+
+    
+    void OnBecameVisible()
+    {
+        cameraFollow.SeePlayer(true);
     }
 }
