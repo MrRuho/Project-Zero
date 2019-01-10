@@ -21,6 +21,7 @@ public class Player_Weapons : MonoBehaviour {
     
     public Transform firepoint;
     GameObject bulletPrefab;
+    public GameObject shootBarrelFireEffect;
     
 
     private void Start()
@@ -176,6 +177,7 @@ public class Player_Weapons : MonoBehaviour {
     void Shoot()
     {
         Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
+        Instantiate(shootBarrelFireEffect, firepoint.position, firepoint.rotation);
     }
 
     IEnumerator ShotGunShoot(int shotgunPulletsCount)

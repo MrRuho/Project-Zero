@@ -441,6 +441,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firepoint: {fileID: 4662288450742986}
+  shootBarrelFireEffect: {fileID: 5280612574969960709, guid: 54eef1478f966d74a878211166fd2dd2,
+    type: 3}
 --- !u!1 &1781687702455680
 GameObject:
   m_ObjectHideFlags: 0

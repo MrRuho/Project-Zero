@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
-    public float smoothTimeY;
-    public float smoothTimeX;
+    float smoothTimeY;
+    float smoothTimeX;
 
     private Vector2 velocity;
 
@@ -34,7 +34,7 @@ public class CameraFollow : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (Player.dead == false)
+        if (Player.dead == false && followPoint != null)
         {
             float posX = Mathf.SmoothDamp(transform.position.x, followPoint.transform.position.x, ref velocity.x, smoothTimeX);
             float posY = Mathf.SmoothDamp(transform.position.y, followPoint.transform.position.y, ref velocity.y, smoothTimeY);

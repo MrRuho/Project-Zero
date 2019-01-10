@@ -277,7 +277,6 @@ public class Player : MonoBehaviour {
         dead = true;
         rb2d.constraints = RigidbodyConstraints2D.None;
         Destroy(GameObject.FindGameObjectWithTag("CameraPoint"));
-        Debug.Log("Paye is dead");
         Destroy(GetComponent<BoxCollider2D>());
         Destroy(GetComponent<CapsuleCollider2D>());
         Destroy(GetComponent<Rigidbody2D>());
@@ -334,12 +333,11 @@ public class Player : MonoBehaviour {
     }
 
 
-    void OnBecameInvisible()
+    void OnBecameInvisible() // kamera palaa smootisti aloitukseen kunnes näkee taas pelaajan ja pysyy sitten tiukasti siinä.
     {
         cameraFollow.SeePlayer(false);
     }
-
-    
+  
     void OnBecameVisible()
     {
         cameraFollow.SeePlayer(true);
