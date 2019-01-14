@@ -64,6 +64,7 @@ public class Player_Weapons : MonoBehaviour {
                 ammoCounter -= 1;
                 canFireAgain = 0.0f;
                 StartCoroutine(FireRate());
+                Instantiate(shootBarrelFireEffect, firepoint.position, firepoint.rotation);
             }
         }
 
@@ -78,6 +79,7 @@ public class Player_Weapons : MonoBehaviour {
                 ammoCounter -= 1;
                 canFireAgain = 0.0f;
                 StartCoroutine(FireRate());
+                Instantiate(shootBarrelFireEffect, firepoint.position, firepoint.rotation);
             }
         }
 
@@ -177,25 +179,26 @@ public class Player_Weapons : MonoBehaviour {
     void Shoot()
     {
         Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
-        Instantiate(shootBarrelFireEffect, firepoint.position, firepoint.rotation);
     }
 
     IEnumerator ShotGunShoot(int shotgunPulletsCount)
-    {    
+    {
+        Instantiate(shootBarrelFireEffect, firepoint.position, firepoint.rotation);
         for (int i = 0; i < shotgunPulletsCount; i++)
         {
             float angleRandomaiser = Random.Range(-5.0f, 12.0f);
-            float positonRandomiserY = Random.Range(0.3f, -0.3f);
-            float positonRandomiserX = Random.Range(1.52f, 0.90f);
+            float positonRandomiserY = Random.Range(0.23f, -0.3f);
+            float positonRandomiserX = Random.Range(1.374f, 2.90f);
             firepoint.localPosition = new Vector3(positonRandomiserX, positonRandomiserY, 0);
             firepoint.transform.eulerAngles = new Vector3(0.0f, facingDirection, angleRandomaiser);
             Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
-            FirepointReset();
+            FirepointReset();  
         }
         yield return 0;
     }
     void FirepointReset() // palauttaa aseen normaaliin kulmaan ja asentoon.
     {
-        firepoint.localPosition = new Vector3(0.90f, 0, 0);
+        firepoint.localPosition = new Vector3(1.374f, 0.23f, 0);
+        firepoint.transform.eulerAngles = new Vector3(0,0,0);
     }
 }
