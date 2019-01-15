@@ -130,19 +130,30 @@ public class EnemyPatrol : Enemy {
             getHit = true;
             StartCoroutine(HasBeenHit());
         }
+
+        if (collision.gameObject.tag == "Ground") {
+            grounded = true;
+        }
+
     }
 
-    private void OnTriggerEnter2D()
-    {
-        grounded = true;
-
-    }
-    private void OnTriggerExit2D()
+    private void OnCollisionExit2D(Collision2D collision)
     {
         grounded = false;
         speed = 0;
     }
 
+    void OnTriggerEnter2D(Collider2D collision) {
+
+        if (collision.CompareTag("PlayerGorundCheck")) {
+            getHit = true;
+            Destroy(GetComponent<BoxCollider2D>());
+            Destroy(GetComponent<Rigidbody2D>());
+            ZombieDyingAnim();
+        }
+    }
+
+ 
     IEnumerator HasBeenHit()
     {
         yield return new WaitForSeconds(1);

@@ -165,7 +165,7 @@ public class Player_Weapons : MonoBehaviour {
 
             default:
                 Debug.Log("Pistol");
-                clipSize = 6;
+                clipSize = 12;
                 fireRateControl = 0.0f;
                 reloadingTime = 1.0f;
                 ammoCounter = clipSize;
