@@ -13,7 +13,9 @@ public class WallKill : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        
     }
 
     private void Update()
@@ -26,8 +28,14 @@ public class WallKill : MonoBehaviour {
         {
             boxCollider.offset = new Vector3(0.1f, 0.30f, 0);
         }
+
+        if (timer >= killTime)
+        {
+            Debug.Log(timer);
+            player.Damage(5);
+        }
     }
-    
+
 
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -36,10 +44,7 @@ public class WallKill : MonoBehaviour {
         {
             timer += Time.deltaTime;
         }
-        if (timer >= killTime)
-        {
-            player.Damage(5);
-        }
+      
     }
 
     private void OnCollisionExit2D(Collision2D collision)

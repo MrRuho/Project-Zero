@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
     public float doubleJumpPower = 200f;
     float orginalSpeed;
     public int curHealth;
-    public int maxHealth = 100;
+    public int maxHealth = 5;
     public bool grounded;
     public bool canDoubleJump;
     public bool wallSliding;
@@ -41,9 +41,10 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        sliding = false;
         dead = false;
         orginalSpeed = speed;
-       // speed = orginalSpeed;
+        curHealth = maxHealth;
         jumpPowerOrginal = jumpPower; //Pelaajan hyppyvoima palutuu normaaliksi pelaajan osuessa maahan. Esim sieni popistaa hyppyvoiman sinkoessaan pelaajan ilmaan.
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
@@ -58,7 +59,7 @@ public class Player : MonoBehaviour {
             capsuleCollider2D.direction = CapsuleDirection2D.Vertical;
         }
 
-        curHealth = maxHealth;
+      
         gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
 	}
 
@@ -128,7 +129,7 @@ public class Player : MonoBehaviour {
             Die();
         }
         // ---------------------- wall climping jumping start ----------------------------
-         if (!grounded)
+     /*    if (!grounded)
          {
             wallCheck = Physics2D.OverlapCircle(wallCheckPoint.position, 0.1f, wallLayerMask);
 
@@ -144,11 +145,11 @@ public class Player : MonoBehaviour {
          if (wallCheck == false || grounded)
         {
             wallSliding = false;
-        }
+        }*/
      
     }
 
-    void HandleWallSliding()
+   /* void HandleWallSliding()
     {
         rb2d.velocity = new Vector2(rb2d.velocity.x, -0.7f);
         wallSliding = true;
@@ -166,7 +167,7 @@ public class Player : MonoBehaviour {
                 rb2d.AddForce(new Vector2(1, 2) * jumpPower);
             }
         }
-    }
+    }*/
     //---------------------- wall climping jumping end ----------------------------
 
     // Slide animaation loputtua Animation kaynnistaa taman eventin.
@@ -260,7 +261,7 @@ public class Player : MonoBehaviour {
 
     void Die()
     {       //  Huome! HighScore ominaisuutta ei ole asennettu peliin nakyvaksi.
-        if (PlayerPrefs.HasKey("HighScore"))
+      /*  if (PlayerPrefs.HasKey("HighScore"))
         {
             if(PlayerPrefs.GetInt("HighScore")< gameMaster.points)
             {
@@ -270,17 +271,17 @@ public class Player : MonoBehaviour {
             {
                 PlayerPrefs.SetInt("HighScore", gameMaster.points);
             }
-        }
+        }*/
         //------------------------- HighScore end---------------------------------------
         gameObject.tag = "Enemy";
         speed = 0;
-        dead = true;
         rb2d.constraints = RigidbodyConstraints2D.None;
         Destroy(GameObject.FindGameObjectWithTag("CameraPoint"));
         Destroy(GetComponent<BoxCollider2D>());
         Destroy(GetComponent<CapsuleCollider2D>());
         Destroy(GetComponent<Rigidbody2D>());
         Destroy(gameObject);
+        dead = true;
         playerSpawnPoint.spawNewSoldier = true;
         Instantiate(spawnZombie, zombieSpawn.position, zombieSpawn.rotation);
         // StartCoroutine(NextSoldier());

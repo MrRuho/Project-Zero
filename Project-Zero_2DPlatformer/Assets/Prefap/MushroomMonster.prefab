@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11a7ad6c1d32004784db9ad45ba7cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 80
+  health: 50
   deathEffect: {fileID: 0}
   animator: {fileID: 0}
 --- !u!61 &61502140099943304
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a3cc9f8342b2a47ad0987836d5ec5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 10
   deathEffect: {fileID: 0}
   animator: {fileID: 0}
   customSpeed: 1
