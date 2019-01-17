@@ -71,7 +71,7 @@ public class Player : MonoBehaviour {
         anim.SetFloat("Speed", Mathf.Abs(speed));
   
         //--- Kyykky tai liuku. Start. Muuttaa capsuleCollider2D kokoa ja suuntaa.---
-        if (Input.GetKeyDown("x") && grounded && !sliding && !dead)
+        if (Input.GetKeyDown("x")  && !sliding && !dead)
         {
             sliding = true;
             capsuleCollider2D.size = new Vector3(0.9f, 0.5f, 0);
@@ -95,7 +95,7 @@ public class Player : MonoBehaviour {
             facingRight = true;
         }*/
         // ------------------------- double jump Start ----------------------
-        if (Input.GetButtonDown("Jump")&& !wallSliding && !sliding && !dead)
+        if (Input.GetButtonDown("Jump") && !dead)
         {
             if (grounded)
             {

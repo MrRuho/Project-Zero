@@ -29,9 +29,8 @@ public class WallKill : MonoBehaviour {
             boxCollider.offset = new Vector3(0.1f, 0.30f, 0);
         }
 
-        if (timer >= killTime)
+        if (timer > killTime)
         {
-            Debug.Log(timer);
             player.Damage(5);
         }
     }
