@@ -120,11 +120,8 @@ public class Player : MonoBehaviour {
             }   
         } // -----------------------double jump End -------------------------
 
-        if (curHealth > maxHealth)
-        {
-            curHealth = maxHealth;
-        }
-        if (curHealth <= 0 && dead == false)
+    
+        if (curHealth <= 0)
         {
             Die();
         }
@@ -261,18 +258,20 @@ public class Player : MonoBehaviour {
 
     void Die()
     {       //  Huome! HighScore ominaisuutta ei ole asennettu peliin nakyvaksi.
-      /*  if (PlayerPrefs.HasKey("HighScore"))
-        {
-            if(PlayerPrefs.GetInt("HighScore")< gameMaster.points)
-            {
-                PlayerPrefs.SetInt("HighScore", gameMaster.points);
-            }
-            else
-            {
-                PlayerPrefs.SetInt("HighScore", gameMaster.points);
-            }
-        }*/
-        //------------------------- HighScore end---------------------------------------
+            /*  if (PlayerPrefs.HasKey("HighScore"))
+              {
+                  if(PlayerPrefs.GetInt("HighScore")< gameMaster.points)
+                  {
+                      PlayerPrefs.SetInt("HighScore", gameMaster.points);
+                  }
+                  else
+                  {
+                      PlayerPrefs.SetInt("HighScore", gameMaster.points);
+                  }
+              }*/
+            //------------------------- HighScore end---------------------------------------
+
+        dead = true;
         gameObject.tag = "Enemy";
         speed = 0;
         rb2d.constraints = RigidbodyConstraints2D.None;
@@ -281,7 +280,6 @@ public class Player : MonoBehaviour {
         Destroy(GetComponent<CapsuleCollider2D>());
         Destroy(GetComponent<Rigidbody2D>());
         Destroy(gameObject);
-        dead = true;
         playerSpawnPoint.spawNewSoldier = true;
         Instantiate(spawnZombie, zombieSpawn.position, zombieSpawn.rotation);
         // StartCoroutine(NextSoldier());

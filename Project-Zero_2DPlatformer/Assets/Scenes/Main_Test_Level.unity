@@ -4046,6 +4046,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: PlayerGorundCheck
       objectReference: {fileID: 0}
+    - target: {fileID: 1493140794548380, guid: 682a025eb79dbae4b86789a340910cd4, type: 3}
+      propertyPath: m_TagString
+      value: WallKill
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 682a025eb79dbae4b86789a340910cd4, type: 3}
 --- !u!1001 &1771313224

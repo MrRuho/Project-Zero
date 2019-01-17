@@ -15,6 +15,7 @@ TagManager:
   - EnemyNockPack
   - CameraPoint
   - PlayerGorundCheck
+  - WallKill
   layers:
   - Default
   - TransparentFX
