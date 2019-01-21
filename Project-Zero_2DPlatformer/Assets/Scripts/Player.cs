@@ -23,7 +23,7 @@ public class Player : MonoBehaviour {
 
     private float jumpPowerOrginal;
     private bool hasJumped;
-    public static bool sliding = false; // Kohteet jotka tarvitsevat tätä tietoa. WallKill.cs
+    public static bool sliding = false; // Kohteet jotka tarvitsevat tätä tietoa. WallKill.cs / BootKill.cs
     private bool timeToBoost = false;
 
     //References
