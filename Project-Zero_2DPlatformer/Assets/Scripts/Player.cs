@@ -271,17 +271,18 @@ public class Player : MonoBehaviour {
               }*/
             //------------------------- HighScore end---------------------------------------
 
-        dead = true;
         gameObject.tag = "Enemy";
+        dead = true;
         speed = 0;
         rb2d.constraints = RigidbodyConstraints2D.None;
         Destroy(GameObject.FindGameObjectWithTag("CameraPoint"));
         Destroy(GetComponent<BoxCollider2D>());
         Destroy(GetComponent<CapsuleCollider2D>());
         Destroy(GetComponent<Rigidbody2D>());
+        Instantiate(spawnZombie, zombieSpawn.position, zombieSpawn.rotation);
         Destroy(gameObject);
         playerSpawnPoint.spawNewSoldier = true;
-        Instantiate(spawnZombie, zombieSpawn.position, zombieSpawn.rotation);
+        
         // StartCoroutine(NextSoldier());
 
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //lataa koko kentän alusta.

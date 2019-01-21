@@ -120,8 +120,6 @@ public class EnemyPatrol : Enemy {
 
             player.Damage(5);
             getHit = true;
-            Destroy(GetComponent<BoxCollider2D>());
-            Destroy(GetComponent<Rigidbody2D>());
             ZombieDyingAnim();
         }
 
@@ -147,8 +145,6 @@ public class EnemyPatrol : Enemy {
 
         if (collision.CompareTag("PlayerGorundCheck")) {
             getHit = true;
-            Destroy(GetComponent<BoxCollider2D>());
-            Destroy(GetComponent<Rigidbody2D>());
             ZombieDyingAnim();
         }
     }
