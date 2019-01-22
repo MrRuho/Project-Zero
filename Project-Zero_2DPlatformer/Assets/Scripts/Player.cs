@@ -27,8 +27,8 @@ public class Player : MonoBehaviour {
     private bool timeToBoost = false;
 
     //References
-    public Transform zombieSpawn;
-    public GameObject spawnZombie;
+    public Transform corpseSpawnPoint;
+    public GameObject spawnCorpse;
     public GameObject blood;
     public Transform wallCheckPoint;
     public LayerMask wallLayerMask;
@@ -41,6 +41,7 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        Physics2D.IgnoreLayerCollision(11, 12);
         sliding = false;
         dead = false;
         orginalSpeed = speed;
@@ -279,7 +280,7 @@ public class Player : MonoBehaviour {
         Destroy(GetComponent<BoxCollider2D>());
         Destroy(GetComponent<CapsuleCollider2D>());
         Destroy(GetComponent<Rigidbody2D>());
-        Instantiate(spawnZombie, zombieSpawn.position, zombieSpawn.rotation);
+        Instantiate(spawnCorpse, corpseSpawnPoint.position, corpseSpawnPoint.rotation);
         Destroy(gameObject);
         playerSpawnPoint.spawNewSoldier = true;
         
@@ -290,7 +291,7 @@ public class Player : MonoBehaviour {
 
     IEnumerator NextSoldier()
     {
-        Instantiate(spawnZombie, zombieSpawn.position, zombieSpawn.rotation);
+        Instantiate(spawnCorpse, corpseSpawnPoint.position, corpseSpawnPoint.rotation);
         yield return 0;
     }
 
