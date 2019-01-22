@@ -87,7 +87,8 @@ public class EnemyPatrol : Enemy {
 
                 if (PlayerDetectorRight.collider != null) {
 
-                    if (PlayerDetectorRight.collider.gameObject.tag == "Player"){
+                    if (PlayerDetectorRight.collider.gameObject.tag == "Player")
+                    {
 
                         speed = -4;
                     }
@@ -116,7 +117,7 @@ public class EnemyPatrol : Enemy {
 
     void OnCollisionEnter2D(Collision2D collision) {
 
-        if (collision.gameObject.tag == "Player") {
+        if (collision.gameObject.tag == "Player" ) {
 
             player.Damage(5);
             getHit = true;
