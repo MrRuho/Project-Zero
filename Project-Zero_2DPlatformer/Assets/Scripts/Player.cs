@@ -281,18 +281,17 @@ public class Player : MonoBehaviour {
         Destroy(GetComponent<CapsuleCollider2D>());
         Destroy(GetComponent<Rigidbody2D>());
         Instantiate(spawnCorpse, corpseSpawnPoint.position, corpseSpawnPoint.rotation);
+       // StartCoroutine(NextSoldier());
         Destroy(gameObject);
         playerSpawnPoint.spawNewSoldier = true;
-        
-        // StartCoroutine(NextSoldier());
-
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //lataa koko kentän alusta.
     }
 
     IEnumerator NextSoldier()
     {
-        Instantiate(spawnCorpse, corpseSpawnPoint.position, corpseSpawnPoint.rotation);
-        yield return 0;
+        yield return new WaitForSeconds(1);
+       // Destroy(GameObject.FindGameObjectWithTag("CameraPoint"));
+        yield return playerSpawnPoint.spawNewSoldier = true;
     }
 
     // Vahingon aiheuttajilla on paasy tahan.
