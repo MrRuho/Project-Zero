@@ -26,19 +26,21 @@ public class CameraFollow : MonoBehaviour {
 
     private void Update()
     {
-        if (Player.dead == true)
-        {
-            followPoint = GameObject.FindGameObjectWithTag("DeadPlayerCameraPoint");
-        }
-        if (Player.dead == false)
-        {
-            followPoint = GameObject.FindGameObjectWithTag("CameraPoint");
-        }
+       
+            if (Player.dead == true)
+            {
+                followPoint = GameObject.FindGameObjectWithTag("DeadPlayerCameraPoint");
+            }
+           else if (Player.dead == false)
+            {
+                followPoint = GameObject.FindGameObjectWithTag("CameraPoint");
+            }
+        
     }
 
     void FixedUpdate()
     {
-        if (Player.dead == false && followPoint != null)
+        if (followPoint != null)
         {
             float posX = Mathf.SmoothDamp(transform.position.x, followPoint.transform.position.x, ref velocity.x, smoothTimeX);
             float posY = Mathf.SmoothDamp(transform.position.y, followPoint.transform.position.y, ref velocity.y, smoothTimeY);

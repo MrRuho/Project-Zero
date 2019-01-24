@@ -271,12 +271,11 @@ public class Player : MonoBehaviour {
                   }
               }*/
             //------------------------- HighScore end---------------------------------------
-
-        gameObject.tag = "Enemy";
         dead = true;
+        Destroy(GameObject.FindGameObjectWithTag("CameraPoint"));
+        gameObject.tag = "Enemy";
         speed = 0;
         rb2d.constraints = RigidbodyConstraints2D.None;
-        Destroy(GameObject.FindGameObjectWithTag("CameraPoint"));
         Destroy(GetComponent<BoxCollider2D>());
         Destroy(GetComponent<CapsuleCollider2D>());
         Destroy(GetComponent<Rigidbody2D>());

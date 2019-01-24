@@ -18,12 +18,9 @@ public class CorpsePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-    }
-
-    void OnCollisionEnter(Collision collide)
-    {
-        //Output the name of the GameObject you collide with
-        Debug.Log("I hit the GameObject : " + collide.gameObject.name);
+        if (Player.dead == false)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("DeadPlayerCameraPoint"));
+        }
     }
 }
