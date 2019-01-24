@@ -9,6 +9,8 @@ public class NameGenerator : MonoBehaviour
     public string[] lines;
 
     private GameMaster gameMaster;
+
+    private bool nameHasSet = false;
     // Use this for initialization
     void Start()
     {
@@ -17,5 +19,21 @@ public class NameGenerator : MonoBehaviour
         TextAsset nameText = Resources.Load<TextAsset>("Names");
         lines = nameText.text.Split("\n"[0]);
         gameMaster.SoldierName.text = lines[Random.Range(0, lines.Length)];
+    }
+
+    void Update()
+    {
+        if (nameHasSet == false && Player.dead == false)
+        {
+            gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
+            TextAsset nameText = Resources.Load<TextAsset>("Names");
+            lines = nameText.text.Split("\n"[0]);
+            gameMaster.SoldierName.text = lines[Random.Range(0, lines.Length)];
+            nameHasSet = true;
+        }
+        if (Player.dead == true)
+        {
+            nameHasSet = false;
+        }
     }
 }
