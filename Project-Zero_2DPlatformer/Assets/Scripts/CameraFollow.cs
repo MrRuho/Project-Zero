@@ -26,7 +26,11 @@ public class CameraFollow : MonoBehaviour {
 
     private void Update()
     {
-        if (followPoint == null)
+        if (Player.dead == true)
+        {
+            followPoint = GameObject.FindGameObjectWithTag("DeadPlayerCameraPoint");
+        }
+        if (Player.dead == false)
         {
             followPoint = GameObject.FindGameObjectWithTag("CameraPoint");
         }

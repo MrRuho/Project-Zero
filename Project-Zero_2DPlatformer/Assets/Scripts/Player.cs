@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
     public bool facingRight = true;
     public bool playerCanDieIfHitsWall = false;
     public bool wallCheck;
-    public static bool dead = false; // Kohteet jotka tarvitsevat tätä tietoa. CameraFollow.cs
+    public static bool dead = false; // Kohteet jotka tarvitsevat tätä tietoa. CameraFollow.cs / playerSpawnPoint.cs
 
     private float jumpPowerOrginal;
     private bool hasJumped;

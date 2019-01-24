@@ -31,7 +31,7 @@ public class EnemyPatrol : Enemy {
 
     void Update()
     {
-        if (player == null)
+        if (player == null && Player.dead == false)
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         }
