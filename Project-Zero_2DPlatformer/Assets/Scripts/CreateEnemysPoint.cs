@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CreateEnemysPoint : MonoBehaviour
 {
-    public static bool PlayerHasEnteredZone = false;
+    public static bool PlayerHasEnteredZone = false; //EnemySpawnPoint.cs
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +14,10 @@ public class CreateEnemysPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Player.dead == true)
+        {
+            PlayerHasEnteredZone = false;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -22,7 +25,11 @@ public class CreateEnemysPoint : MonoBehaviour
         if (collision.CompareTag("Player") && PlayerHasEnteredZone == false)
         {
             PlayerHasEnteredZone = true;
-            Debug.Log(" PlayerHasEnteredZone " + PlayerHasEnteredZone);
+
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject enemy in enemies)
+            GameObject.Destroy(enemy);
+
         }
     }
 }
