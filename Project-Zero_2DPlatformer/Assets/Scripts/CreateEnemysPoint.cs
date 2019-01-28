@@ -28,8 +28,14 @@ public class CreateEnemysPoint : MonoBehaviour
 
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (GameObject enemy in enemies)
-            GameObject.Destroy(enemy);
-
+            {
+                GameObject.Destroy(enemy);
+            }
+            GameObject[] powerUps = GameObject.FindGameObjectsWithTag("PowerUp");
+            foreach (GameObject PowerUp in powerUps)
+            {
+                GameObject.Destroy(PowerUp);
+            }
         }
     }
 }

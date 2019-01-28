@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 2172406312852821631}
   m_Layer: 0
   m_Name: EnemySpawnPoint
-  m_TagString: EditorOnly
+  m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 1231793799}
   m_Layer: 0
   m_Name: monsu_0
-  m_TagString: EditorOnly
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

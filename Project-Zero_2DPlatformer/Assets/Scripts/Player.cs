@@ -41,7 +41,7 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        Physics2D.IgnoreLayerCollision(11, 12);
+        Physics2D.IgnoreLayerCollision(11, 12); //ignooraa pelaaja ruumiit.
         sliding = false;
         dead = false;
         orginalSpeed = speed;
