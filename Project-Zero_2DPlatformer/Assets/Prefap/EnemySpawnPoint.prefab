@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3872158794416987100}
   - component: {fileID: 1701253019443081813}
+  - component: {fileID: 1071508578496650474}
   m_Layer: 0
   m_Name: MushroomMonster_palat_2
   m_TagString: Untagged
@@ -79,6 +80,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1071508578496650474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071508578496650473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09dd75b39f2ad24448366a5e5fdb5ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2172406312852821630
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2172406313273422691}
   - component: {fileID: 2172406313273422688}
+  - component: {fileID: 1231793799}
   m_Layer: 0
   m_Name: monsu_0
   m_TagString: EditorOnly
@@ -205,3 +219,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1231793799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2172406313273422690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09dd75b39f2ad24448366a5e5fdb5ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
