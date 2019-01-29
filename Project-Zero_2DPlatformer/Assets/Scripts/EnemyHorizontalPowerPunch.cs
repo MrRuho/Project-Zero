@@ -29,6 +29,13 @@ public class EnemyHorizontalPowerPunch : MonoBehaviour {
             other.gameObject.GetComponent<Player>().speed = velocity.x;   
             bouncer.GetComponent<Rigidbody2D>().velocity = velocity;
         }
+
+        if (other.gameObject.tag == "CorpsePlayer")
+        {
+            Debug.Log("Corpse entered Mushroom AttacZone");
+            anim.SetBool("MushroomAttack", true);
+            other.GetComponent<Rigidbody2D>().AddForce(Vector2.right * -1600f);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)

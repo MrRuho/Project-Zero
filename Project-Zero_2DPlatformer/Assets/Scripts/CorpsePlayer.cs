@@ -5,7 +5,7 @@ using UnityEngine;
 public class CorpsePlayer : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    private float force = Player.deadSpeed;
+    public float force = Player.deadSpeed;
     // Start is called before the first frame update
     void Start()
     {
