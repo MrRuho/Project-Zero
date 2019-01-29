@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 
     public float maxSpeed = 3;
     public float speed = 10f;
+    public static float deadSpeed; //CorpsePlayer.cs
     public float minFloatingSpeed = 1f; // Maksimi nopeus johon pelaajan nopeus tippuu hiljalleen kun pelaaja on ilmassa.
     public float jumpPower = 150f;
     public float doubleJumpPower = 200f;
@@ -274,12 +275,14 @@ public class Player : MonoBehaviour {
         dead = true;
         Destroy(GameObject.FindGameObjectWithTag("CameraPoint"));
         gameObject.tag = "Enemy";
+        deadSpeed = speed;
+        Instantiate(spawnCorpse, corpseSpawnPoint.position, corpseSpawnPoint.rotation);
         speed = 0;
         rb2d.constraints = RigidbodyConstraints2D.None;
         Destroy(GetComponent<BoxCollider2D>());
         Destroy(GetComponent<CapsuleCollider2D>());
         Destroy(GetComponent<Rigidbody2D>());
-        Instantiate(spawnCorpse, corpseSpawnPoint.position, corpseSpawnPoint.rotation);
+        
        // StartCoroutine(NextSoldier());
         Destroy(gameObject);
         playerSpawnPoint.spawNewSoldier = true;
