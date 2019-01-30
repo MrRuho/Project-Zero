@@ -16,24 +16,18 @@ public class playerSpawnPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Player.dead == true && spawNewSoldier == true)
+        if (Player.dead == true && spawNewSoldier == true && CameraFollow.cameraHasReturn == true)
         {
             StartCoroutine(spawnNewSoldier());
             spawNewSoldier = false;
         }
-      /*  if (spawNewSoldier == true)
-        {
-            Instantiate(nextSoldier, spawnpoint.position, spawnpoint.rotation);
-            spawNewSoldier = false;
-        }*/
-
     }
 
     IEnumerator spawnNewSoldier()
     {
         yield return new WaitForSeconds(1f);
         Instantiate(nextSoldier, spawnpoint.position, spawnpoint.rotation);
-
+       
         yield return 0;
     }
 }

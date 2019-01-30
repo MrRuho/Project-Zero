@@ -7,6 +7,9 @@ public class CameraFollow : MonoBehaviour {
     float smoothTimeY;
     float smoothTimeX;
 
+    private bool timeToReturn = false;
+    public static bool cameraHasReturn = false;
+
     private Vector2 velocity;
 
     public GameObject followPoint;
@@ -27,15 +30,33 @@ public class CameraFollow : MonoBehaviour {
     private void Update()
     {
        
-            if (Player.dead == true)
+            if (Player.dead == true && timeToReturn == false)
             {
                 followPoint = GameObject.FindGameObjectWithTag("DeadPlayerCameraPoint");
+                StartCoroutine(CameraReturnToStartPoint());
             }
-           else if (Player.dead == false)
+            else if (timeToReturn == true && cameraHasReturn == false)
+            {
+                Debug.Log("Camera has returned at start loation");
+                followPoint = GameObject.FindGameObjectWithTag("CameraStartAndReturnPoint");
+                StartCoroutine(CameraHasReturn());
+            }
+            else if (Player.dead == false && cameraHasReturn == true)
             {
                 followPoint = GameObject.FindGameObjectWithTag("CameraPoint");
+                timeToReturn = false;
+                cameraHasReturn = false;
             }
         
+    }
+    IEnumerator CameraReturnToStartPoint()
+    {
+        yield return new WaitForSeconds(1f);
+        yield return timeToReturn = true;
+    }
+    IEnumerator CameraHasReturn() {
+        yield return new WaitForSeconds(1f);
+        yield return cameraHasReturn = true;
     }
 
     void FixedUpdate()

@@ -20,6 +20,7 @@ TagManager:
   - DeadPlayerCameraPoint
   - PowerUp
   - CorpsePlayer
+  - CameraStartAndReturnPoint
   layers:
   - Default
   - TransparentFX
