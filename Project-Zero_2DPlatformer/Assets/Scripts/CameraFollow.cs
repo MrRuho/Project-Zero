@@ -32,17 +32,19 @@ public class CameraFollow : MonoBehaviour {
        
             if (Player.dead == true && timeToReturn == false)
             {
+                Debug.Log("Camera follow dead Player");
                 followPoint = GameObject.FindGameObjectWithTag("DeadPlayerCameraPoint");
                 StartCoroutine(CameraReturnToStartPoint());
             }
             else if (timeToReturn == true && cameraHasReturn == false)
             {
-                Debug.Log("Camera has returned at start loation");
+                Debug.Log("Camera return at start loation");
                 followPoint = GameObject.FindGameObjectWithTag("CameraStartAndReturnPoint");
                 StartCoroutine(CameraHasReturn());
             }
             else if (Player.dead == false && cameraHasReturn == true)
             {
+                Debug.Log("Camera follow player");
                 followPoint = GameObject.FindGameObjectWithTag("CameraPoint");
                 timeToReturn = false;
                 cameraHasReturn = false;
