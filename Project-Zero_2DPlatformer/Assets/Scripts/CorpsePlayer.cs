@@ -9,6 +9,14 @@ public class CorpsePlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb2d = gameObject.GetComponent<Rigidbody2D>();
+        if (Player.deadSpeed > 0)
+        {
+            rb2d.AddTorque(-force * 3, ForceMode2D.Force);
+        } else
+        {
+            rb2d.AddTorque(force * 3, ForceMode2D.Force);
+        }
         Debug.Log("deadSpeed: " + force);
         if (Player.deadSpeed < -5)
         {
@@ -21,8 +29,7 @@ public class CorpsePlayer : MonoBehaviour
         else if(Player.deadSpeed > 2)
         {    
             force = Player.deadSpeed * 70;
-        }
-        rb2d = gameObject.GetComponent<Rigidbody2D>();
+        }  
         rb2d.AddForce(Vector2.right * force);
         Physics2D.IgnoreLayerCollision(12, 11);
         Physics2D.IgnoreLayerCollision(12, 0);
