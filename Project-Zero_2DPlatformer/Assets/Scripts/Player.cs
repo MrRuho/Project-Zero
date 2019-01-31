@@ -299,8 +299,9 @@ public class Player : MonoBehaviour {
     // Vahingon aiheuttajilla on paasy tahan.
     public void Damage(int dmg)
     {
-        curHealth -= dmg;
-        gameObject.GetComponent<Animation>().Play("Player_RedFlash");   
+        Die();
+        //curHealth -= dmg;
+       // gameObject.GetComponent<Animation>().Play("Player_RedFlash");   
     }
 
     // Aktivoituu pelajaan saadessa vahinkoa.
