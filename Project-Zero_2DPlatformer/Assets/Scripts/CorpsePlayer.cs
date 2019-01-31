@@ -17,7 +17,7 @@ public class CorpsePlayer : MonoBehaviour
         {
             rb2d.AddTorque(force * 3, ForceMode2D.Force);
         }
-        Debug.Log("deadSpeed: " + force);
+       
         if (Player.deadSpeed < -5)
         {
             force = Player.deadSpeed * 40;

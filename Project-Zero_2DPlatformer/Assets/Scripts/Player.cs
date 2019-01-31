@@ -123,10 +123,7 @@ public class Player : MonoBehaviour {
         } // -----------------------double jump End -------------------------
 
     
-        if (curHealth <= 0)
-        {
-            Die();
-        }
+        
         // ---------------------- wall climping jumping start ----------------------------
      /*    if (!grounded)
          {
@@ -258,6 +255,18 @@ public class Player : MonoBehaviour {
         yield return 0;
     }
 
+
+    // Vahingon aiheuttajilla on paasy tahan.
+    public void Damage(int dmg)
+    {
+        curHealth -= dmg;
+
+        if (curHealth <= 0)
+        {
+            Die();
+        }
+    }
+
     void Die()
     {       //  Huome! HighScore ominaisuutta ei ole asennettu peliin nakyvaksi.
             /*  if (PlayerPrefs.HasKey("HighScore"))
@@ -282,42 +291,10 @@ public class Player : MonoBehaviour {
         Destroy(GetComponent<BoxCollider2D>());
         Destroy(GetComponent<CapsuleCollider2D>());
         Destroy(GetComponent<Rigidbody2D>());
-        
-       // StartCoroutine(NextSoldier());
         Destroy(gameObject);
         playerSpawnPoint.spawNewSoldier = true;
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //lataa koko kentän alusta.
     }
 
-    IEnumerator NextSoldier()
-    {
-        yield return new WaitForSeconds(1);
-       // Destroy(GameObject.FindGameObjectWithTag("CameraPoint"));
-        yield return playerSpawnPoint.spawNewSoldier = true;
-    }
-
-    // Vahingon aiheuttajilla on paasy tahan.
-    public void Damage(int dmg)
-    {
-        Die();
-        //curHealth -= dmg;
-       // gameObject.GetComponent<Animation>().Play("Player_RedFlash");   
-    }
-
-    // Aktivoituu pelajaan saadessa vahinkoa.
-    public IEnumerator KnockBack(float knockDur, float knockBackPwr, Vector3 knockBackDir)
-    {
-        float timer = 0;
-        rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-        while (knockDur > timer)
-        {
-            timer += Time.deltaTime;
-            rb2d.velocity = new Vector2(0, 0);
-            rb2d.AddForce(new Vector3(knockBackDir.x * -100, knockBackDir.y * knockBackPwr, transform.position.z));
-        }
-        yield return 0;
-    }
-    //--------------------------------------------
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Coin"))

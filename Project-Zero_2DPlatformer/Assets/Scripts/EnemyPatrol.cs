@@ -31,11 +31,7 @@ public class EnemyPatrol : Enemy {
 
     void Update()
     {
-        if (player == null && Player.dead == false)
-        {
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        }
-            int layerMask = 0 << 11;
+        int layerMask = 0 << 11;
         layerMask = ~layerMask; //wall Raycast ei huomio pelaajaa.
 
         if (getHit == false)
@@ -150,7 +146,6 @@ public class EnemyPatrol : Enemy {
         }
     }
 
- 
     IEnumerator HasBeenHit()
     {
         yield return new WaitForSeconds(1);

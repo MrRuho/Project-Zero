@@ -13,10 +13,16 @@ public class Spikes : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        
         if (collision.CompareTag("Player"))
         {
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
             player.Damage(5);
+        }
+
+        if (collision.CompareTag("Bullet"))
+        {
+            Destroy(gameObject);
         }
     }
 

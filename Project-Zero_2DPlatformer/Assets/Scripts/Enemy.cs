@@ -29,8 +29,6 @@ public class Enemy : MonoBehaviour {
     // Aktivoituu kuolinanimaation loputtua.
     void Die()
     {
-        // Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
- 
     }
 }
