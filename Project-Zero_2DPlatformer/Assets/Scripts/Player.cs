@@ -77,7 +77,7 @@ public class Player : MonoBehaviour {
         {
             sliding = true;
             capsuleCollider2D.size = new Vector3(0.9f, 0.5f, 0);
-            capsuleCollider2D.offset = new Vector3(0, -0.19f, 0);
+            capsuleCollider2D.offset = new Vector3(0, -0.04f, 0);
             capsuleCollider2D.direction = CapsuleDirection2D.Horizontal;
             anim.SetBool("Slide", true);
             // Slide animaation loputtua Animation kaynnistaa SlideEnds() eventin joka palauttaa capsulecolliderin normaaliksi.
