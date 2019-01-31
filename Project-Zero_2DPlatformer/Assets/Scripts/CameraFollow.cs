@@ -8,6 +8,8 @@ public class CameraFollow : MonoBehaviour {
     float smoothTimeX;
 
     private bool timeToReturn = false;
+    private int cameraControl = 0;
+
     public static bool cameraHasReturn = false;
 
     private Vector2 velocity;
@@ -29,26 +31,26 @@ public class CameraFollow : MonoBehaviour {
 
     private void Update()
     {
-       
-            if (Player.dead == true && timeToReturn == false)
-            {
-                Debug.Log("Camera follow dead Player");
-                followPoint = GameObject.FindGameObjectWithTag("DeadPlayerCameraPoint");
-                StartCoroutine(CameraReturnToStartPoint());
-            }
-            else if (timeToReturn == true && cameraHasReturn == false)
-            {
-                Debug.Log("Camera return at start loation");
-                followPoint = GameObject.FindGameObjectWithTag("CameraStartAndReturnPoint");
-                StartCoroutine(CameraHasReturn());
-            }
-            else if (Player.dead == false && cameraHasReturn == true)
-            {
-                Debug.Log("Camera follow player");
+        
+            if (Player.dead == false && cameraHasReturn == true && cameraControl == 0)
+            {         
                 followPoint = GameObject.FindGameObjectWithTag("CameraPoint");
                 timeToReturn = false;
                 cameraHasReturn = false;
             }
+            else if (Player.dead == true && timeToReturn == false && cameraControl == 0)
+            {
+                cameraControl = 1;          
+                followPoint = GameObject.FindGameObjectWithTag("DeadPlayerCameraPoint");
+                StartCoroutine(CameraReturnToStartPoint());
+            }
+            else if (timeToReturn == true && cameraHasReturn == false && cameraControl == 1)
+            {
+                cameraControl = 0; 
+                followPoint = GameObject.FindGameObjectWithTag("CameraStartAndReturnPoint");
+                StartCoroutine(CameraHasReturn());
+            }
+           
         
     }
     IEnumerator CameraReturnToStartPoint()
@@ -106,4 +108,38 @@ public class CameraFollow : MonoBehaviour {
         }
 
     }
+  /*  void CameraFollowControl(int cameraPoint)
+    {
+        cameraControl = cameraPoint;
+
+        switch (cameraControl)
+        {
+            case 1:
+                cameraControl = 0;
+                Debug.Log("Camera follow dead Player");
+                followPoint = GameObject.FindGameObjectWithTag("DeadPlayerCameraPoint");
+                StartCoroutine(CameraReturnToStartPoint());
+                break;
+
+            case 2:
+                cameraControl = 0;
+                Debug.Log("Camera return at start loation");
+                followPoint = GameObject.FindGameObjectWithTag("CameraStartAndReturnPoint");
+                StartCoroutine(CameraHasReturn());
+                break;
+
+            case 3:
+                cameraControl = 0;
+                Debug.Log("Camera follow player");
+                followPoint = GameObject.FindGameObjectWithTag("CameraPoint");
+                timeToReturn = false;
+                cameraHasReturn = false;
+
+                break;
+
+            default:
+              
+                break;
+        }
+    }*/
 }
