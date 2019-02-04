@@ -14,21 +14,11 @@ public class HUD : MonoBehaviour {
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        
     }
 
     void Update()
     {
-        
-        if (player.curHealth > player.maxHealth)
-        {
-            player.curHealth = player.maxHealth;
-        }
-
-        if (player.curHealth < 0)
-        {
-            player.curHealth = 0;
-        }
-
-        HeartsUI.sprite = HeartSprites[player.curHealth];
+       // HeartsUI.sprite = HeartSprites[player.curHealth]; taman tilalle tulee aikanaan sotilas rankit ja mitallit.
     }
 }

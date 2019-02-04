@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour {
     {
         animator = GetComponent<Animator>();
     }
+
     public void TakeDamage (int damage)
     {
         health -= damage;
@@ -25,7 +26,6 @@ public class Enemy : MonoBehaviour {
             // Jokaisella vihollisella tulee olla Dying (tasmalleen samalla nimella) animaatio jonka viimeisessa freimissa on -- animation -> add evet Die();--
         }
     }
-
     // Aktivoituu kuolinanimaation loputtua.
     void Die()
     {

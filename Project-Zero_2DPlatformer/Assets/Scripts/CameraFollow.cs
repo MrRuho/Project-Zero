@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour {
     float smoothTimeX;
 
     private bool timeToReturn = false;
-    private int cameraControl = 0;
+    private int cameraControl = 0; // kontrolloi sitä että kamera etsii uuden kohteen vain kerran.
 
     public static bool cameraHasReturn = false;
 
@@ -30,8 +30,7 @@ public class CameraFollow : MonoBehaviour {
 	}
 
     private void Update()
-    {
-        
+    {     
             if (Player.dead == false && cameraHasReturn == true && cameraControl == 0)
             {         
                 followPoint = GameObject.FindGameObjectWithTag("CameraPoint");
@@ -49,15 +48,15 @@ public class CameraFollow : MonoBehaviour {
                 cameraControl = 0; 
                 followPoint = GameObject.FindGameObjectWithTag("CameraStartAndReturnPoint");
                 StartCoroutine(CameraHasReturn());
-            }
-           
-        
+            }    
     }
+
     IEnumerator CameraReturnToStartPoint()
     {
         yield return new WaitForSeconds(1f);
         yield return timeToReturn = true;
     }
+
     IEnumerator CameraHasReturn() {
         yield return new WaitForSeconds(1f);
         yield return cameraHasReturn = true;
@@ -80,9 +79,7 @@ public class CameraFollow : MonoBehaviour {
             Mathf.Clamp(transform.position.y, minCameraPos.y, maxCameraPos.y),
             Mathf.Clamp(transform.position.z, minCameraPos.z, maxCameraPos.z)
             );
-
         }
-
     }
 
     //CameraFollowEditor. Poimii kameran max ja minimi arvot jotka voit sitten asettaa arvoiksi menussa.
@@ -106,40 +103,5 @@ public class CameraFollow : MonoBehaviour {
             smoothTimeY = 0.1f;
             smoothTimeX = 0.1f;
         }
-
-    }
-  /*  void CameraFollowControl(int cameraPoint)
-    {
-        cameraControl = cameraPoint;
-
-        switch (cameraControl)
-        {
-            case 1:
-                cameraControl = 0;
-                Debug.Log("Camera follow dead Player");
-                followPoint = GameObject.FindGameObjectWithTag("DeadPlayerCameraPoint");
-                StartCoroutine(CameraReturnToStartPoint());
-                break;
-
-            case 2:
-                cameraControl = 0;
-                Debug.Log("Camera return at start loation");
-                followPoint = GameObject.FindGameObjectWithTag("CameraStartAndReturnPoint");
-                StartCoroutine(CameraHasReturn());
-                break;
-
-            case 3:
-                cameraControl = 0;
-                Debug.Log("Camera follow player");
-                followPoint = GameObject.FindGameObjectWithTag("CameraPoint");
-                timeToReturn = false;
-                cameraHasReturn = false;
-
-                break;
-
-            default:
-              
-                break;
-        }
-    }*/
+    }    
 }

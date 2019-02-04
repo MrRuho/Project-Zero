@@ -40,23 +40,9 @@ public class Player_Weapons : MonoBehaviour {
             WeaponSwitcher(weapon); 
         }
 
-        // Kaantaa ampumapistetta siihen suntaan mihin hahmo katsoo. Estaa nain ampumasta itseaan.
-        if (Input.GetKeyDown("left"))
-        {
-            transform.localEulerAngles = new Vector3(0f, 180f, 0f);
-            facingDirection = 180f;
-        }
-
-        if (Input.GetKeyDown("right"))
-        {
-            transform.localEulerAngles = new Vector3(0f, 0f, 0f);
-            facingDirection = 0f;
-        }
-
         // Ei automaattiset aseet.
         if (automatic == false && weaponSwitch != 2)
-        {
-            
+        {         
             if (Input.GetButtonDown("Fire2") && ammoCounter > 0 && canFireAgain >= fireRateControl)
             {
                 Debug.Log(ammoCounter);
@@ -70,8 +56,7 @@ public class Player_Weapons : MonoBehaviour {
 
         //Automaatti aseet.
         if (automatic == true)
-        {
-       
+        {    
             if (Input.GetButton("Fire2") && ammoCounter > 0 && canFireAgain >= fireRateControl)
             {
                 Debug.Log(ammoCounter);
@@ -85,8 +70,7 @@ public class Player_Weapons : MonoBehaviour {
 
         //shotgun
         if (automatic == false && weaponSwitch == 2)
-        {
-    
+        {  
             if (Input.GetButtonDown("Fire2") && ammoCounter > 0 && canFireAgain >= fireRateControl)
             {
                 Debug.Log(ammoCounter);

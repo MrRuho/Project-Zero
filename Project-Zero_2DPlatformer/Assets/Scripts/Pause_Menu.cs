@@ -8,6 +8,7 @@ public class Pause_Menu : MonoBehaviour {
     public GameObject PauseUI;
 
     private bool paused = false;
+    private bool pauseControl = false; // Kontrolloi sitä että pause ja ei pause toteutetaan vain kerran.
 
     private void Start()
     {
@@ -21,15 +22,17 @@ public class Pause_Menu : MonoBehaviour {
             paused = !paused;
         }
 
-        if (paused)
-        {
+        if (paused && pauseControl == true)
+        {          
             PauseUI.SetActive(true);
             Time.timeScale = 0;
+            pauseControl = false;
         }
-        if (!paused)
-        {
+        if (!paused && pauseControl == false)
+        {         
             PauseUI.SetActive(false);
             Time.timeScale = 1;
+            pauseControl = true;
         }
     }
 
@@ -39,20 +42,17 @@ public class Pause_Menu : MonoBehaviour {
     }
 
     public void Restart()
-    {
-       
+    {     
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void MainMenu()
-    {
-      
+    {   
         SceneManager.LoadScene(0);
     }
     public void Quit()
     {
         Application.Quit();
     }
-
 }
 

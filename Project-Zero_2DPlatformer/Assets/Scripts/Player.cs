@@ -73,7 +73,7 @@ public class Player : MonoBehaviour {
         anim.SetFloat("Speed", Mathf.Abs(speed));
   
         //--- Kyykky tai liuku. Start. Muuttaa capsuleCollider2D kokoa ja suuntaa.---
-        if (Input.GetKeyDown("x")  && !sliding && !dead)
+        if (Input.GetKeyDown("x")  && !sliding && !dead && sliding == false)
         {
             sliding = true;
             capsuleCollider2D.size = new Vector3(0.9f, 0.5f, 0);
@@ -82,20 +82,8 @@ public class Player : MonoBehaviour {
             anim.SetBool("Slide", true);
             // Slide animaation loputtua Animation kaynnistaa SlideEnds() eventin joka palauttaa capsulecolliderin normaaliksi.
         }
-
         //---- kyyky tai liuku. end ---
 
-      /*  if (Input.GetAxis("Horizontal") < -0.1f)
-        {       
-            transform.localScale = new Vector3(-1, 1, 1);
-            facingRight = false;
-        }
-
-        if (Input.GetAxis("Horizontal") > 0.1f)
-        {  
-            transform.localScale = new Vector3(1, 1, 1);
-            facingRight = true;
-        }*/
         // ------------------------- double jump Start ----------------------
         if (Input.GetButtonDown("Jump") && !dead)
         {
@@ -121,57 +109,8 @@ public class Player : MonoBehaviour {
                 }
             }   
         }
-
-      /*  if (curHealth <= 0)
-        {
-            Die();
-        }*/
-
         // -----------------------double jump End -------------------------
-
-
-
-        // ---------------------- wall climping jumping start ----------------------------
-        /*    if (!grounded)
-            {
-               wallCheck = Physics2D.OverlapCircle(wallCheckPoint.position, 0.1f, wallLayerMask);
-
-               if (facingRight && Input.GetAxis("Horizontal")> 0.1f || !facingRight && Input.GetAxis("Horizontal") < 0.1f)
-                {
-                    if (wallCheck)
-                    {
-                        HandleWallSliding();
-                    }
-                }
-            }
-
-            if (wallCheck == false || grounded)
-           {
-               wallSliding = false;
-           }*/
-
     }
-
-   /* void HandleWallSliding()
-    {
-        rb2d.velocity = new Vector2(rb2d.velocity.x, -0.7f);
-        wallSliding = true;
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            if (facingRight)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-                rb2d.AddForce(new Vector2(-1, 2) * jumpPower);
-            }
-            else
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-                rb2d.AddForce(new Vector2(1, 2) * jumpPower);
-            }
-        }
-    }*/
-    //---------------------- wall climping jumping end ----------------------------
 
     // Slide animaation loputtua Animation kaynnistaa taman eventin.
     void SlideEnds()
@@ -184,8 +123,7 @@ public class Player : MonoBehaviour {
     }
 
     private void FixedUpdate()
-    {
-        
+    {        
         if (playerCanDieIfHitsWall == false && grounded && !dead)
         {
             if (speed <= orginalSpeed  && playerCanDieIfHitsWall == false && timeToBoost == true)
@@ -205,39 +143,8 @@ public class Player : MonoBehaviour {
 
         if (playerCanDieIfHitsWall == true && !dead) // Lyo pelaajan vasemmalle esim."EnemyHorizontalPowerPunch.cs" aktivoi vaman ja asettaa nopeudeksi -20.
         {           
-            transform.Translate(speed * Time.deltaTime, 0.1f, 0);
-              
+            transform.Translate(speed * Time.deltaTime, 0.1f, 0);          
         }
-        // create fake friction /Easing the X speed of our player. Player not slide and stops moving immediately
-        Vector3 easeVelocity = rb2d.velocity;
-        easeVelocity.y = rb2d.velocity.y;
-        easeVelocity.z = 0.0f;
-        easeVelocity.x *= 0.75f;
-        float horizontal = Input.GetAxis("Horizontal");
-
-        if (grounded)
-        {
-            rb2d.velocity = easeVelocity;
-        }
-        //------------------------------------------------
-        if (grounded)
-        {
-            rb2d.AddForce((Vector2.right * speed) * horizontal);
-        }
-        else
-        {
-            rb2d.AddForce((Vector2.right * speed / 2) * horizontal);
-        }
-
-        //Rajoittaa pelaajan maksimi nopeutta.
-        if (rb2d.velocity.x > maxSpeed)
-        {
-            rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
-        }
-        if (rb2d.velocity.x < -maxSpeed)
-        {
-            rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
-        }    
     }
 
     IEnumerator LoseSpeed()
@@ -262,7 +169,6 @@ public class Player : MonoBehaviour {
         yield return 0;
     }
 
-
     // Vahingon aiheuttajilla on paasy tahan.
     public void Damage(int dmg)
     {
@@ -274,19 +180,7 @@ public class Player : MonoBehaviour {
     }
 
     void Die()
-    {       //  Huome! HighScore ominaisuutta ei ole asennettu peliin nakyvaksi.
-            /*  if (PlayerPrefs.HasKey("HighScore"))
-              {
-                  if(PlayerPrefs.GetInt("HighScore")< gameMaster.points)
-                  {
-                      PlayerPrefs.SetInt("HighScore", gameMaster.points);
-                  }
-                  else
-                  {
-                      PlayerPrefs.SetInt("HighScore", gameMaster.points);
-                  }
-              }*/
-            //------------------------- HighScore end---------------------------------------
+    {       
         dead = true;
         Destroy(GameObject.FindGameObjectWithTag("CameraPoint"));
         gameObject.tag = "Enemy";

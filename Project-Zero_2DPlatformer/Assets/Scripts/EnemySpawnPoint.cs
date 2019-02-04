@@ -24,7 +24,7 @@ public class EnemySpawnPoint : MonoBehaviour
             Instantiate(spawnEnemy, zombieSpawnPoint.position, zombieSpawnPoint.rotation);
             zombieHasCreated = true;
         }
-        if (Player.dead == true)
+        if (Player.dead == true && zombieHasCreated == true)
         {
             zombieHasCreated = false;
         }

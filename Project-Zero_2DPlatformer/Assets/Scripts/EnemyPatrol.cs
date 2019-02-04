@@ -10,7 +10,7 @@ public class EnemyPatrol : Enemy {
     private bool grounded = false;
     private bool canTurn = false;
     private int currentHealth = 1;
-
+    private int layerMask = 0 << 11; //wall Raycast ei huomio pelaajaa.
     private Player player;
 
     public Transform groundDetection;
@@ -27,13 +27,11 @@ public class EnemyPatrol : Enemy {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         anim = gameObject.GetComponent<Animator>();
         currentHealth = enemy.health;
+        layerMask = ~layerMask; //wall Raycast ei huomio pelaajaa.
     }
 
     void Update()
-    {
-        int layerMask = 0 << 11;
-        layerMask = ~layerMask; //wall Raycast ei huomio pelaajaa.
-
+    {     
         if (getHit == false)
         {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
@@ -45,8 +43,6 @@ public class EnemyPatrol : Enemy {
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position,Vector2.down, 0.1f);
         RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, Vector2.down, 0.1f, layerMask);
-
-       
 
         Debug.DrawRay(transform.position, Vector2.down, Color.white);
         Debug.DrawRay(transform.position, Vector2.zero, Color.yellow);

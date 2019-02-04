@@ -5,6 +5,7 @@ using UnityEngine;
 public class CreateEnemysPoint : MonoBehaviour
 {
     public static bool PlayerHasEnteredZone = false; //EnemySpawnPoint.cs
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,7 @@ public class CreateEnemysPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Player.dead == true)
+        if (Player.dead == true && PlayerHasEnteredZone == true)
         {
             PlayerHasEnteredZone = false;
         }

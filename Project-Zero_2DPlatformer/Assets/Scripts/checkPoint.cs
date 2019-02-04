@@ -8,18 +8,6 @@ public class checkPoint : MonoBehaviour{
     public Transform newPlayerSpawnPoint;
     public GameObject playerSpawnPoint;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-  
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     /*Tuhoaa ensin vanhanpelaajan luontipisteen, jonka jälkeen luo uuden.*/
     private void OnTriggerEnter2D(Collider2D collision)
     {
