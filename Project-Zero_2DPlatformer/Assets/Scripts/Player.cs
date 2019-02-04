@@ -120,29 +120,36 @@ public class Player : MonoBehaviour {
                     hasJumped = true;
                 }
             }   
-        } // -----------------------double jump End -------------------------
+        }
 
-    
-        
-        // ---------------------- wall climping jumping start ----------------------------
-     /*    if (!grounded)
-         {
-            wallCheck = Physics2D.OverlapCircle(wallCheckPoint.position, 0.1f, wallLayerMask);
-
-            if (facingRight && Input.GetAxis("Horizontal")> 0.1f || !facingRight && Input.GetAxis("Horizontal") < 0.1f)
-             {
-                 if (wallCheck)
-                 {
-                     HandleWallSliding();
-                 }
-             }
-         }
-
-         if (wallCheck == false || grounded)
+      /*  if (curHealth <= 0)
         {
-            wallSliding = false;
+            Die();
         }*/
-     
+
+        // -----------------------double jump End -------------------------
+
+
+
+        // ---------------------- wall climping jumping start ----------------------------
+        /*    if (!grounded)
+            {
+               wallCheck = Physics2D.OverlapCircle(wallCheckPoint.position, 0.1f, wallLayerMask);
+
+               if (facingRight && Input.GetAxis("Horizontal")> 0.1f || !facingRight && Input.GetAxis("Horizontal") < 0.1f)
+                {
+                    if (wallCheck)
+                    {
+                        HandleWallSliding();
+                    }
+                }
+            }
+
+            if (wallCheck == false || grounded)
+           {
+               wallSliding = false;
+           }*/
+
     }
 
    /* void HandleWallSliding()
@@ -206,7 +213,7 @@ public class Player : MonoBehaviour {
         easeVelocity.y = rb2d.velocity.y;
         easeVelocity.z = 0.0f;
         easeVelocity.x *= 0.75f;
-        float h = Input.GetAxis("Horizontal");
+        float horizontal = Input.GetAxis("Horizontal");
 
         if (grounded)
         {
@@ -215,11 +222,11 @@ public class Player : MonoBehaviour {
         //------------------------------------------------
         if (grounded)
         {
-            rb2d.AddForce((Vector2.right * speed) * h);
+            rb2d.AddForce((Vector2.right * speed) * horizontal);
         }
         else
         {
-            rb2d.AddForce((Vector2.right * speed / 2) * h);
+            rb2d.AddForce((Vector2.right * speed / 2) * horizontal);
         }
 
         //Rajoittaa pelaajan maksimi nopeutta.
@@ -260,7 +267,6 @@ public class Player : MonoBehaviour {
     public void Damage(int dmg)
     {
         curHealth -= dmg;
-
         if (curHealth <= 0)
         {
             Die();
@@ -308,7 +314,7 @@ public class Player : MonoBehaviour {
     {      
         if (playerCanDieIfHitsWall)
         {
-            curHealth = 0;
+            Damage(5);
         }
     }
 

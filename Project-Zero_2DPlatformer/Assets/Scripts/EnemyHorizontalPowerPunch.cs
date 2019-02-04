@@ -41,11 +41,9 @@ public class EnemyHorizontalPowerPunch : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
-        {
-            
+        {       
             other.gameObject.GetComponent<Player>().playerCanDieIfHitsWall = true;
         }
     }
-   
 }
 
