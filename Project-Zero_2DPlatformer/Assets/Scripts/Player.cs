@@ -26,6 +26,7 @@ public class Player : MonoBehaviour {
     private bool hasJumped;
     public static bool sliding = false; // Kohteet jotka tarvitsevat tätä tietoa. WallKill.cs / BootKill.cs
     private bool timeToBoost = false;
+    private bool loseSpeed = false;
 
     //References
     public Transform corpseSpawnPoint;
@@ -68,7 +69,7 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(speed);
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(speed));
   
@@ -102,10 +103,11 @@ public class Player : MonoBehaviour {
             {
                 if (canDoubleJump && hasJumped == false)
                 {
+                    loseSpeed = true;
                     canDoubleJump = false;
                     rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                     rb2d.AddForce(Vector2.up * doubleJumpPower);
-                    hasJumped = true;
+                    hasJumped = true;          
                 }
             }   
         }
@@ -124,7 +126,7 @@ public class Player : MonoBehaviour {
 
     private void FixedUpdate()
     {        
-        if (playerCanDieIfHitsWall == false && grounded && !dead)
+        if (playerCanDieIfHitsWall == false && !dead && loseSpeed == false)
         {
             if (speed <= orginalSpeed  && playerCanDieIfHitsWall == false && timeToBoost == true)
             {
@@ -133,12 +135,13 @@ public class Player : MonoBehaviour {
             }
 
             transform.Translate(speed * Time.deltaTime, 0, 0); // Liikuttaa pelajaa oikealle.
-        }
 
-        if (playerCanDieIfHitsWall == false && !grounded && !dead)
+        } else if (playerCanDieIfHitsWall == false && !grounded && !dead && !canDoubleJump && loseSpeed == true) //pelaaja menettää nopeutta suorittaessaan tuplahypyn.
         {
+            loseSpeed = false;
             StartCoroutine(LoseSpeed());
             transform.Translate(speed * Time.deltaTime, 0, 0);
+
         }
 
         if (playerCanDieIfHitsWall == true && !dead) // Lyo pelaajan vasemmalle esim."EnemyHorizontalPowerPunch.cs" aktivoi vaman ja asettaa nopeudeksi -20.
@@ -152,7 +155,7 @@ public class Player : MonoBehaviour {
             for (float i = minFloatingSpeed; i <= speed && !grounded;)
             {
             yield return new WaitForSeconds(0.01f);
-            speed -= 0.001f;
+            speed -= 0.05f;
             
             }
         
