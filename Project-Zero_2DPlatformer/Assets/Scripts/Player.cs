@@ -61,8 +61,7 @@ public class Player : MonoBehaviour {
             capsuleCollider2D.offset = new Vector3(0.08f, -0.04f, 0);
             capsuleCollider2D.direction = CapsuleDirection2D.Vertical;
         }
-
-      
+  
         gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
 	}
 
@@ -76,6 +75,7 @@ public class Player : MonoBehaviour {
         //--- Kyykky tai liuku. Start. Muuttaa capsuleCollider2D kokoa ja suuntaa.---
         if (Input.GetKeyDown("x")  && !sliding && !dead && sliding == false)
         {
+            speed++;
             sliding = true;
             capsuleCollider2D.size = new Vector3(0.9f, 0.5f, 0);
             capsuleCollider2D.offset = new Vector3(0, -0.04f, 0);
