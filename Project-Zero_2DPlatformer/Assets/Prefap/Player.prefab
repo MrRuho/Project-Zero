@@ -45,7 +45,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.47808838, y: -0.35318208}
+  m_Offset: {x: 0.3298111, y: -0.35318208}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -56,7 +56,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.19888306, y: 0.51760435}
+  m_Size: {x: 0.49543762, y: 0.51760435}
   m_EdgeRadius: 0
 --- !u!114 &1815100287
 MonoBehaviour:
@@ -288,6 +288,7 @@ MonoBehaviour:
   facingRight: 1
   playerCanDieIfHitsWall: 0
   wallCheck: 1
+  firepoint: {fileID: 4662288450742986}
   corpseSpawnPoint: {fileID: 2067332652}
   spawnCorpse: {fileID: 8576727948722357193, guid: ea616744c6b58c640915322c400fb66b,
     type: 3}

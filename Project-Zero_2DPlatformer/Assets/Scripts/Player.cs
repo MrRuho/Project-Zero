@@ -29,6 +29,7 @@ public class Player : MonoBehaviour {
     private bool loseSpeed = false;
 
     //References
+    public Transform firepoint;
     public Transform corpseSpawnPoint;
     public GameObject spawnCorpse;
     public GameObject blood;
@@ -76,11 +77,15 @@ public class Player : MonoBehaviour {
         //--- Kyykky tai liuku. Start. Muuttaa capsuleCollider2D kokoa ja suuntaa.---
         if (Input.GetKeyDown("x")  && !sliding && !dead && sliding == false)
         {
-            speed++;
+            if (grounded)
+            {
+                speed++;
+            }
             sliding = true;
             capsuleCollider2D.size = new Vector3(0.9f, 0.5f, 0);
             capsuleCollider2D.offset = new Vector3(0, -0.04f, 0);
             capsuleCollider2D.direction = CapsuleDirection2D.Horizontal;
+            firepoint.localPosition = new Vector3(1.374f, 0f, 0f);
             anim.SetBool("Slide", true);
             // Slide animaation loputtua Animation kaynnistaa SlideEnds() eventin joka palauttaa capsulecolliderin normaaliksi.
         }
@@ -118,6 +123,7 @@ public class Player : MonoBehaviour {
     // Slide animaation loputtua Animation kaynnistaa taman eventin.
     void SlideEnds()
     {
+        firepoint.localPosition = new Vector3(1.374f, 0.23f, 0f);
         capsuleCollider2D.size = new Vector3(0.55f, 1.2f, 0);
         capsuleCollider2D.offset = new Vector3(0.08f, -0.04f, 0);
         capsuleCollider2D.direction = CapsuleDirection2D.Vertical;
