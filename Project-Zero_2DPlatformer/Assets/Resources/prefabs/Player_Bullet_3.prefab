@@ -4862,7 +4862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9abe6bf949540a449eb1175d50f9269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 30
   damage: 100
   rb2d: {fileID: 50170739401837604}
   impactEffect: {fileID: 1683138344308704, guid: 5ee5ba8da5887534dbf8bbd005709641,

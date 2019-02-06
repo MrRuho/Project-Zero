@@ -63,7 +63,8 @@ public class Player : MonoBehaviour {
         }
   
         gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
-	}
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -103,7 +104,7 @@ public class Player : MonoBehaviour {
             {
                 if (canDoubleJump && hasJumped == false)
                 {
-                    loseSpeed = true;
+                   // loseSpeed = true;
                     canDoubleJump = false;
                     rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                     rb2d.AddForce(Vector2.up * doubleJumpPower);
@@ -121,12 +122,16 @@ public class Player : MonoBehaviour {
         capsuleCollider2D.offset = new Vector3(0.08f, -0.04f, 0);
         capsuleCollider2D.direction = CapsuleDirection2D.Vertical;
         anim.SetBool("Slide", false);
+        if (grounded) {
+            speed--;
+        }
+
         sliding = false;
     }
 
     private void FixedUpdate()
     {        
-        if (playerCanDieIfHitsWall == false && !dead && loseSpeed == false)
+        if (playerCanDieIfHitsWall == false && !dead && grounded)
         {
             if (speed <= orginalSpeed  && playerCanDieIfHitsWall == false && timeToBoost == true)
             {
@@ -136,9 +141,9 @@ public class Player : MonoBehaviour {
 
             transform.Translate(speed * Time.deltaTime, 0, 0); // Liikuttaa pelajaa oikealle.
 
-        } else if (playerCanDieIfHitsWall == false && !grounded && !dead && !canDoubleJump && loseSpeed == true) //pelaaja menettää nopeutta suorittaessaan tuplahypyn.
+        } else if (playerCanDieIfHitsWall == false && !grounded && !dead ) //pelaaja menettää nopeutta suorittaessaan tuplahypyn.
         {
-            loseSpeed = false;
+           // loseSpeed = false;
             StartCoroutine(LoseSpeed());
             transform.Translate(speed * Time.deltaTime, 0, 0);
 
@@ -151,11 +156,19 @@ public class Player : MonoBehaviour {
     }
 
     IEnumerator LoseSpeed()
-    {    
+    {
+        float speedloseSpeed = 0;
+        if (canDoubleJump)
+        {
+            speedloseSpeed = 0.0001f;
+        }
+        else {
+            speedloseSpeed = 0.0008f;
+        }
             for (float i = minFloatingSpeed; i <= speed && !grounded;)
             {
             yield return new WaitForSeconds(0.01f);
-            speed -= 0.05f;
+            speed -= speedloseSpeed;
             
             }
         
@@ -166,7 +179,7 @@ public class Player : MonoBehaviour {
     {
         for (float i = orginalSpeed; i >= speed;)
         {
-            speed += 0.1f;
+            speed += 0.11f;
             yield return new WaitForSeconds(0.01f);
         }
         yield return 0;
