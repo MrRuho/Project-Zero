@@ -26,7 +26,6 @@ public class Player : MonoBehaviour {
     private bool hasJumped;
     public static bool sliding = false; // Kohteet jotka tarvitsevat tätä tietoa. WallKill.cs / BootKill.cs
     private bool timeToBoost = false;
-    private bool loseSpeed = false;
 
     float animationPlaySpeed;
     //References
@@ -71,7 +70,7 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(speed);
+        //Debug.Log(speed);
         
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(speed));
@@ -97,6 +96,7 @@ public class Player : MonoBehaviour {
         // ------------------------- double jump Start ----------------------
         if (Input.GetButtonDown("Jump") && !dead)
         {
+            
             anim.speed = 1;
             if (grounded)
             {
@@ -105,7 +105,7 @@ public class Player : MonoBehaviour {
                     hasJumped = false;
                 }
                 {
-                    rb2d.AddForce(Vector2.up * jumpPower);
+                    StartCoroutine(JumpPowerControl());
                     canDoubleJump = true;  
                 }
             }
@@ -161,6 +161,27 @@ public class Player : MonoBehaviour {
         {           
             transform.Translate(speed * Time.deltaTime, 0.1f, 0);          
         }
+    }
+    IEnumerator JumpPowerControl()
+    {
+        bool longjump = false;
+
+        while (!Input.GetButtonUp("Jump") && !dead && canDoubleJump == true && longjump == false)
+        {
+            rb2d.AddForce(Vector2.up * jumpPower);
+            StartCoroutine(JumpPowerTime(longjump));
+            yield return new WaitForSeconds(0.01f);
+            jumpPower = jumpPower -10;
+            Debug.Log(jumpPower);
+        }
+
+        yield return 0;
+    }
+
+    IEnumerator JumpPowerTime( bool longjump) {
+        yield return new WaitForSeconds(0.05f);
+        longjump = true;
+        yield return longjump;
     }
 
     IEnumerator LoseSpeed()
