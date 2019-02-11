@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
     public float minFloatingSpeed = 1f; // Maksimi nopeus johon pelaajan nopeus tippuu hiljalleen kun pelaaja on ilmassa.
     public float jumpPower = 150f;
     public float doubleJumpPower = 200f;
+    public float maxJumpPower = 500f;
+
     float orginalSpeed;
     public int curHealth;
     public int maxHealth = 5;
@@ -26,6 +28,8 @@ public class Player : MonoBehaviour {
     private bool hasJumped;
     public static bool sliding = false; // Kohteet jotka tarvitsevat tätä tietoa. WallKill.cs / BootKill.cs
     private bool timeToBoost = false;
+    private bool timeToJump = false;
+    private bool JumpChargeControl = false;
 
     float animationPlaySpeed;
     //References
@@ -70,7 +74,8 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(speed);
+        Debug.Log(jumpPower);
+       // Debug.Log(speed);
         
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(speed));
@@ -96,17 +101,28 @@ public class Player : MonoBehaviour {
         // ------------------------- double jump Start ----------------------
         if (Input.GetButtonDown("Jump") && !dead)
         {
-            
-            anim.speed = 1;
+            if (JumpChargeControl == false)
+            {
+                JumpChargeControl = true;
+                StartCoroutine(JumpCharge());
+            }
+           // anim.speed = 1;
             if (grounded)
             {
-                jumpPower = jumpPowerOrginal; //Pelaajan hyppyvoima palutuu normaaliksi pelaajan osuessa maahan. Esim sieni popistaa hyppyvoiman sinkoessaan pelaajan ilmaan.
+               // jumpPower = jumpPowerOrginal; //Pelaajan hyppyvoima palutuu normaaliksi pelaajan osuessa maahan. Esim sieni popistaa hyppyvoiman sinkoessaan pelaajan ilmaan.
                 {
                     hasJumped = false;
                 }
                 {
-                    StartCoroutine(JumpPowerControl());
-                    canDoubleJump = true;  
+                    
+                   /* if (timeToJump)
+                    {
+                        rb2d.AddForce(Vector2.up * jumpPower);
+                        JumpChargeControl = false;
+                        canDoubleJump = true;
+                        timeToJump = false;
+                        jumpPower = jumpPowerOrginal;
+                    }*/
                 }
             }
             else
@@ -119,6 +135,15 @@ public class Player : MonoBehaviour {
                     hasJumped = true;          
                 }
             }   
+        }
+
+        if (timeToJump)
+        {
+            rb2d.AddForce(Vector2.up * jumpPower);
+            JumpChargeControl = false;
+            canDoubleJump = true;
+            timeToJump = false;
+            jumpPower = jumpPowerOrginal;
         }
         // -----------------------double jump End -------------------------
     }
@@ -142,6 +167,7 @@ public class Player : MonoBehaviour {
     {        
         if (playerCanDieIfHitsWall == false && !dead && grounded)
         {
+           
             anim.speed = speed/26;
             if (speed <= orginalSpeed  && playerCanDieIfHitsWall == false && timeToBoost == true)
             {
@@ -162,26 +188,13 @@ public class Player : MonoBehaviour {
             transform.Translate(speed * Time.deltaTime, 0.1f, 0);          
         }
     }
-    IEnumerator JumpPowerControl()
-    {
-        bool longjump = false;
 
-        while (!Input.GetButtonUp("Jump") && !dead && canDoubleJump == true && longjump == false)
-        {
-            rb2d.AddForce(Vector2.up * jumpPower);
-            StartCoroutine(JumpPowerTime(longjump));
-            yield return new WaitForSeconds(0.01f);
-            jumpPower = jumpPower -10;
-            Debug.Log(jumpPower);
+    IEnumerator JumpCharge() {
+        while (Input.GetButton("Jump")&& jumpPower < maxJumpPower) {
+            yield return new WaitForSeconds(0.001f);
+            jumpPower = jumpPower + 40;
         }
-
-        yield return 0;
-    }
-
-    IEnumerator JumpPowerTime( bool longjump) {
-        yield return new WaitForSeconds(0.05f);
-        longjump = true;
-        yield return longjump;
+        yield return timeToJump = true;
     }
 
     IEnumerator LoseSpeed()
