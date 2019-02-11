@@ -75,8 +75,8 @@ public class Player : MonoBehaviour {
     void Update()
     {
         //Debug.Log(jumpPower);
-        Debug.Log(speed);
-        
+        //Debug.Log(speed);
+        Debug.Log(hasJumped);
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(speed));
   
@@ -101,17 +101,24 @@ public class Player : MonoBehaviour {
         // ------------------------- double jump Start ----------------------
         if (Input.GetButtonDown("Jump") && !dead)
         {
-            if (JumpChargeControl == false)
+            if (JumpChargeControl == false && grounded)
             {
                 JumpChargeControl = true;
                 StartCoroutine(JumpCharge());
+            } else  if (canDoubleJump && hasJumped == false)
+            {
+                canDoubleJump = false;
+                rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+                rb2d.AddForce(Vector2.up * doubleJumpPower);
+                hasJumped = true;
             }
-           // anim.speed = 1;
+
             if (grounded)
             {
-               // jumpPower = jumpPowerOrginal; //Pelaajan hyppyvoima palutuu normaaliksi pelaajan osuessa maahan. Esim sieni popistaa hyppyvoiman sinkoessaan pelaajan ilmaan.
+                hasJumped = false;
+                // jumpPower = jumpPowerOrginal; //Pelaajan hyppyvoima palutuu normaaliksi pelaajan osuessa maahan. Esim sieni popistaa hyppyvoiman sinkoessaan pelaajan ilmaan.
                 {
-                    hasJumped = false;
+                    //hasJumped = false;
                 }
                 {
                     
@@ -124,8 +131,7 @@ public class Player : MonoBehaviour {
                         jumpPower = jumpPowerOrginal;
                     }*/
                 }
-            }
-            else
+            } /*else
             {
                 if (canDoubleJump && hasJumped == false)
                 {     
@@ -134,17 +140,17 @@ public class Player : MonoBehaviour {
                     rb2d.AddForce(Vector2.up * doubleJumpPower);
                     hasJumped = true;          
                 }
-            }   
+            }  */ 
         }
 
-        if (timeToJump)
+     /*   if (timeToJump)
         {
             rb2d.AddForce(Vector2.up * jumpPower);
             JumpChargeControl = false;
             canDoubleJump = true;
             timeToJump = false;
             jumpPower = jumpPowerOrginal;
-        }
+        }*/
         // -----------------------double jump End -------------------------
     }
 
@@ -195,6 +201,7 @@ public class Player : MonoBehaviour {
             jumpPower = jumpPower + 40;
         }
         yield return timeToJump = true;
+        yield return Jump(timeToJump);
     }
 
     IEnumerator LoseSpeed()
@@ -235,6 +242,14 @@ public class Player : MonoBehaviour {
         {
             Die();
         }
+    }
+    private bool Jump(bool TimeToJump)
+    {
+        rb2d.AddForce(Vector2.up * jumpPower);
+        JumpChargeControl = false;
+        canDoubleJump = true;   
+        jumpPower = jumpPowerOrginal;
+        return timeToJump = false;
     }
 
     void Die()

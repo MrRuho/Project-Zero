@@ -279,7 +279,7 @@ MonoBehaviour:
   speed: 13
   minFloatingSpeed: 1
   jumpPower: 100
-  doubleJumpPower: 450
+  doubleJumpPower: 500
   maxJumpPower: 500
   curHealth: 5
   maxHealth: 5
