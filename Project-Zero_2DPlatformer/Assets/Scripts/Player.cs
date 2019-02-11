@@ -74,8 +74,8 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(jumpPower);
-       // Debug.Log(speed);
+        //Debug.Log(jumpPower);
+        Debug.Log(speed);
         
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(speed));
