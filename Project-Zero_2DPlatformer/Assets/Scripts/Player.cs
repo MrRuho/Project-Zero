@@ -75,8 +75,8 @@ public class Player : MonoBehaviour {
     void Update()
     {
         //Debug.Log(jumpPower);
-        //Debug.Log(speed);
-        Debug.Log(hasJumped);
+        Debug.Log(speed);
+        
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(speed));
   
@@ -198,7 +198,7 @@ public class Player : MonoBehaviour {
     IEnumerator JumpCharge() {
         while (Input.GetButton("Jump")&& jumpPower < maxJumpPower) {
             yield return new WaitForSeconds(0.001f);
-            jumpPower = jumpPower + 40;
+            jumpPower = jumpPower + 50;
         }
         yield return timeToJump = true;
         yield return Jump(timeToJump);
