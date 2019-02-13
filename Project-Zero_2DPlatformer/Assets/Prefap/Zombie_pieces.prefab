@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5366871775990451540}
   - component: {fileID: 5366871775990451539}
   - component: {fileID: 5366871775990451542}
+  - component: {fileID: 1845953899792218396}
   m_Layer: 12
   m_Name: monsu_jalat
   m_TagString: Untagged
@@ -140,13 +141,25 @@ FixedJoint2D:
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 5366871777750249280}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
+  m_BreakForce: 300
+  m_BreakTorque: 100
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_DampingRatio: 0
   m_Frequency: 0
+--- !u!114 &1845953899792218396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5366871775990451537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c788dfa8948d64f951716c5170676f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5366871776631503865
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +173,7 @@ GameObject:
   - component: {fileID: 5366871776631503868}
   - component: {fileID: 5366871776631503867}
   - component: {fileID: 5366871776631503870}
+  - component: {fileID: 7882864137566319812}
   m_Layer: 12
   m_Name: monsu_OKasi
   m_TagString: Untagged
@@ -287,13 +301,25 @@ FixedJoint2D:
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 5366871777750249280}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
+  m_BreakForce: 200
+  m_BreakTorque: 100
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_DampingRatio: 0
   m_Frequency: 0
+--- !u!114 &7882864137566319812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5366871776631503865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c788dfa8948d64f951716c5170676f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5366871776703411179
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +368,7 @@ GameObject:
   - component: {fileID: 5366871776762461587}
   - component: {fileID: 5366871776762461586}
   - component: {fileID: 5366871776762461589}
+  - component: {fileID: 3692472097374036844}
   m_Layer: 12
   m_Name: monsu_Paa
   m_TagString: Untagged
@@ -440,7 +467,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.5
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -459,13 +486,25 @@ FixedJoint2D:
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 5366871777750249280}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
+  m_BreakForce: 300
+  m_BreakTorque: 100
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_DampingRatio: 0
   m_Frequency: 0
+--- !u!114 &3692472097374036844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5366871776762461584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c788dfa8948d64f951716c5170676f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5366871777013644604
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,6 +518,7 @@ GameObject:
   - component: {fileID: 5366871777013644607}
   - component: {fileID: 5366871777013644606}
   - component: {fileID: 5366871777013644593}
+  - component: {fileID: 1621777295840795052}
   m_Layer: 12
   m_Name: monsu_VKasi
   m_TagString: Untagged
@@ -606,13 +646,25 @@ FixedJoint2D:
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 5366871777750249280}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
+  m_BreakForce: 200
+  m_BreakTorque: 100
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_DampingRatio: 0
   m_Frequency: 0
+--- !u!114 &1621777295840795052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5366871777013644604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c788dfa8948d64f951716c5170676f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5366871777750249294
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,6 +677,7 @@ GameObject:
   - component: {fileID: 5366871777750249282}
   - component: {fileID: 5366871777750249281}
   - component: {fileID: 5366871777750249280}
+  - component: {fileID: 4057490916852481604}
   m_Layer: 12
   m_Name: monsu_Torso
   m_TagString: Untagged
@@ -741,3 +794,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4057490916852481604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5366871777750249294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c788dfa8948d64f951716c5170676f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
