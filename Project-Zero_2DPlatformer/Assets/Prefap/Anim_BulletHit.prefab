@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4431078078887136}
   - component: {fileID: 114272130592453782}
+  - component: {fileID: 4350511216105273792}
+  - component: {fileID: 3936356620593284312}
+  - component: {fileID: 4290563392058990974}
   m_Layer: 0
   m_Name: Anim_BulletHit
   m_TagString: Untagged
@@ -45,6 +48,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
+--- !u!58 &4350511216105273792
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760181664762744}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 1
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.17275685, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.15290117
+--- !u!250 &3936356620593284312
+PointEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760181664762744}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4407
+  m_ForceMagnitude: 60
+  m_ForceVariation: 20
+  m_DistanceScale: 200
+  m_ForceSource: 0
+  m_ForceTarget: 0
+  m_ForceMode: 0
+  m_Drag: 0
+  m_AngularDrag: 0
+--- !u!114 &4290563392058990974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760181664762744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35577894dbc8b9444a4f581bbdb64746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayTime: 0.1
 --- !u!1 &1779355968741020
 GameObject:
   m_ObjectHideFlags: 0
