@@ -8,7 +8,13 @@ public class RandomDestroyer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        randomDestroyer = Random.Range(1, 10);
+        if (Player_Weapons.weapon == 3)
+        {
+            randomDestroyer = Random.Range(1, 3);
+        } else {
+            randomDestroyer = Random.Range(1, 10);
+        }
+
         if (randomDestroyer == 1) {
             Destroy(gameObject, 0.05f);
         }
