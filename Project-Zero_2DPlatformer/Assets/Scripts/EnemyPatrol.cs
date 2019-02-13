@@ -161,7 +161,7 @@ public class EnemyPatrol : Enemy {
     }
 
     void ZombieDyingAnim()
-    {
+    { 
         anim.SetBool("Dying", true);
     }
 }

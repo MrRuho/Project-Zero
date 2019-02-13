@@ -122,6 +122,8 @@ MonoBehaviour:
   health: 50
   deathEffect: {fileID: 0}
   animator: {fileID: 0}
+  spawnCorpse: {fileID: 5366871776703411179, guid: a35a2d2d01aebdb4d9489e9ae447259c,
+    type: 3}
 --- !u!114 &114717530082506104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +139,7 @@ MonoBehaviour:
   health: 100
   deathEffect: {fileID: 0}
   animator: {fileID: 0}
+  spawnCorpse: {fileID: 0}
   speed: -1
   groundDetection: {fileID: 4270804069261050}
   wallDetection: {fileID: 4327151008933002}
