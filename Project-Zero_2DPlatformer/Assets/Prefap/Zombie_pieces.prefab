@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 5366871776703411180}
   m_Layer: 12
   m_Name: Zombie_pieces
-  m_TagString: CorpsePlayer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
