@@ -5,18 +5,28 @@ using UnityEngine;
 public class RandomDestroyer : MonoBehaviour
 {
     int randomDestroyer;
+    public int maxRandomRangeRifle = 0;
+    public int maxRandomRangeShotGun = 0;
+    public int maxRandomRangeMissile = 0;
     // Start is called before the first frame update
     void Start()
     {
-        if (Player_Weapons.weapon == 3)
+        if (Player_Weapons.weapon == 3) // missile
         {
-            randomDestroyer = Random.Range(1, 3);
+            randomDestroyer = Random.Range(1, maxRandomRangeMissile);
+
+        } else if(Player_Weapons.weapon == 2) //shotgun
+        {
+            randomDestroyer = Random.Range(1, maxRandomRangeShotGun);
+
         } else {
-            randomDestroyer = Random.Range(1, 10);
+            //start Rifle
+            randomDestroyer = Random.Range(1, maxRandomRangeRifle);
         }
 
         if (randomDestroyer == 1) {
-            Destroy(gameObject, 0.05f);
+
+            Destroy();
         }
     }
 
@@ -24,5 +34,10 @@ public class RandomDestroyer : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void Destroy()
+    {
+        Destroy(gameObject, 0.05f);
     }
 }
