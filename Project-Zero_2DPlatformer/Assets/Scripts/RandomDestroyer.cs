@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class RandomDestroyer : MonoBehaviour
 {
-    int randomDestroyer;
+    private int randomDestroyer;
+    private int destroyByOverWalking = 3;
+    
+
     public int maxRandomRangeRifle = 0;
     public int maxRandomRangeShotGun = 0;
     public int maxRandomRangeMissile = 0;
     // Start is called before the first frame update
     void Start()
     {
+        
+
         if (Player_Weapons.weapon == 3) // missile
         {
             randomDestroyer = Random.Range(1, maxRandomRangeMissile);
@@ -40,4 +45,22 @@ public class RandomDestroyer : MonoBehaviour
     {
         Destroy(gameObject, 0.05f);
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        
+        if (other.CompareTag("PlayerTrigger"))
+        {
+            Debug.Log("Player over walking");
+            destroyByOverWalking--;
+
+            if (destroyByOverWalking <= 0)
+            {
+                Destroy();
+            }
+        }
+       
+    }
+
+
 }

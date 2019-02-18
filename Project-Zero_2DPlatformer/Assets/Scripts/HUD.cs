@@ -9,11 +9,11 @@ public class HUD : MonoBehaviour {
 
     public Image HeartsUI;
 
-    private Player player;
+   // private Player player;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+       // player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         
     }
 

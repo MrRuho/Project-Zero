@@ -25,8 +25,8 @@ public class Enemy : MonoBehaviour {
             dead = true;
             Destroy(GetComponent<BoxCollider2D>());
             Destroy(GetComponent<Rigidbody2D>());
-            animator.SetBool("Dying", true);
             Instantiate(spawnCorpse, transform.position, transform.rotation);
+            animator.SetBool("Dying", true);         
             // Jokaisella vihollisella tulee olla Dying (tasmalleen samalla nimella) animaatio jonka viimeisessa freimissa on -- animation -> add evet Die();--
         }
     }
