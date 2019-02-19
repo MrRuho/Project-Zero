@@ -21,7 +21,6 @@ TagManager:
   - PowerUp
   - CorpsePlayer
   - CameraStartAndReturnPoint
-  - PlayerTrigger
   layers:
   - Default
   - TransparentFX

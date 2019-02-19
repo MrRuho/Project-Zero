@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 5366871775990451538}
   - component: {fileID: 5366871775990451541}
   - component: {fileID: 5366871775990451540}
-  - component: {fileID: 9124949777359805590}
   - component: {fileID: 5366871775990451539}
   - component: {fileID: 5366871775990451542}
   - component: {fileID: 1845953899792218396}
   m_Layer: 12
   m_Name: monsu_jalat
-  m_TagString: CorpsePlayer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,32 +109,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31219223, y: 0.8681334}
   m_EdgeRadius: 0
---- !u!61 &9124949777359805590
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5366871775990451537}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.13921757, y: -0.52593327}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9, y: 1.92}
-    newSize: {x: 0.9, y: 1.92}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.31219223, y: 0.8681334}
-  m_EdgeRadius: 0
 --- !u!50 &5366871775990451539
 Rigidbody2D:
   serializedVersion: 4
@@ -198,13 +171,12 @@ GameObject:
   - component: {fileID: 5366871776631503866}
   - component: {fileID: 5366871776631503869}
   - component: {fileID: 5366871776631503868}
-  - component: {fileID: 6626732114256892646}
   - component: {fileID: 5366871776631503867}
   - component: {fileID: 5366871776631503870}
   - component: {fileID: 7882864137566319812}
   m_Layer: 12
   m_Name: monsu_OKasi
-  m_TagString: CorpsePlayer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,32 +269,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.50812805, y: 0.1978265}
   m_EdgeRadius: 0
---- !u!61 &6626732114256892646
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5366871776631503865}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.19593596, y: 0.45890272}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9, y: 1.92}
-    newSize: {x: 0.9, y: 1.92}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.50812805, y: 0.1978265}
-  m_EdgeRadius: 0
 --- !u!50 &5366871776631503867
 Rigidbody2D:
   serializedVersion: 4
@@ -385,7 +331,7 @@ GameObject:
   - component: {fileID: 5366871776703411180}
   m_Layer: 12
   m_Name: Zombie_pieces
-  m_TagString: CorpsePlayer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -420,13 +366,12 @@ GameObject:
   - component: {fileID: 5366871776762461585}
   - component: {fileID: 5366871776762461588}
   - component: {fileID: 5366871776762461587}
-  - component: {fileID: 7251374363816026394}
   - component: {fileID: 5366871776762461586}
   - component: {fileID: 5366871776762461589}
   - component: {fileID: 3692472097374036844}
   m_Layer: 12
   m_Name: monsu_Paa
-  m_TagString: CorpsePlayer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -509,22 +454,6 @@ CircleCollider2D:
   m_Offset: {x: 0.013741255, y: 0.7509532}
   serializedVersion: 2
   m_Radius: 0.19530559
---- !u!58 &7251374363816026394
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5366871776762461584}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.013741255, y: 0.7509532}
-  serializedVersion: 2
-  m_Radius: 0.19530559
 --- !u!50 &5366871776762461586
 Rigidbody2D:
   serializedVersion: 4
@@ -578,7 +507,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   maxRandomRangeRifle: 8
+=======
+  maxRandomRangeRifle: 10
+>>>>>>> parent of 5b821bd... ruumiin päälle tallominen työnalla
   maxRandomRangeShotGun: 6
   maxRandomRangeMissile: 3
 =======
@@ -596,13 +529,12 @@ GameObject:
   - component: {fileID: 5366871777013644605}
   - component: {fileID: 5366871777013644592}
   - component: {fileID: 5366871777013644607}
-  - component: {fileID: 3746680907137312264}
   - component: {fileID: 5366871777013644606}
   - component: {fileID: 5366871777013644593}
   - component: {fileID: 1621777295840795052}
   m_Layer: 12
   m_Name: monsu_VKasi
-  m_TagString: CorpsePlayer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -695,32 +627,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3121921, y: 0.17720091}
   m_EdgeRadius: 0
---- !u!61 &3746680907137312264
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5366871777013644604}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.07734315, y: 0.26296628}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9, y: 1.92}
-    newSize: {x: 0.9, y: 1.92}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.3121921, y: 0.17720091}
-  m_EdgeRadius: 0
 --- !u!50 &5366871777013644606
 Rigidbody2D:
   serializedVersion: 4
@@ -783,12 +689,11 @@ GameObject:
   - component: {fileID: 5366871777750249295}
   - component: {fileID: 5366871777750249282}
   - component: {fileID: 5366871777750249281}
-  - component: {fileID: 8044966735125210353}
   - component: {fileID: 5366871777750249280}
   - component: {fileID: 4057490916852481604}
   m_Layer: 12
   m_Name: monsu_Torso
-  m_TagString: CorpsePlayer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -880,32 +785,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.384379, y: 0.7546965}
-  m_EdgeRadius: 0
---- !u!61 &8044966735125210353
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5366871777750249294}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.21450996, y: 0.321769}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9, y: 1.92}
-    newSize: {x: 0.9, y: 1.92}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.38518906, y: 0.76163054}
   m_EdgeRadius: 0
 --- !u!50 &5366871777750249280
 Rigidbody2D:
