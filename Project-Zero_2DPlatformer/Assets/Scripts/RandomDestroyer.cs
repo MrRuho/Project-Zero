@@ -5,6 +5,7 @@ using UnityEngine;
 public class RandomDestroyer : MonoBehaviour
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     private int randomDestroyer;
     private int destroyByOverWalking = 1;
     
@@ -18,6 +19,13 @@ public class RandomDestroyer : MonoBehaviour
         
 
         if (Player_Weapons.weapon == 3) // missile
+=======
+    int randomDestroyer;
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (Player_Weapons.weapon == 3)
+>>>>>>> parent of 9df1d5f... zombeilla on vipuvarsi
 =======
     int randomDestroyer;
     // Start is called before the first frame update
@@ -42,6 +50,7 @@ public class RandomDestroyer : MonoBehaviour
         
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     private void Destroy()
     {
@@ -58,6 +67,8 @@ public class RandomDestroyer : MonoBehaviour
         }
 
     }
+=======
+>>>>>>> parent of 9df1d5f... zombeilla on vipuvarsi
 =======
 >>>>>>> parent of 9df1d5f... zombeilla on vipuvarsi
 }

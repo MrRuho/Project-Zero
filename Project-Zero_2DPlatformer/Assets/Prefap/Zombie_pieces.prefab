@@ -577,9 +577,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   maxRandomRangeRifle: 8
   maxRandomRangeShotGun: 6
   maxRandomRangeMissile: 3
+=======
+>>>>>>> parent of 9df1d5f... zombeilla on vipuvarsi
 =======
 >>>>>>> parent of 9df1d5f... zombeilla on vipuvarsi
 --- !u!1 &5366871777013644604
