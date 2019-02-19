@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RandomDestroyer : MonoBehaviour
 {
+<<<<<<< HEAD
     private int randomDestroyer;
     private int destroyByOverWalking = 1;
     
@@ -17,21 +18,21 @@ public class RandomDestroyer : MonoBehaviour
         
 
         if (Player_Weapons.weapon == 3) // missile
+=======
+    int randomDestroyer;
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (Player_Weapons.weapon == 3)
+>>>>>>> parent of 9df1d5f... zombeilla on vipuvarsi
         {
-            randomDestroyer = Random.Range(1, maxRandomRangeMissile);
-
-        } else if(Player_Weapons.weapon == 2) //shotgun
-        {
-            randomDestroyer = Random.Range(1, maxRandomRangeShotGun);
-
+            randomDestroyer = Random.Range(1, 3);
         } else {
-            //start Rifle
-            randomDestroyer = Random.Range(1, maxRandomRangeRifle);
+            randomDestroyer = Random.Range(1, 10);
         }
 
         if (randomDestroyer == 1) {
-
-            Destroy();
+            Destroy(gameObject, 0.05f);
         }
     }
 
@@ -40,6 +41,7 @@ public class RandomDestroyer : MonoBehaviour
     {
         
     }
+<<<<<<< HEAD
 
     private void Destroy()
     {
@@ -56,4 +58,6 @@ public class RandomDestroyer : MonoBehaviour
         }
 
     }
+=======
+>>>>>>> parent of 9df1d5f... zombeilla on vipuvarsi
 }
