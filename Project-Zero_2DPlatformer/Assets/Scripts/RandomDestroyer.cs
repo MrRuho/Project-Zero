@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandomDestroyer : MonoBehaviour
 {
     private int randomDestroyer;
-    private int destroyByOverWalking = 3;
+    private int destroyByOverWalking = 1;
     
 
     public int maxRandomRangeRifle = 0;
@@ -46,21 +46,14 @@ public class RandomDestroyer : MonoBehaviour
         Destroy(gameObject, 0.05f);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D()
     {
-        
-        if (other.CompareTag("PlayerTrigger"))
+        destroyByOverWalking++;
+        if (destroyByOverWalking < 0)
         {
-            Debug.Log("Player over walking");
-            destroyByOverWalking--;
-
-            if (destroyByOverWalking <= 0)
-            {
-                Destroy();
-            }
+            Debug.Log("ruumis tuhoutuu");
+            Destroy(gameObject);
         }
-       
+
     }
-
-
 }
