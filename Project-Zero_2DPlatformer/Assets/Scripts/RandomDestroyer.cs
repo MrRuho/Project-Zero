@@ -7,7 +7,7 @@ public class RandomDestroyer : MonoBehaviour
     
     private int randomDestroyer;
 
-    private int bodyPartHitPoints = 15;
+    private int bodyPartHitPoints = 10;
     public int maxRandomRangeRifle = 0;
     public int maxRandomRangeShotGun = 0;
     public int maxRandomRangeMissile = 0;
