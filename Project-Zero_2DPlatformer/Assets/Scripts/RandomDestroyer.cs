@@ -4,40 +4,52 @@ using UnityEngine;
 
 public class RandomDestroyer : MonoBehaviour
 {
-    int randomDestroyer;
+    
+    private int randomDestroyer;
+
+    private int bodyPartHitPoints = 10;
     public int maxRandomRangeRifle = 0;
     public int maxRandomRangeShotGun = 0;
     public int maxRandomRangeMissile = 0;
+
     // Start is called before the first frame update
-    void Start()
-    {
-        if (Player_Weapons.weapon == 3) // missile
-        {
+    void Start() {
+        //missile
+        if (Player_Weapons.weapon == 3) {
             randomDestroyer = Random.Range(1, maxRandomRangeMissile);
 
-        } else if(Player_Weapons.weapon == 2) //shotgun
-        {
+        }  //shotgun
+        else if(Player_Weapons.weapon == 2) {
             randomDestroyer = Random.Range(1, maxRandomRangeShotGun);
 
         } else {
-            //start Rifle
+        //start Rifle
             randomDestroyer = Random.Range(1, maxRandomRangeRifle);
         }
 
         if (randomDestroyer == 1) {
 
-            Destroy();
+            Destroy(gameObject);
         }
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         
     }
 
-    private void Destroy()
-    {
+    private void Destroy(){
         Destroy(gameObject, 0.05f);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision){
+ 
+            bodyPartHitPoints--;
+            Debug.Log("BodyPartHP" + bodyPartHitPoints);
+        
+        if (bodyPartHitPoints <= 0){
+            Destroy(gameObject);
+            Debug.Log("BodyPart destroy");
+        }
     }
 }
