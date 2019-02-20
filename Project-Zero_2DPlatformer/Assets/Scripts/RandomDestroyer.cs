@@ -3,48 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomDestroyer : MonoBehaviour
-{ 
-
-    private int randomDestroyer;
-    private int destroyByOverWalking = 1;
-    
+{
+    int randomDestroyer;
     public int maxRandomRangeRifle = 0;
     public int maxRandomRangeShotGun = 0;
     public int maxRandomRangeMissile = 0;
- 
-    void Start() {
-    if (Player_Weapons.weapon == 3) {
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (Player_Weapons.weapon == 3) // missile
+        {
+            randomDestroyer = Random.Range(1, maxRandomRangeMissile);
 
-        randomDestroyer = Random.Range(1, 3);
-    } else {
+        } else if(Player_Weapons.weapon == 2) //shotgun
+        {
+            randomDestroyer = Random.Range(1, maxRandomRangeShotGun);
 
-        randomDestroyer = Random.Range(1, 10);
-    }
-    if (randomDestroyer == 1){
+        } else {
+            //start Rifle
+            randomDestroyer = Random.Range(1, maxRandomRangeRifle);
+        }
 
-        Destroy(gameObject, 0.05f);
+        if (randomDestroyer == 1) {
+
+            Destroy();
         }
     }
 
-
-    void Update(){
-
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 
-
-    private void Destroy(){
-
+    private void Destroy()
+    {
         Destroy(gameObject, 0.05f);
     }
-
-    void OnTriggerEnter2D(){
-
-        destroyByOverWalking++;
-
-        if (destroyByOverWalking < 0){
-            Debug.Log("ruumis tuhoutuu");
-            Destroy(gameObject);
-        }
-
-    }   
 }

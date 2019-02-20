@@ -13,7 +13,7 @@ public class Player_Weapons : MonoBehaviour {
     private int ammoCounter = 0;
     private int weaponSwitch = 0;
     private int weaponSynck = 0; // mikäli tämä arvo on eri kuin weapon niin käynnistää aseenvaihto koodin  ** void WeaponSwitcher(int CurrentWeapon) **
-    public static int weapon = 0; //PowerUps.cs asettaa tamaan arvon joka maarittaa mitä asetta käytetään.
+    public static int weapon = 0; //PowerUps.cs asettaa tamaan arvon joka maarittaa mitä asetta käytetään. Vihollisen kuolin palojen todennäköisyys tuhoa heti syntyessään määrittyy tämämnmukaan. RandomDestoyer.cs
    
 
     private bool reloadingWait = false;
