@@ -12,6 +12,8 @@ public class RandomDestroyer : MonoBehaviour
     public int maxRandomRangeShotGun = 0;
     public int maxRandomRangeMissile = 0;
 
+    public GameObject bloodExplosion;
+
     // Start is called before the first frame update
     void Start() {
         //missile
@@ -39,17 +41,17 @@ public class RandomDestroyer : MonoBehaviour
     }
 
     private void Destroy(){
-        Destroy(gameObject, 0.05f);
+
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
  
             bodyPartHitPoints--;
-            Debug.Log("BodyPartHP" + bodyPartHitPoints);
-        
+       
         if (bodyPartHitPoints <= 0){
-            Destroy(gameObject);
-            Debug.Log("BodyPart destroy");
+            Instantiate(bloodExplosion, transform.position, transform.rotation);
+            Destroy(gameObject);    
         }
     }
 }
