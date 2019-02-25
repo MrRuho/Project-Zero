@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1588289229305833916}
   m_Layer: 12
   m_Name: monsu_jalat
-  m_TagString: Untagged
+  m_TagString: CorpsePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 7882864137566319812}
   m_Layer: 12
   m_Name: monsu_OKasi
-  m_TagString: Untagged
+  m_TagString: CorpsePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 5366871776703411180}
   m_Layer: 12
   m_Name: Zombie_pieces
-  m_TagString: Untagged
+  m_TagString: CorpsePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 3692472097374036844}
   m_Layer: 12
   m_Name: monsu_Paa
-  m_TagString: Untagged
+  m_TagString: CorpsePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -564,7 +564,7 @@ GameObject:
   - component: {fileID: 1621777295840795052}
   m_Layer: 12
   m_Name: monsu_VKasi
-  m_TagString: Untagged
+  m_TagString: CorpsePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -729,7 +729,7 @@ GameObject:
   - component: {fileID: 4057490916852481604}
   m_Layer: 12
   m_Name: monsu_Torso
-  m_TagString: Untagged
+  m_TagString: CorpsePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -953,6 +953,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 1590125023337372135, guid: ed3268b4de2215c43aae21b7ca98c715,
+        type: 3}
+      propertyPath: m_TagString
+      value: CorpsePlayer
+      objectReference: {fileID: 0}
     - target: {fileID: 1592129764523109865, guid: ed3268b4de2215c43aae21b7ca98c715,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1033,6 +1038,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 1590125023337372135, guid: ed3268b4de2215c43aae21b7ca98c715,
+        type: 3}
+      propertyPath: m_TagString
+      value: CorpsePlayer
+      objectReference: {fileID: 0}
     - target: {fileID: 1592129764523109865, guid: ed3268b4de2215c43aae21b7ca98c715,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1112,6 +1122,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590125023337372135, guid: ed3268b4de2215c43aae21b7ca98c715,
+        type: 3}
+      propertyPath: m_TagString
+      value: CorpsePlayer
       objectReference: {fileID: 0}
     - target: {fileID: 1592129764523109865, guid: ed3268b4de2215c43aae21b7ca98c715,
         type: 3}
@@ -1207,6 +1222,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590125023337372135, guid: ed3268b4de2215c43aae21b7ca98c715,
+        type: 3}
+      propertyPath: m_TagString
+      value: CorpsePlayer
       objectReference: {fileID: 0}
     - target: {fileID: 1592129764523109865, guid: ed3268b4de2215c43aae21b7ca98c715,
         type: 3}
