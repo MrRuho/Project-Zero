@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c788dfa8948d64f951716c5170676f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zombiePeaces: {fileID: 0}
   maxRandomRangeRifle: 10
   maxRandomRangeShotGun: 6
   maxRandomRangeMissile: 3
@@ -352,6 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c788dfa8948d64f951716c5170676f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zombiePeaces: {fileID: 0}
   maxRandomRangeRifle: 10
   maxRandomRangeShotGun: 6
   maxRandomRangeMissile: 3
@@ -366,8 +368,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5366871776703411180}
+  - component: {fileID: 6847882120415669518}
   m_Layer: 12
-  m_Name: Zombie_pieces
+  m_Name: ZombiePieces
   m_TagString: CorpsePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -392,6 +395,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6847882120415669518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5366871776703411179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee4d0b767342944fb4d5454497f5f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5366871776762461584
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c788dfa8948d64f951716c5170676f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zombiePeaces: {fileID: 0}
   maxRandomRangeRifle: 10
   maxRandomRangeShotGun: 6
   maxRandomRangeMissile: 3
@@ -709,6 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c788dfa8948d64f951716c5170676f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zombiePeaces: {fileID: 0}
   maxRandomRangeRifle: 10
   maxRandomRangeShotGun: 6
   maxRandomRangeMissile: 3
@@ -856,6 +873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c788dfa8948d64f951716c5170676f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zombiePeaces: {fileID: 5366871776703411179}
   maxRandomRangeRifle: 8
   maxRandomRangeShotGun: 4
   maxRandomRangeMissile: 3

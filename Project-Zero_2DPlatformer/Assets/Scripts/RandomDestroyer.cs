@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomDestroyer : MonoBehaviour
 {
-    
+    public GameObject zombiePeaces;
     private int randomDestroyer;
 
     private ParticleSystem bloodParticleSystem;
@@ -45,8 +45,7 @@ public class RandomDestroyer : MonoBehaviour
         if (bloodParticleSystem)
         {
             if (!bloodParticleSystem.IsAlive())
-            {
-                Debug.Log("Blood particle has destroyed");
+            { 
                 Destroy(bloodParticleSystem);
             }
         }
@@ -63,7 +62,8 @@ public class RandomDestroyer : MonoBehaviour
        
         if (bodyPartHitPoints <= 0){
             Instantiate(bloodExplosion, transform.position, transform.rotation);
-            Destroy(gameObject);    
+            Destroy(gameObject);
+            
         }
     }
 }
