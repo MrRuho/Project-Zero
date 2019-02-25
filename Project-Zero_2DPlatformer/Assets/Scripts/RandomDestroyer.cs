@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomDestroyer : MonoBehaviour
 {
-    public GameObject zombiePeaces;
+    
     private int randomDestroyer;
 
     private ParticleSystem bloodParticleSystem;
@@ -18,6 +18,7 @@ public class RandomDestroyer : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
+     
         //missile
         if (Player_Weapons.weapon == 3) {
             randomDestroyer = Random.Range(1, maxRandomRangeMissile);
@@ -57,13 +58,12 @@ public class RandomDestroyer : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
- 
-            bodyPartHitPoints--;
+      
+        bodyPartHitPoints--;
        
         if (bodyPartHitPoints <= 0){
             Instantiate(bloodExplosion, transform.position, transform.rotation);
-            Destroy(gameObject);
-            
+            GetComponentInParent<ZombiePieces>().zombieBodyPartsHasDestoyedCounter();   
         }
     }
 }
