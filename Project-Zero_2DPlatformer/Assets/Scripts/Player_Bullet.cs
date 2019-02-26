@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player_Bullet : MonoBehaviour {
-
+    public float lifeTime = 20f;
     public float speed = 20f;
     public int damage = 40;
     public Rigidbody2D rb2d;
@@ -16,6 +16,7 @@ public class Player_Bullet : MonoBehaviour {
     void Start ()
     {
         rb2d.velocity = transform.right * speed;
+        StartCoroutine(travelTime());
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -48,6 +49,13 @@ public class Player_Bullet : MonoBehaviour {
         Destroy(GetComponent<Rigidbody>());
         Destroy(GetComponent<BoxCollider2D>());
         Destroy(GetComponent<SpriteRenderer>());
-        Destroy(gameObject, 1);
+        Destroy(gameObject,1);
+
+      
+    }
+    IEnumerator travelTime() {
+        yield return new WaitForSeconds(lifeTime);
+        Destroy(gameObject);
+        yield return 0;
     }
 }

@@ -121,7 +121,7 @@ public class Player_Weapons : MonoBehaviour {
                 reloadingTime = 2.0f;
                 ammoCounter = clipSize;
                 canFireAgain = fireRateControl;
-                bulletPrefab = (GameObject)Resources.Load("prefabs/Player_Bullet_0", typeof(GameObject));
+                bulletPrefab = (GameObject)Resources.Load("prefabs/Player_Bullet_1_AssaultRifle", typeof(GameObject));
                 automatic = true;
                 break;
 
@@ -132,7 +132,7 @@ public class Player_Weapons : MonoBehaviour {
                 reloadingTime = 1.5f;
                 ammoCounter = clipSize;
                 canFireAgain = fireRateControl;
-                bulletPrefab = (GameObject)Resources.Load("prefabs/Player_Bullet_2", typeof(GameObject));
+                bulletPrefab = (GameObject)Resources.Load("prefabs/Player_Bullet_2_ShotGun", typeof(GameObject));
                 automatic = false;
                 break;
 
@@ -143,18 +143,18 @@ public class Player_Weapons : MonoBehaviour {
                 reloadingTime = 1.8f;
                 ammoCounter = clipSize;
                 canFireAgain = fireRateControl;
-                bulletPrefab = (GameObject)Resources.Load("prefabs/Player_Bullet_3", typeof(GameObject));
+                bulletPrefab = (GameObject)Resources.Load("prefabs/Player_Bullet_3_Missile", typeof(GameObject));
                 automatic = false;
                 break;
 
             default:
                 Debug.Log("Pistol");
-                clipSize = 12;
-                fireRateControl = 0.0f;
-                reloadingTime = 1.0f;
+                clipSize = 6;
+                fireRateControl = 0.3f;
+                reloadingTime = 1.5f;
                 ammoCounter = clipSize;
                 canFireAgain = fireRateControl;
-                bulletPrefab = (GameObject)Resources.Load("prefabs/Player_Bullet_0", typeof(GameObject));
+                bulletPrefab = (GameObject)Resources.Load("prefabs/Player_Bullet_0_Rifle", typeof(GameObject));
                 automatic = false;
                 break;
         }
