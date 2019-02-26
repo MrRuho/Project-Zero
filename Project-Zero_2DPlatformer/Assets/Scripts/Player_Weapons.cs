@@ -160,11 +160,14 @@ public class Player_Weapons : MonoBehaviour {
         }
     }
 
-    void Shoot()
-    {
-        float angleRandomaiser = Random.Range(-2.0f, 2.0f);
-        firepoint.transform.eulerAngles = new Vector3(0.0f, facingDirection, angleRandomaiser);
+    void Shoot() {
+        if (weapon < 3 || weapon > 3) {
+            float angleRandomaiser = Random.Range(-2.0f, 2.0f);
+            firepoint.transform.eulerAngles = new Vector3(0.0f, facingDirection, angleRandomaiser);
+        }
+
         Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
+        firepoint.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
     IEnumerator ShotGunShoot(int shotgunPulletsCount)
