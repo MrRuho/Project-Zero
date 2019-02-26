@@ -44,4 +44,22 @@ public class Player_Bullet_Missile : MonoBehaviour
             }
         }  
     }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            Vector3 hitPosition = Vector3.zero;
+            
+            if (tilemapGameObject == collision.gameObject)
+            {
+                GameObject[] destroyThisTiles = GameObject.FindGameObjectsWithTag("Ground");
+                foreach (GameObject groundTile in destroyThisTiles)
+                {
+                    tilemap.SetTile(tilemap.WorldToCell(hitPosition), null);
+                   // Instantiate(impactEffect, transform.position, transform.rotation);
+                }
+            }
+        }
+    }
 }

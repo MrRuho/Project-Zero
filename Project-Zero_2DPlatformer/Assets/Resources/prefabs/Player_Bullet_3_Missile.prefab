@@ -4710,11 +4710,12 @@ GameObject:
   - component: {fileID: 212510981475544368}
   - component: {fileID: 50170739401837604}
   - component: {fileID: 61990616583262780}
+  - component: {fileID: 4379701950364053130}
   - component: {fileID: 250938129105333956}
   - component: {fileID: 114931743610889334}
   - component: {fileID: 114311832872512732}
   m_Layer: 0
-  m_Name: Player_Bullet_3
+  m_Name: Player_Bullet_3_Missile
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4830,6 +4831,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.8837526, y: 2.6747944}
   m_EdgeRadius: 0
+--- !u!58 &4379701950364053130
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220934330518120}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -5.073099, y: 0}
+  serializedVersion: 2
+  m_Radius: 6.781799
 --- !u!250 &250938129105333956
 PointEffector2D:
   m_ObjectHideFlags: 0
