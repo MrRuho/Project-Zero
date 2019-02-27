@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomDestroyer : MonoBehaviour
 {
-    
+
     private int randomDestroyer;
 
     private ParticleSystem bloodParticleSystem;
@@ -18,17 +18,17 @@ public class RandomDestroyer : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-     
+
         //missile
         if (Player_Weapons.weapon == 3) {
             randomDestroyer = Random.Range(1, maxRandomRangeMissile);
 
         }  //shotgun
-        else if(Player_Weapons.weapon == 2) {
+        else if (Player_Weapons.weapon == 2) {
             randomDestroyer = Random.Range(1, maxRandomRangeShotGun);
 
         } else {
-        //start Rifle
+            //start Rifle
             randomDestroyer = Random.Range(1, maxRandomRangeRifle);
         }
 
@@ -36,34 +36,40 @@ public class RandomDestroyer : MonoBehaviour
 
             Destroy(gameObject);
         }
- 
+
         bloodParticleSystem = GetComponentInChildren<ParticleSystem>();
     }
 
     // Update is called once per frame
-    void Update(){
+    void Update() {
 
         if (bloodParticleSystem)
         {
             if (!bloodParticleSystem.IsAlive())
-            { 
+            {
                 Destroy(bloodParticleSystem);
             }
         }
     }
 
-    private void Destroy(){
+    private void Destroy() {
 
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision){
-      
+    private void OnCollisionEnter2D(Collision2D collision) {
+
         bodyPartHitPoints--;
-       
-        if (bodyPartHitPoints <= 0){
+
+        if (bodyPartHitPoints <= 0) {
             Instantiate(bloodExplosion, transform.position, transform.rotation);
-            GetComponentInParent<ZombiePieces>().zombieBodyPartsHasDestoyedCounter();   
+            GetComponentInParent<ZombiePieces>().zombieBodyPartsHasDestoyedCounter();
         }
+    }
+
+    public int corpseGetHit(int damage)
+    {
+        bodyPartHitPoints = bodyPartHitPoints - damage;
+        return bodyPartHitPoints;
     }
 }

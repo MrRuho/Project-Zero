@@ -20,7 +20,17 @@ public class ExplosionArea : MonoBehaviour
     {
         if (!collision.CompareTag("Bullet") && !collision.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
+            if (collision.CompareTag("Enemy"))
+            {
+                Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+                enemy.TakeDamage(100);
+            }
+            if (collision.CompareTag("CorpsePlayer"))
+            {
+                
+            }
+
+           // Destroy(collision.gameObject);
         }
     }
 }
