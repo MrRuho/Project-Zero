@@ -67,9 +67,4 @@ public class RandomDestroyer : MonoBehaviour
         }
     }
 
-    public int corpseGetHit(int damage)
-    {
-        bodyPartHitPoints = bodyPartHitPoints - damage;
-        return bodyPartHitPoints;
-    }
 }

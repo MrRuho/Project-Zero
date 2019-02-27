@@ -35,12 +35,12 @@ public class Player_Bullet : MonoBehaviour {
 
         if (collision.gameObject.tag != "Bullet" || collision.gameObject.tag != "Player")
         {
-            Debug.Log("Bullet hit and get destroyed");
+            
             Instantiate(impactEffect, transform.position, transform.rotation);
             // HUOM! Objecti tuhotaan palapalalta, jotta partikkeli efekti ei tuhoutuisi mukana. 
             Destroy(GetComponent<Rigidbody>());
             Destroy(GetComponent<BoxCollider2D>());
-            Destroy(GetComponent<SpriteRenderer>());
+            Destroy(GetComponent<CircleCollider2D>());
             Destroy(GetComponent<SpriteRenderer>());
             Destroy(gameObject, 1);
         }

@@ -4710,8 +4710,6 @@ GameObject:
   - component: {fileID: 212510981475544368}
   - component: {fileID: 50170739401837604}
   - component: {fileID: 61990616583262780}
-  - component: {fileID: 4379701950364053130}
-  - component: {fileID: 250938129105333956}
   - component: {fileID: 114931743610889334}
   - component: {fileID: 114311832872512732}
   m_Layer: 0
@@ -4831,42 +4829,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.8837526, y: 2.6747944}
   m_EdgeRadius: 0
---- !u!58 &4379701950364053130
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1220934330518120}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 1
-  m_UsedByComposite: 0
-  m_Offset: {x: 7.5761223, y: -0.3946632}
-  serializedVersion: 2
-  m_Radius: 6.8302274
---- !u!250 &250938129105333956
-PointEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1220934330518120}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 1591
-  m_ForceMagnitude: 100
-  m_ForceVariation: 100
-  m_DistanceScale: 1
-  m_ForceSource: 0
-  m_ForceTarget: 0
-  m_ForceMode: 0
-  m_Drag: 0
-  m_AngularDrag: 0
 --- !u!114 &114931743610889334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4879,7 +4841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9abe6bf949540a449eb1175d50f9269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 2
+  lifeTime: 1.5
   speed: 30
   damage: 100
   rb2d: {fileID: 50170739401837604}

@@ -25,12 +25,9 @@ public class ExplosionArea : MonoBehaviour
                 Enemy enemy = collision.gameObject.GetComponent<Enemy>();
                 enemy.TakeDamage(100);
             }
-            if (collision.CompareTag("CorpsePlayer"))
-            {
-                
-            }
+           
 
-           // Destroy(collision.gameObject);
+           
         }
     }
 }

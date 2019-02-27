@@ -36,8 +36,8 @@ public class Player_Bullet_Missile : MonoBehaviour
             {
                 foreach (ContactPoint2D hit in collision.contacts)
                 {
-                    hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
-                    hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
+                    hitPosition.x = hit.point.x - 0.1f * hit.normal.x;
+                    hitPosition.y = hit.point.y - 0.1f * hit.normal.y;
                     tilemap.SetTile(tilemap.WorldToCell(hitPosition), null);
                     Instantiate(impactEffect, transform.position, transform.rotation);
                 }
@@ -45,7 +45,7 @@ public class Player_Bullet_Missile : MonoBehaviour
         }  
     }
 
-    void OnTriggerStay2D(Collider2D collision)
+  /*  void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
@@ -61,5 +61,5 @@ public class Player_Bullet_Missile : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 }

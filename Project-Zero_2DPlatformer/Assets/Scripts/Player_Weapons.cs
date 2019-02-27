@@ -139,7 +139,7 @@ public class Player_Weapons : MonoBehaviour {
             case 3:
                 Debug.Log("Missile Laucher");
                 clipSize = 3;
-                fireRateControl = 0.3f;
+                fireRateControl = 1.0f;
                 reloadingTime = 1.8f;
                 ammoCounter = clipSize;
                 canFireAgain = fireRateControl;
@@ -162,7 +162,7 @@ public class Player_Weapons : MonoBehaviour {
 
     void Shoot() {
         if (weapon < 3 || weapon > 3) {
-            float angleRandomaiser = Random.Range(-2.0f, 2.0f);
+            float angleRandomaiser = Random.Range(-0.2f, 0.2f);
             firepoint.transform.eulerAngles = new Vector3(0.0f, facingDirection, angleRandomaiser);
         }
 
