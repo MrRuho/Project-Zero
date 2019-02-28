@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
     public float doubleJumpPower = 200f;
     public float maxJumpPower = 500f;
 
-    float orginalSpeed;
+    private float orginalSpeed;
     public int curHealth;
     public int maxHealth = 5;
     public bool grounded;
@@ -75,7 +75,7 @@ public class Player : MonoBehaviour {
     void Update()
     {
         //Debug.Log(jumpPower);
-       // Debug.Log(speed);
+          Debug.Log(speed);
         
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(speed));
@@ -173,9 +173,13 @@ public class Player : MonoBehaviour {
     {        
         if (playerCanDieIfHitsWall == false && !dead && grounded)
         {
-           
-            anim.speed = speed/26;
-            if (speed <= orginalSpeed  && playerCanDieIfHitsWall == false && timeToBoost == true)
+            anim.speed = speed / 26;
+            if (speed < orginalSpeed)
+            {
+                timeToBoost = true;
+            }
+         
+            if (playerCanDieIfHitsWall == false && timeToBoost == true)
             {
                 StartCoroutine(BoostSpeed());
                 timeToBoost = false;
@@ -228,8 +232,8 @@ public class Player : MonoBehaviour {
     {
         for (float i = orginalSpeed; i >= speed;)
         {
-            speed += 0.11f;
-            yield return new WaitForSeconds(0.01f);
+            speed += 0.01f;
+            yield return new WaitForSeconds(0.05f);
         }
         yield return 0;
     }

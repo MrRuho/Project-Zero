@@ -1,0 +1,21 @@
+-------- RoadMap 28.02.19 ----------
+
+- Peli aloittaa aina siitä että pelaaja luodaan spawn pisteestä.
+	* Kamera ei seuraa ensimmäistä luotua pelaajaa.
+	* Piikit eivät löydä ensimmäistä pelaajaa.(NullReferenceException)
+
+
+-  fix Sienellä ei ole omaa kuolin-nukkea.
+-  fix Sienen iskiessä muodostuu kaksi kuollutta pelaajaa.
+- Pelaajalla ei ole kuolin-nukkea.
+- Piikkien kuolin-palat ja pelaajan keihästys niihin.
+- Tuhoutuvat tilemapit/ esineet.
+- Aloitusvalikko.
+- Kentän vaihto.
+- Eteneminen ja tallennus. (Memorial list)
+- HUD Nimet ja tittelit.
+- Tausta aluksien satunnainen liike, tulitus ja tuhoutuminen. + räjähdykset.
+- Valaistus ja varjo efektit. + muu karkki.
+------------------------------------------
+- NEXT Logo ja tuotemerkki.
+- Propagandajulisteet kenttien väliin.

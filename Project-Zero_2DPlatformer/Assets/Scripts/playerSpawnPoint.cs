@@ -10,7 +10,7 @@ public class playerSpawnPoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        StartCoroutine(spawnNewSoldier());
     }
 
     // Update is called once per frame

@@ -4711,7 +4711,6 @@ GameObject:
   - component: {fileID: 50170739401837604}
   - component: {fileID: 61990616583262780}
   - component: {fileID: 114931743610889334}
-  - component: {fileID: 114311832872512732}
   m_Layer: 0
   m_Name: Player_Bullet_3_Missile
   m_TagString: Bullet
@@ -4848,17 +4847,3 @@ MonoBehaviour:
   impactEffect: {fileID: 1683138344308704, guid: 5ee5ba8da5887534dbf8bbd005709641,
     type: 3}
   blood: {fileID: 1737175324586798, guid: e0aa04285de127245b1483f9ce168d61, type: 3}
---- !u!114 &114311832872512732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1220934330518120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26bdd8b706b10f8468f36cb469e042df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  impactEffect: {fileID: 1683138344308704, guid: 5ee5ba8da5887534dbf8bbd005709641,
-    type: 3}

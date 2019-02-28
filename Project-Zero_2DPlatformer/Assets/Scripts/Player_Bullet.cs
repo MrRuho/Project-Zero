@@ -46,17 +46,19 @@ public class Player_Bullet : MonoBehaviour {
         }
     }
 
-   /* void OnBecameInvisible()
-    {
-        Debug.Log("Bullet become invisible and get destroyed");
-        Destroy(GetComponent<Rigidbody>());
-        Destroy(GetComponent<BoxCollider2D>());
-        Destroy(GetComponent<CircleCollider2D>());
-        Destroy(GetComponent<SpriteRenderer>());
-        Destroy(gameObject,1);
+  
 
-      
-    }*/
+    /* void OnBecameInvisible()
+     {
+         Debug.Log("Bullet become invisible and get destroyed");
+         Destroy(GetComponent<Rigidbody>());
+         Destroy(GetComponent<BoxCollider2D>());
+         Destroy(GetComponent<CircleCollider2D>());
+         Destroy(GetComponent<SpriteRenderer>());
+         Destroy(gameObject,1);
+
+
+     }*/
     IEnumerator travelTime() {
         yield return new WaitForSeconds(lifeTime);
         Destroy(GetComponent<Rigidbody>());

@@ -19,7 +19,7 @@ public class ZombiePieces : MonoBehaviour{
     }
 
     public int zombieBodyPartsHasDestoyedCounter(){
-        Debug.Log("timetodestroy" + timeToDestroyThis);
+        
         return timeToDestroyThis --;     
     }
 }
