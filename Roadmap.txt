@@ -16,6 +16,7 @@
 - HUD Nimet ja tittelit.
 - Tausta aluksien satunnainen liike, tulitus ja tuhoutuminen. + räjähdykset.
 - Valaistus ja varjo efektit. + muu karkki.
+- Vihollinen jonka voi tappaa vain liukumalla.
 ------------------------------------------
 - NEXT Logo ja tuotemerkki.
 - Propagandajulisteet kenttien väliin.

@@ -24,31 +24,33 @@ public class CameraFollow : MonoBehaviour {
     void Start ()
     {
         smoothTimeY = 0.1f;
-        smoothTimeX = 0.1f;
-
-        followPoint = GameObject.FindGameObjectWithTag("CameraPoint");		
+        smoothTimeX = 0.1f;    	
 	}
 
     private void Update()
-    {     
-            if (Player.dead == false && cameraHasReturn == true && cameraControl == 0)
-            {         
-                followPoint = GameObject.FindGameObjectWithTag("CameraPoint");
-                timeToReturn = false;
-                cameraHasReturn = false;
-            }
-            else if (Player.dead == true && timeToReturn == false && cameraControl == 0)
-            {
-                cameraControl = 1;          
-                followPoint = GameObject.FindGameObjectWithTag("DeadPlayerCameraPoint");
-                StartCoroutine(CameraReturnToStartPoint());
-            }
-            else if (timeToReturn == true && cameraHasReturn == false && cameraControl == 1)
-            {
-                cameraControl = 0; 
-                followPoint = GameObject.FindGameObjectWithTag("CameraStartAndReturnPoint");
-                StartCoroutine(CameraHasReturn());
-            }    
+    {
+        if (followPoint == null)
+        {
+            followPoint = GameObject.FindGameObjectWithTag("CameraPoint");
+        }
+        if (Player.dead == false && cameraHasReturn == true && cameraControl == 0)
+        {         
+            followPoint = GameObject.FindGameObjectWithTag("CameraPoint");
+            timeToReturn = false;
+            cameraHasReturn = false;
+        }
+        else if (Player.dead == true && timeToReturn == false && cameraControl == 0)
+        {
+            cameraControl = 1;          
+            followPoint = GameObject.FindGameObjectWithTag("DeadPlayerCameraPoint");
+            StartCoroutine(CameraReturnToStartPoint());
+        }
+        else if (timeToReturn == true && cameraHasReturn == false && cameraControl == 1)
+        {
+            cameraControl = 0; 
+            followPoint = GameObject.FindGameObjectWithTag("CameraStartAndReturnPoint");
+            StartCoroutine(CameraHasReturn());
+        }    
     }
 
     IEnumerator CameraReturnToStartPoint()

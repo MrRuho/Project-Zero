@@ -1,0 +1,24 @@
+**Pelaaja**
+- Juoksu. (done!)
+- Hyppy aloitus.
+- Hyppy idle.
+- Hyppy laskeutuminen.
+- Liukuun meno.
+- liuku.
+- Nousu liusta.
+
+-kuolin nukke(palat)
+-------------------
+**Zombie**
+- Kävely.
+- Juoksu/Ryntäys kädet ojossa. (Kun pelaaja on tarpeeksi lähellä.)
+
+-kuolin nukke(palat)
+-------------------
+**Sieni**
+- Idle.
+- Pusku.
+- Poppasu.
+
+-kuolin nukke(palat)
+-------------------

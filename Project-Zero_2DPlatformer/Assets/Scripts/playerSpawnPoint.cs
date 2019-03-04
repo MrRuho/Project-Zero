@@ -25,9 +25,9 @@ public class playerSpawnPoint : MonoBehaviour
 
     IEnumerator spawnNewSoldier()
     {
-        yield return new WaitForSeconds(1f);
-        Instantiate(nextSoldier, spawnpoint.position, spawnpoint.rotation);
-       
+        yield return new WaitForSeconds(1f); //Note vihillis luokat määrittävät pelajaan vasta kun ensimmäinen pelaaja on luotu, error viestien välttämiseksi. ajassa 1.2.
+        Instantiate(nextSoldier, spawnpoint.position, spawnpoint.rotation); 
         yield return 0;
     }
+
 }

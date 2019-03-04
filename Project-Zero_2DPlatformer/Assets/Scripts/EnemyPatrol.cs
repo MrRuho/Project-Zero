@@ -24,13 +24,13 @@ public class EnemyPatrol : Enemy {
     void Start()
     {
         StartCoroutine(StartWaitingBeforeCanTurn());
+        StartCoroutine(waitUntillFirstPlayerHasSpawn());
         enemy = GetComponent<Enemy>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+       // player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         anim = gameObject.GetComponent<Animator>();
         currentHealth = enemy.health;
-      // layerMask = ~layerMask; //wall Raycast ei huomio pelaajaa.
-        //layerMask2 = ~layerMask2;
-
+        // layerMask = ~layerMask; //wall Raycast ei huomio pelaajaa.
+        //layerMask2 = ~layerMask2;  
     }
 
     void Update()
@@ -161,6 +161,11 @@ public class EnemyPatrol : Enemy {
     {
         yield return new WaitForSeconds(1);
         canTurn = true;
+    }
+    IEnumerator waitUntillFirstPlayerHasSpawn()
+    {
+        yield return new WaitForSeconds(1.2f);
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     void ZombieDyingAnim()
