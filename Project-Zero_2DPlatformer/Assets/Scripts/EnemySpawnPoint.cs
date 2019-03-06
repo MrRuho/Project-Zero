@@ -6,6 +6,7 @@ public class EnemySpawnPoint : MonoBehaviour
 {
     private bool zombieHasCreated = false;
 
+    public static bool timeToSpawn = false;
     public Transform zombieSpawnPoint;
     public GameObject spawnEnemy;
     
@@ -18,7 +19,7 @@ public class EnemySpawnPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CreateEnemysPoint.PlayerHasEnteredZone == true && zombieHasCreated == false)
+      /*  if (CreateEnemysPoint.PlayerHasEnteredZone == true && zombieHasCreated == false)
         {
 
             Instantiate(spawnEnemy, zombieSpawnPoint.position, zombieSpawnPoint.rotation);
@@ -27,6 +28,12 @@ public class EnemySpawnPoint : MonoBehaviour
         if (Player.dead == true && zombieHasCreated == true)
         {
             zombieHasCreated = false;
-        }
+        }*/
+    }
+
+    public void TimeSpawnEnemy()
+    {
+        Instantiate(spawnEnemy, zombieSpawnPoint.position, zombieSpawnPoint.rotation);
+
     }
 }

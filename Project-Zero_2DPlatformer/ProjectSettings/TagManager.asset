@@ -22,6 +22,7 @@ TagManager:
   - CorpsePlayer
   - CameraStartAndReturnPoint
   - ExplosionArea
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
