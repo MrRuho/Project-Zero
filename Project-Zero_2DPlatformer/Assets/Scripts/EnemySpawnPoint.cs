@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawnPoint : MonoBehaviour
 {
-    private bool zombieHasCreated = false;
+    
 
     public static bool timeToSpawn = false;
     public Transform zombieSpawnPoint;

@@ -24,6 +24,7 @@ TagManager:
   - ExplosionArea
   - SpawnPoint
   - SpawnLine
+  - EnemyDestroyLine
   layers:
   - Default
   - TransparentFX
