@@ -31,9 +31,11 @@ public class EnemySpawnPoint : MonoBehaviour
         }*/
     }
 
-    public void TimeSpawnEnemy()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        Instantiate(spawnEnemy, zombieSpawnPoint.position, zombieSpawnPoint.rotation);
-
+        if (collision.CompareTag("SpawnLine"))
+        {
+            Instantiate(spawnEnemy, zombieSpawnPoint.position, zombieSpawnPoint.rotation);
+        }
     }
 }

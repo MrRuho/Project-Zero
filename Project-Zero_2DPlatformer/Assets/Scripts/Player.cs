@@ -75,7 +75,7 @@ public class Player : MonoBehaviour {
     void Update()
     {
         //Debug.Log(jumpPower);
-          Debug.Log(speed);
+        //Debug.Log(speed);
         
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(speed));

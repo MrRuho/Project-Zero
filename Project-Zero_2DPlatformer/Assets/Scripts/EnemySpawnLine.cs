@@ -5,11 +5,15 @@ using UnityEngine;
 public class EnemySpawnLine : MonoBehaviour
 {
     private EnemySpawnPoint spawnPoint;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        spawnPoint.GetComponents<EnemySpawnPoint>();
+        
+       // spawnPoint.GetComponents<EnemySpawnPoint>();
+        
+        
     }
 
     // Update is called once per frame
@@ -18,11 +22,14 @@ public class EnemySpawnLine : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+   /* void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("SpawnPoint"))
         {
+            Debug.Log("Hit a spawn point!");
+
+            spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").GetComponent<EnemySpawnPoint>();
             spawnPoint.TimeSpawnEnemy();
         }
-    }
+    }*/
 }

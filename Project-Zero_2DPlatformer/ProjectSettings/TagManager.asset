@@ -23,6 +23,7 @@ TagManager:
   - CameraStartAndReturnPoint
   - ExplosionArea
   - SpawnPoint
+  - SpawnLine
   layers:
   - Default
   - TransparentFX
